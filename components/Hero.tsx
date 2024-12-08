@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import { Button } from "./ui/button";
 import { RainbowButton } from "./ui/rainbow-button";
 import { cn } from "@/lib/utils";
@@ -48,7 +48,9 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex-1 relative h-[400px]">
-          <TrioeScene />
+          <Suspense fallback={<div>Loading...</div>}>
+            <TrioeScene />
+          </Suspense>
         </div>
       </div>
     </section>
