@@ -9,7 +9,7 @@ import TrioeScene from "./TrioeScene";
 
 const Hero = () => {
   return (
-    <section className="bg-hero-image bg-cover bg-center bg-no-repeat h-[85vh] lg:h-[75vh] 3xl:h-[75vh] rounded-lg py-4 lg:px-[40px] ">
+    <section className="bg-hero-image bg-cover bg-center bg-no-repeat lg:h-[75vh] 3xl:h-[75vh] rounded-lg py-4 lg:px-[40px] ">
       {/* <HeaderNav /> */}
       <div className="flex items-center justify-between">
         <div className="hero-content text-white flex-1">
