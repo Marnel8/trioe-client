@@ -108,3 +108,7 @@ body {
     @apply text-sm 3xl:text-base text-muted-foreground tracking-wide leading-6;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

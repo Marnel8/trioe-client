@@ -10,7 +10,7 @@ import React, { Suspense } from "react";
 
 const Home = () => {
   return (
-    <div>
+    <div className="scroll-smooth">
       <div className="">
         <MobileNav />
       </div>

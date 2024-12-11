@@ -9,7 +9,7 @@ import TrioeScene from "./TrioeScene";
 
 const Hero = () => {
   return (
-    <section className="bg-hero-image bg-cover bg-center bg-no-repeat lg:h-[75vh] 3xl:h-[75vh] rounded-lg py-4 lg:px-[40px] ">
+    <section className="bg-hero-image bg-cover bg-center bg-no-repeat rounded-lg py-4 lg:px-[40px] ">
       {/* <HeaderNav /> */}
       <div className="flex items-center justify-between">
         <div className="hero-content text-white flex-1">
@@ -51,7 +51,7 @@ const Hero = () => {
             {/* <ArrowRight className="ml-2" size={18} /> */}
           </div>
         </div>
-        <div className="hidden lg:flex-1 relative h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] xl:-top-10 lg:block">
+        <div className="hidden lg:flex-1 relative h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] xl:-top-5 lg:block">
           {" "}
           {/* Added flex and items-center */}
           <Suspense fallback={<div>Loading...</div>}>

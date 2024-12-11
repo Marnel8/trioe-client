@@ -66,9 +66,9 @@ const ElectronicsKits = () => {
               <p className="text-sm text-muted-foreground">{kit.description}</p>
             </CardContent>
             <CardFooter className="p-4">
-              <RainbowButton className="w-full p-4 sm:p-6 rounded-full text-sm sm:text-base">
+              <RainbowButton className="w-full mt-4 sm:mt-5 p-4 rounded-full text-sm sm:text-base tracking-wide">
                 {" "}
-                Learn More
+                LEARN MORE
               </RainbowButton>
             </CardFooter>
           </Card>

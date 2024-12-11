@@ -58,14 +58,29 @@ export function MobileNav() {
     setModalOpen(false);
   };
 
+  const getPageTitle = () => {
+    // Remove trailing slash if it exists
+    const cleanPath = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+    
+    // If it's the root path, return Home
+    if (cleanPath === '') return "Home";
+    
+    // Remove hash fragment and get the last segment
+    const segment = cleanPath.split('#')[0].split('/').pop();
+    
+    // Handle empty segment case
+    if (!segment) return "Home";
+    
+    // Capitalize first letter and keep rest of the string
+    return segment.charAt(0).toUpperCase() + segment.slice(1);
+  };
+
   return (
     <>
       <div className="fixed bottom-4 left-4 right-4 z-50 flex flex-col items-center gap-2">
         {/* Page Indicator */}
         <div className="px-4 py-1 rounded-full bg-background/80 backdrop-blur-sm border text-xs">
-          {pathname === "/"
-            ? "Home"
-            : pathname.slice(1).charAt(0).toUpperCase() + pathname.slice(2)}
+          {getPageTitle()}
         </div>
 
         {/* Navigation Bar */}
