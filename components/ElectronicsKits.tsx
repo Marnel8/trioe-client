@@ -8,13 +8,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import PageHeader from "./PageHeader";
-import ShinyButton from "./ui/shiny-button";
 import { RainbowButton } from "./ui/rainbow-button";
 
 const kits = [
   {
     id: 1,
-    name: "Arduino Starter Kit",
+    name: "TRIOE STARTER KIT",
     description:
       "Perfect for beginners, this kit includes an Arduino board and essential components.",
     image: "/samples/PROMOTION_1.jpg",
@@ -22,7 +21,7 @@ const kits = [
   },
   {
     id: 2,
-    name: "Raspberry Pi 4 Kit",
+    name: "STEAM KIT",
     description:
       "A powerful single-board computer kit for advanced projects in IoT and robotics.",
     image: "/samples/PROMOTION_2.jpg",
@@ -30,11 +29,11 @@ const kits = [
   },
   {
     id: 3,
-    name: "LED Matrix Kit",
+    name: "AGRI-AQUA KIT",
     description:
       "Create stunning visual displays with this programmable LED matrix kit.",
-    image: "/samples/PROMOTION_3.jpg",
-    difficulty: "Intermediate",
+    image: "/samples/KIT_1.jpg",
+    difficulty: "Advanced",
   },
 ];
 
@@ -66,7 +65,7 @@ const ElectronicsKits = () => {
               <p className="text-sm text-muted-foreground">{kit.description}</p>
             </CardContent>
             <CardFooter className="p-4">
-              <RainbowButton className="w-full mt-4 sm:mt-5 p-4 rounded-full text-sm sm:text-base tracking-wide">
+              <RainbowButton className="w-full mt-4 sm:mt-5 p-5 rounded-full text-sm sm:text-base tracking-wide">
                 {" "}
                 LEARN MORE
               </RainbowButton>

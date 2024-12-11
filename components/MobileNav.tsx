@@ -41,6 +41,18 @@ export function MobileNav() {
   const [pendingNavigation, setPendingNavigation] = React.useState<
     string | null
   >(null);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  // Add scroll event listener
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 20); // Change state when scrolled more than 20px
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavigation = (href: string, title: string) => {
     if (href.includes("events") || href.includes("community")) {
@@ -78,13 +90,19 @@ export function MobileNav() {
   return (
     <>
       <div className="fixed bottom-4 left-4 right-4 z-50 flex flex-col items-center gap-2">
-        {/* Page Indicator */}
-        <div className="px-4 py-1 rounded-full bg-background/80 backdrop-blur-sm border text-xs">
+        {/* Page Indicator - Updated with transition and opacity */}
+        <div className={cn(
+          "px-4 py-1 rounded-full bg-background/80 backdrop-blur-sm border text-xs transition-opacity duration-200",
+          isScrolled ? "opacity-0" : "opacity-100"
+        )}>
           {getPageTitle()}
         </div>
 
         {/* Navigation Bar */}
-        <div className="max-w-[400px] w-full">
+        <div className={cn(
+          "max-w-[400px] w-full transition-transform duration-200",
+          isScrolled ? "-translate-y-3" : "translate-y-0"
+        )}>
           <TooltipProvider>
             <div className="flex items-center justify-center gap-2 px-4 h-16 bg-background/80 backdrop-blur-sm border rounded-full shadow-lg">
               <Tooltip>

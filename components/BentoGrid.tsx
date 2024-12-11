@@ -30,8 +30,8 @@ const features = [
   },
   {
     Icon: GlobeIcon,
-    name: "Multilingual",
-    description: "Supports 100+ languages and counting.",
+    name: "User Friendly",
+    description: "User-friendly interface for your projects.",
     href: "/",
     cta: "Learn more",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
