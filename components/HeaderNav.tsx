@@ -7,7 +7,7 @@ import { navLinks } from "@/constants";
 
 const HeaderNav = () => {
   return (
-    <div className={`w-full py-5 flex justify-between items-center`}>
+    <div className={`hidden w-full py-5 lg:flex justify-between items-center`}>
       <div className="px-4">
         <Link href="/">
           <Image

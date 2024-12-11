@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${helveticaRegular.variable} ${helveticaMedium.variable} ${helveticaBold.variable} antialiased p-5`}
+        className={`${helveticaRegular.variable} ${helveticaMedium.variable} ${helveticaBold.variable} antialiased p-5 max-w-[1900px] mx-auto`}
       >
         {children}
       </body>

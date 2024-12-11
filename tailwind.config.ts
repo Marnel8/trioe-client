@@ -62,11 +62,15 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        "hero-image": "url('/images/HERO.svg')",
+        "hero-image": 'url("/images/HERO.svg")',
+        "marquee-image": 'url("/images/MARQUEE.svg")',
+        "module-image": 'url("/images/card-gradient.svg")',
       },
       animation: {
         rainbow: "rainbow var(--speed, 2s) infinite linear",
         pulse: "pulse var(--duration) ease-out infinite",
+        marquee: "marquee var(--duration) infinite linear",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
       keyframes: {
         rainbow: {
@@ -83,6 +87,22 @@ export default {
           },
           "50%": {
             boxShadow: "0 0 0 8px var(--pulse-color)",
+          },
+        },
+        marquee: {
+          from: {
+            transform: "translateX(0)",
+          },
+          to: {
+            transform: "translateX(calc(-100% - var(--gap)))",
+          },
+        },
+        "marquee-vertical": {
+          from: {
+            transform: "translateY(0)",
+          },
+          to: {
+            transform: "translateY(calc(-100% - var(--gap)))",
           },
         },
       },
