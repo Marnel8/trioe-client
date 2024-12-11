@@ -82,7 +82,7 @@ const ReviewCard = ({
 export function Testimonials() {
   return (
     <section className="py-5">
-      <PageHeader title="Testimonials" />
+      <PageHeader title="TESTIMONIALS" />
       <div className="relative flex w-full flex-col items-center pt-5 overflow-hidden rounded-lg ">
         <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
