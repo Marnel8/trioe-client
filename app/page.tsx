@@ -14,16 +14,18 @@ const Home = () => {
       <div className="">
         <MobileNav />
       </div>
-      <Hero />
+      <div id="hero">
+        <Hero />
+      </div>
       <div className="py-5">
         <Suspense fallback={<div>Loading...</div>}>
           <BentoGridComponent />
         </Suspense>
       </div>
-      <div className="py-5">
+      <div id="courses" className="py-5">
         <LearningModules />
       </div>
-      <div className="py-5">
+      <div id="kits" className="py-5">
         <ElectronicsKits />
       </div>
     </div>
