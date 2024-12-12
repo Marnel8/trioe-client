@@ -41,7 +41,7 @@ const features = [
     Icon: CalendarIcon,
     name: "TRIOE Events",
     description: "Look for upcoming events of TRIOE.",
-    href: "/",
+    href: "/events",
     cta: "Learn more",
     background: <img src="/bento/Events.png" className="absolute -right-40 -top-20 opacity-60" />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
@@ -51,7 +51,7 @@ const features = [
     name: "TRIOE Community",
     description:
       "Join the TRIOE community and connect with other IoT enthusiasts.",
-    href: "/",
+    href: "/community",
     cta: "Learn more",
     background: <img src="/bento/COMMUNITY.png" className="absolute -top-20 opacity-60" />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
