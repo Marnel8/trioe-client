@@ -18,9 +18,9 @@ const LearningModules = () => {
           imageSrc="/samples/MODULE_1.jpg"
         />
         <ModuleCard
-          title="Module 3"
+          title="DRM"
           description="This module covers the basics of IoT technology, including sensors, actuators, and communication protocols."
-          imageSrc="/samples/PROMOTION_1.jpg"
+          imageSrc="/samples/drm.jpg"
         />
       </div>
     </section>

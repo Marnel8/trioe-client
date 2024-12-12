@@ -16,7 +16,7 @@ const kits = [
     name: "TRIOE STARTER KIT",
     description:
       "Perfect for beginners, this kit includes an Arduino board and essential components.",
-    image: "/samples/PROMOTION_1.jpg",
+    image: "/samples/new_kit.jpg",
     difficulty: "Beginner",
   },
   {
@@ -32,7 +32,7 @@ const kits = [
     name: "AGRI-AQUA KIT",
     description:
       "Create stunning visual displays with this programmable LED matrix kit.",
-    image: "/samples/KIT_1.jpg",
+    image: "/samples/new_kit.jpg",
     difficulty: "Advanced",
   },
 ];

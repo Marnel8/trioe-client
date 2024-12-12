@@ -83,10 +83,30 @@ const TrioeScene = () => {
         scene.add(model);
 
         // Adjust scale based on screen width
-        const smallerScale = window.innerWidth < 1024 ? 0.02 : 0.03; // Smaller scale for large and below screens
-        model.position.set(-1, 10, 0);
-        model.rotation.set(0, Math.PI, 0);
+        const smallerScale = window.innerWidth < 1024 ? 0.02 : 0.03;
         model.scale.set(smallerScale, smallerScale, smallerScale);
+        model.rotation.set(0, Math.PI, 0);
+        
+        // Calculate proper position based on bounding box
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+
+        // Center the model
+        model.position.set(-center.x, -center.y, -center.z);
+
+        // Set camera position relative to the centered model
+        camera.position.set(
+          0,
+          maxDim * 0.2,
+          maxDim * 1.2
+        );
+        camera.lookAt(0, maxDim * 0.1, 0);
+
+        // Update controls target
+        controlsRef.current!.target.set(0, maxDim * 0.1, 0);
+        controlsRef.current!.update();
 
         // Optimize geometries
         model.traverse((child) => {
@@ -117,22 +137,6 @@ const TrioeScene = () => {
             }
           });
         }
-
-        // Adjust camera position for a better view
-        const box = new THREE.Box3().setFromObject(model);
-        const center = box.getCenter(new THREE.Vector3());
-        const size = box.getSize(new THREE.Vector3());
-        const maxDim = Math.max(size.x, size.y, size.z);
-        camera.position.set(
-          center.x,
-          center.y + maxDim * 0.2, // Reduced vertical offset from 0.4 to 0.2
-          center.z + maxDim * 1.2  // Increased distance from 0.8 to 1.2 for a more level view
-        );
-        camera.lookAt(new THREE.Vector3(center.x, center.y + maxDim * 0.1, center.z)); // Adjust lookAt to be slightly above center
-
-        // Update controls target to match new lookAt point
-        controlsRef.current!.target.set(center.x, center.y + maxDim * 0.1, center.z);
-        controlsRef.current!.update();
 
         // Rotate the model once before starting the animation loop
         const rotateOnce = () => {

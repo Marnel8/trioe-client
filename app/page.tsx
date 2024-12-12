@@ -12,9 +12,6 @@ import React, { Suspense } from "react";
 const Home = () => {
   return (
     <div className="scroll-smooth">
-      <div className="">
-        <MobileNav />
-      </div>
       <div id="hero">
         <Hero />
       </div>
@@ -24,13 +21,19 @@ const Home = () => {
         </Suspense>
       </div>
       <div id="courses" className="py-5">
-        <LearningModules />
+        <Suspense fallback={<div>Loading...</div>}>
+          <LearningModules />
+        </Suspense>
       </div>
       <div id="kits" className="py-5">
-        <ElectronicsKits />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ElectronicsKits />
+        </Suspense>
       </div>
       <div id="testimonials" className="py-5">
-        <Testimonials />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Testimonials />
+        </Suspense>
       </div>
       <div id="footer">
         <Footer />

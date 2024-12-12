@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import HeaderNav from "./HeaderNav";
 import TrioeScene from "./TrioeScene";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -39,14 +40,14 @@ const Hero = () => {
                 "bg-primary-gradient text-sm rounded-full px-10 w-full sm:w-auto"
               )}
             >
-              Start Learning
+              <Link href="#courses">Start Learning</Link>
             </RainbowButton>
             <RainbowButton
               className={cn(
                 "bg-primary-gradient text-sm rounded-full px-10 w-full sm:w-auto"
               )}
             >
-              Explore Kits
+              <Link href="#kits">Explore Kits</Link>
             </RainbowButton>
             {/* <ArrowRight className="ml-2" size={18} /> */}
           </div>

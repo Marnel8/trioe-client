@@ -32,7 +32,7 @@ const features = [
     Icon: GlobeIcon,
     name: "User Friendly",
     description: "User-friendly interface for your projects.",
-    href: "/",
+    href: "#footer",
     cta: "Learn more",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
