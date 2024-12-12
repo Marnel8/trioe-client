@@ -4,40 +4,34 @@ import PageHeader from "./PageHeader";
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
+    name: "Vhal Reyes",
+    username: "@vhal.reyes",
+    body: "Very useful in my capstone project",
     img: "https://avatar.vercel.sh/jack",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
+    name: "John Paul Heje",
+    username: "@JP.heje",
+    body: "Truly amazing. Very easy to use.",
     img: "https://avatar.vercel.sh/jill",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "JS David",
+    username: "@js.david",
+    body: "Has a lot of potential.",
     img: "https://avatar.vercel.sh/john",
   },
   {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "RL.Velasquez",
+    username: "@LeeRobert",
+    body: "I will keep on subscribing. Contents are always update. Very nice.",
     img: "https://avatar.vercel.sh/jane",
   },
   {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "JD Lansang",
+    username: "@JayD",
+    body: "Coming from an IT background, this makes learning electronics really easy",
     img: "https://avatar.vercel.sh/jenny",
-  },
-  {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
   },
 ];
 

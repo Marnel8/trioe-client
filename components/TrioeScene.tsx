@@ -13,9 +13,12 @@ const TrioeScene = () => {
   const sceneObjRef = useRef<THREE.Scene | null>(null);
   const modelRef = useRef<THREE.Group | null>(null);
   const frameIdRef = useRef<number>(0);
+  const mountedRef = useRef<boolean>(true);
 
   useEffect(() => {
     if (!sceneRef.current) return;
+
+    mountedRef.current = true;
 
     const scene = new THREE.Scene();
     sceneObjRef.current = scene;
@@ -78,35 +81,17 @@ const TrioeScene = () => {
     loader.load(
       modelUrl,
       (gltf) => {
+        if (!mountedRef.current) return;
+
         const model = gltf.scene;
         modelRef.current = model;
         scene.add(model);
 
         // Adjust scale based on screen width
-        const smallerScale = window.innerWidth < 1024 ? 0.02 : 0.03;
-        model.scale.set(smallerScale, smallerScale, smallerScale);
+        const smallerScale = window.innerWidth < 1024 ? 0.02 : 0.03; // Smaller scale for large and below screens
+        model.position.set(-1, 10, 0);
         model.rotation.set(0, Math.PI, 0);
-        
-        // Calculate proper position based on bounding box
-        const box = new THREE.Box3().setFromObject(model);
-        const center = box.getCenter(new THREE.Vector3());
-        const size = box.getSize(new THREE.Vector3());
-        const maxDim = Math.max(size.x, size.y, size.z);
-
-        // Center the model
-        model.position.set(-center.x, -center.y, -center.z);
-
-        // Set camera position relative to the centered model
-        camera.position.set(
-          0,
-          maxDim * 0.2,
-          maxDim * 1.2
-        );
-        camera.lookAt(0, maxDim * 0.1, 0);
-
-        // Update controls target
-        controlsRef.current!.target.set(0, maxDim * 0.1, 0);
-        controlsRef.current!.update();
+        model.scale.set(smallerScale, smallerScale, smallerScale);
 
         // Optimize geometries
         model.traverse((child) => {
@@ -138,24 +123,45 @@ const TrioeScene = () => {
           });
         }
 
+        // Adjust camera position for a better view
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        camera.position.set(
+          center.x,
+          center.y + maxDim * 0.2, // Reduced vertical offset from 0.4 to 0.2
+          center.z + maxDim * 1.2  // Increased distance from 0.8 to 1.2 for a more level view
+        );
+        camera.lookAt(new THREE.Vector3(center.x, center.y + maxDim * 0.1, center.z)); // Adjust lookAt to be slightly above center
+
+        // Update controls target to match new lookAt point
+        controlsRef.current!.target.set(center.x, center.y + maxDim * 0.1, center.z);
+        controlsRef.current!.update();
+
         // Rotate the model once before starting the animation loop
         const rotateOnce = () => {
-          const duration = 2; // Duration of the rotation in seconds
+          if (!mountedRef.current) return;
+          
+          const duration = 2;
           const startTime = clock.getElapsedTime();
           const initialRotation = model.rotation.y;
-          const targetRotation = initialRotation + Math.PI * 2; // Rotate 360 degrees
+          const targetRotation = initialRotation + Math.PI * 2;
 
           const rotate = () => {
+            if (!mountedRef.current) return;
+            
             const elapsedTime = clock.getElapsedTime() - startTime;
             const progress = Math.min(elapsedTime / duration, 1);
             model.rotation.y = initialRotation + progress * (targetRotation - initialRotation);
 
             if (progress < 1) {
-              requestAnimationFrame(rotate);
+              frameIdRef.current = requestAnimationFrame(rotate);
             } else {
-              // Add 2-second delay before starting the animation
               setTimeout(() => {
-                animate(); // Start the main animation loop after delay
+                if (mountedRef.current) {
+                  animate();
+                }
               }, 2000);
             }
           };
@@ -165,13 +171,11 @@ const TrioeScene = () => {
 
         rotateOnce();
       },
-      // Progress handler (optional)
-      (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-      },
-      // Error handler
+      undefined,
       (error) => {
-        console.error("An error occurred while loading the model:", error);
+        if (mountedRef.current) {
+          console.error("An error occurred while loading the model:", error);
+        }
       }
     );
 
@@ -190,6 +194,8 @@ const TrioeScene = () => {
 
     // Update animation loop
     const animate = () => {
+      if (!mountedRef.current) return;
+      
       frameIdRef.current = requestAnimationFrame(animate);
 
       controlsRef.current?.update();
@@ -205,35 +211,54 @@ const TrioeScene = () => {
 
     // Enhanced cleanup
     return () => {
+      // Immediately stop all rendering operations
+      mountedRef.current = false;
+      cancelAnimationFrame(frameIdRef.current);
+      
+      // Remove event listeners
       window.removeEventListener("resize", updateSize);
 
-      cancelAnimationFrame(frameIdRef.current);
-
-      if (rendererRef.current) {
-        rendererRef.current.dispose();
-        rendererRef.current.forceContextLoss();
+      // Stop all animations
+      if (mixerRef.current) {
+        mixerRef.current.stopAllAction();
+        mixerRef.current = null;
       }
 
+      // Disable controls
+      if (controlsRef.current) {
+        controlsRef.current.enabled = false;
+        controlsRef.current = null;
+      }
+
+      // Remove model from scene first
       if (modelRef.current) {
-        modelRef.current.traverse((child) => {
-          if ((child as THREE.Mesh).isMesh) {
-            const mesh = child as THREE.Mesh;
-            mesh.geometry.dispose();
-            if (Array.isArray(mesh.material)) {
-              mesh.material.forEach((material) => material.dispose());
-            } else {
-              mesh.material.dispose();
-            }
-          }
-        });
+        sceneObjRef.current?.remove(modelRef.current);
+        modelRef.current = null;
       }
 
-      controlsRef.current?.dispose();
-      sceneObjRef.current?.clear();
-
-      if (sceneRef.current?.contains(renderer.domElement)) {
-        sceneRef.current.removeChild(renderer.domElement);
+      // Clear scene
+      if (sceneObjRef.current) {
+        while(sceneObjRef.current.children.length > 0) { 
+          sceneObjRef.current.remove(sceneObjRef.current.children[0]);
+        }
+        sceneObjRef.current = null;
       }
+
+      // Handle renderer cleanup
+      if (rendererRef.current) {
+        // Remove from DOM first
+        if (rendererRef.current.domElement.parentNode) {
+          rendererRef.current.domElement.parentNode.removeChild(rendererRef.current.domElement);
+        }
+        
+        // Set size to 1x1 to minimize resources
+        rendererRef.current.setSize(1, 1);
+        rendererRef.current.dispose();
+        rendererRef.current = null;
+      }
+
+      // Clear Three.js cache
+      THREE.Cache.clear();
     };
   }, []);
 

@@ -90,21 +90,21 @@ export function MobileNav() {
   return (
     <>
       <div className="fixed bottom-4 left-4 right-4 z-50 flex flex-col items-center gap-2">
-        {/* Page Indicator - Updated with transition and opacity */}
+        {/* Page Indicator - Updated with darker background */}
         <div className={cn(
-          "px-4 py-1 rounded-full bg-background/80 backdrop-blur-sm border text-xs transition-opacity duration-200",
+          "px-4 py-1 rounded-full bg-background/90 backdrop-blur-md border text-xs transition-opacity duration-200",
           isScrolled ? "opacity-0" : "opacity-100"
         )}>
           {getPageTitle()}
         </div>
 
-        {/* Navigation Bar */}
+        {/* Navigation Bar - Updated with darker background */}
         <div className={cn(
           "max-w-[400px] w-full transition-transform duration-200",
           isScrolled ? "-translate-y-3" : "translate-y-0"
         )}>
           <TooltipProvider>
-            <div className="flex items-center justify-center gap-2 px-4 h-16 bg-background/80 backdrop-blur-sm border rounded-full shadow-lg">
+            <div className="flex items-center justify-center gap-2 px-4 h-16 bg-background/90 backdrop-blur-md border rounded-full shadow-lg">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
