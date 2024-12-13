@@ -3,11 +3,10 @@ import ElectronicsKits from "@/components/ElectronicsKits";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LearningModules from "@/components/LearningModules";
-import { MobileNav } from "@/components/MobileNav";
 import { Testimonials } from "@/components/Testimonials";
 import TheTeam from "@/components/TheTeam";
-import { BentoGrid } from "@/components/ui/bento-grid";
-import Image from "next/image";
+import TrioeVideo from "@/components/TrioeVideo";
+
 import React, { Suspense } from "react";
 
 const Home = () => {
@@ -21,20 +20,11 @@ const Home = () => {
           <BentoGridComponent />
         </Suspense>
       </div>
-      <video
-  
-  autoPlay
-
-controls
-  style={{
-    width: '100%',
-    maxWidth: '720px',
-    height: 'auto',
-  }}
->
-  <source src="/videos/trioe_board_with_audio_1080p.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+      <div id="video">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TrioeVideo />
+        </Suspense>
+      </div>
       <div id="courses" className="py-5">
         <Suspense fallback={<div>Loading...</div>}>
           <LearningModules />
