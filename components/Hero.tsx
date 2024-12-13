@@ -48,6 +48,13 @@ const Hero = () => {
             >
               <Link href="#kits">Explore Kits</Link>
             </RainbowButton>
+            <RainbowButton
+              className={cn(
+                "bg-primary-gradient text-sm rounded-full px-10 w-full sm:w-auto"
+              )}
+            >
+              <Link href="#footer">Follow us on our Socials!</Link>
+            </RainbowButton>
             {/* <ArrowRight className="ml-2" size={18} /> */}
           </div>
         </div>
