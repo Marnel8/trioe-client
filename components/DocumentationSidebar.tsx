@@ -45,8 +45,8 @@ const docSections = [
     id: "getting-started",
     items: [
       { title: "Introduction", id: "introduction" },
-      { title: "Quick Start", id: "quick-start" },
       { title: "Installation", id: "installation" },
+      { title: "Quick Start", id: "quick-start" },
     ],
   },
   {

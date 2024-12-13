@@ -4,7 +4,7 @@ import React from "react";
 const PageHeader = ({ title }: { title: string }) => {
   return (
     <div className="relative">
-      <h1 className="text-2xl sm:text-2xl md:text-3xl xl:text-4xl font-bold relative">
+      <h1 className="text-2xl text-center lg:text-left sm:text-2xl md:text-3xl xl:text-4xl font-bold relative">
         {title}
       </h1>
 

@@ -154,7 +154,7 @@ export function MobileNav() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="/signin"
+                    href="/sign-in"
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-10 rounded-full hover:bg-accent/50"

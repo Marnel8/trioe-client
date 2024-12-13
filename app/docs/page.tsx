@@ -1,40 +1,35 @@
+import Installations from "@/components/docs/installations";
 import { DocumentationSidebar } from "@/components/DocumentationSidebar";
 import { SidebarInset } from "@/components/ui/sidebar";
 
 export default function DocumentationPage() {
   return (
     <div className="flex h-screen">
-      <div className="w-64">
+      <div className="lg:w-64">
         <DocumentationSidebar />
       </div>
       <SidebarInset className="flex-1 w-full rounded-lg">
-        <div className="flex">
-          <main className="w-full p-6">
-            <h1 className="text-3xl font-bold mb-4 ">Documentation</h1>
+        <div className="flex h-full">
+          <main className="w-full p-6 overflow-y-auto">
+            <h1 className="text-4xl font-bold mb-4 text-primary">
+              Getting Started
+            </h1>
             <p className="mb-6">
               Welcome to our comprehensive documentation. Select a topic from
               the sidebar to get started.
             </p>
-
             <section id="getting-started" className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">Getting Started</h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-xl font-medium mb-2">Introduction</h3>
+                  <h3 className="docs-title">Introduction</h3>
                   <p>
                     Welcome to our platform. This guide will help you understand
                     the basics and get you up and running quickly.
                   </p>
                 </div>
+                <Installations />
                 <div>
-                  <h3 className="text-xl font-medium mb-2">Quick Start</h3>
-                  <p>
-                    Follow these steps to set up your first project and see
-                    immediate results.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-medium mb-2">Installation</h3>
+                  <h3 className="docs-title">Quick Start</h3>
                   <p>
                     Learn how to install and configure our tools for your
                     development environment.

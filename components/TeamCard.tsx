@@ -19,12 +19,12 @@ const TeamCard = () => {
       image: "/teams/wewo.jpg",
     },
     {
-      name: "Engr. Ara Jane Mogan",
+      name: "Engr. Ara Jane G. Mogan",
       role: "University Research Associate I",
       image: "/teams/AJM.png",
     },
     {
-      name: "Mr. Marc James Beltran",
+      name: "Mr. Marc James M. Beltran",
       role: "University Research Associate I",
       image: "/teams/mj.jpg",
     },

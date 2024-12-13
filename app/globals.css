@@ -123,6 +123,16 @@ body {
   .subtext {
     @apply text-sm 3xl:text-base text-muted-foreground tracking-wide leading-6;
   }
+
+  .docs-title {
+    @apply text-2xl font-semibold mb-2;
+  }
+
+  .docs-subtitle {
+    @apply text-lg font-medium mb-2 text-muted-foreground;
+  }
+
+
 }
 
 html {

@@ -1,10 +1,8 @@
 import Image from "next/image";
 import React, { Suspense } from "react";
-import { Button } from "./ui/button";
 import { RainbowButton } from "./ui/rainbow-button";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
-import HeaderNav from "./HeaderNav";
+
 import TrioeScene from "./TrioeScene";
 import Link from "next/link";
 
@@ -23,6 +21,7 @@ const Hero = () => {
                 alt="logo"
                 width={190}
                 height={100}
+                priority
                 className="object-contain"
               />
             </span>
