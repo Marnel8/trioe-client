@@ -22,14 +22,17 @@ const Home = () => {
         </Suspense>
       </div>
       <video
-  controls
+  
+  autoPlay
+
+controls
   style={{
     width: '100%',
     maxWidth: '720px',
     height: 'auto',
   }}
 >
-  <source src="/videos/trioe_board_with_audio.mp4" type="video/mp4" />
+  <source src="/videos/trioe_board_with_audio_1080p.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
       <div id="courses" className="py-5">
