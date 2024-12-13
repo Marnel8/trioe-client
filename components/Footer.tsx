@@ -8,10 +8,12 @@ import {
   MapPin,
   Mail,
   Phone,
+  Youtube,
+  TicketIcon,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { FaTiktok } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="bg-gray-100 px-[40px]">
@@ -54,29 +56,36 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex justify-center md:justify-start items-center gap-4">
-              <Link
-                href="#"
+            <Link
+                href="https://www.tiktok.com/@devops.batstateu?"
                 className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
               >
-                <Twitter className="h-4 w-4" />
-                <span className="sr-only">Twitter</span>
+                <FaTiktok />
+                <span className="sr-only">TikTok</span>
               </Link>
               <Link
-                href="#"
+                href="https://youtube.com/@devopsbatstateu?"
+                className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
+              >
+                <Youtube className="h-4 w-4" />
+                <span className="sr-only">Youtube</span>
+              </Link>
+              <Link
+                href="https://www.facebook.com/people/TRIOE/61560879090036/"
                 className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
               >
                 <Facebook className="h-4 w-4" />
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/in/trioe-dev-164062341/"
                 className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
               >
                 <Linkedin className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href="#"
+                href="https://www.instagram.com/devops.batstateu/?"
                 className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
               >
                 <Instagram className="h-4 w-4" />
