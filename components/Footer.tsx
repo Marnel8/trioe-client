@@ -46,11 +46,11 @@ export default function Footer() {
               </div>
               <div className="flex justify-center md:justify-start items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0" />
-                <p>Trioe@email.com</p>
+                <p>devops.batstateu@gmail.com</p>
               </div>
               <div className="flex justify-center md:justify-start items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0" />
-                <p>+66 912-345-6789</p>
+                <p>+63 908-266-5764</p>
               </div>
             </div>
             <div className="flex justify-center md:justify-start items-center gap-4">
