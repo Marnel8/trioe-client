@@ -1,19 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-  MapPin,
-  Mail,
-  Phone,
-  Youtube,
-  TicketIcon,
-} from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaTiktok } from "react-icons/fa";
+import Socials from "./socials";
 export default function Footer() {
   return (
     <footer className="bg-gray-100 px-[40px]">
@@ -55,43 +45,7 @@ export default function Footer() {
                 <p>+63 908-266-5764</p>
               </div>
             </div>
-            <div className="flex justify-center md:justify-start items-center gap-4">
-            <Link
-                href="https://www.tiktok.com/@devops.batstateu?"
-                className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
-              >
-                <FaTiktok />
-                <span className="sr-only">TikTok</span>
-              </Link>
-              <Link
-                href="https://youtube.com/@devopsbatstateu?"
-                className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
-              >
-                <Youtube className="h-4 w-4" />
-                <span className="sr-only">Youtube</span>
-              </Link>
-              <Link
-                href="https://www.facebook.com/people/TRIOE/61560879090036/"
-                className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
-              >
-                <Facebook className="h-4 w-4" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/trioe-dev-164062341/"
-                className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
-              >
-                <Linkedin className="h-4 w-4" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link
-                href="https://www.instagram.com/devops.batstateu/?"
-                className="rounded-full border p-2 text-muted-foreground hover:bg-gray-200"
-              >
-                <Instagram className="h-4 w-4" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-            </div>
+            <Socials color="text-muted-foreground" size={16} />
           </div>
 
           {/* Middle Column - Navigation */}
