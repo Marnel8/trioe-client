@@ -13,10 +13,10 @@ import { RainbowButton } from "./ui/rainbow-button";
 const kits = [
   {
     id: 1,
-    name: "TRIOE STARTER KIT",
+    name: "DRM KIT",
     description:
       "Perfect for beginners, this kit includes an Arduino board and essential components.",
-    image: "/samples/new_kit.jpg",
+    image: "/samples/KITS_new (2).png",
     difficulty: "Beginner",
   },
   {
@@ -24,15 +24,15 @@ const kits = [
     name: "STEAM KIT",
     description:
       "A powerful single-board computer kit for advanced projects in IoT and robotics.",
-    image: "/samples/PROMOTION_2.jpg",
-    difficulty: "Intermediate",
+    image: "/samples/PROMOTION_6.png",
+    difficulty: "Beginner",
   },
   {
     id: 3,
     name: "AGRI-AQUA KIT",
     description:
       "Create stunning visual displays with this programmable LED matrix kit.",
-    image: "/samples/new_kit.jpg",
+    image: "/samples/KITS_new (1).png",
     difficulty: "Advanced",
   },
 ];
