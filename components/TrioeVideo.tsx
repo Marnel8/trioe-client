@@ -8,17 +8,17 @@ const TrioeVideo = () => {
         <HeroVideoDialog
           className="dark:hidden block"
           animationStyle="from-center"
-          videoSrc="/videos/trioe_board_with_audio_1080p.mp4"
+          videoSrc="https://www.youtube.com/embed/zVInmh4o5qw?si=rQ_tG8emsKrjxEnM"
           thumbnailSrc="/images/video_thumbnail.png"
           thumbnailAlt="Hero Video"
         />
-        {/* <HeroVideoDialog
+        <HeroVideoDialog
           className="hidden dark:block"
           animationStyle="from-center"
-          videoSrc="https://youtu.be/zVInmh4o5qw?si=rQ_tG8emsKrjxEnM"
+          videoSrc="https://www.youtube.com/embed/zVInmh4o5qw?si=rQ_tG8emsKrjxEnM" 
           thumbnailSrc="/images/video_thumbnail.png"
           thumbnailAlt="Hero Video"
-        /> */}
+        />
       </div>
     </div>
   );
