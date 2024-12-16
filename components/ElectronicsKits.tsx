@@ -39,21 +39,21 @@ const kits = [
 
 const ElectronicsKits = () => {
   return (
-    <section>
+    <section className="flex flex-col items-center">
       <PageHeader title="ELECTRONICS KITS" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-5 max-w-[1500px]">
+      <div className="py-5 flex flex-wrap justify-center lg:flex-nowrap gap-5">
         {kits.map((kit) => (
           <Card
             key={kit.id}
             className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
           >
             <CardHeader className="p-0">
-              <div className="relative h-48 w-full">
+              <div className="relative h-48 md:h-[300px] w-full">
                 <Image
                   src={kit.image}
                   alt={kit.name}
                   layout="fill"
-                  objectFit="cover"
+                  className="object-cover"
                 />
               </div>
             </CardHeader>
@@ -72,6 +72,7 @@ const ElectronicsKits = () => {
             </CardFooter>
           </Card>
         ))}
+    
       </div>
       <div className="text-center mt-8">
         <Button variant="outline" size="lg">

@@ -6,6 +6,8 @@ import LearningModules from "@/components/LearningModules";
 import { Testimonials } from "@/components/Testimonials";
 import TheTeam from "@/components/TheTeam";
 import TrioeVideo from "@/components/TrioeVideo";
+import DotPattern from "@/components/ui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 import React, { Suspense } from "react";
 
@@ -20,20 +22,50 @@ const Home = () => {
           <BentoGridComponent />
         </Suspense>
       </div>
-      <div id="video">
+      <div id="video" className="relative">
         <Suspense fallback={<div>Loading...</div>}>
           <TrioeVideo />
         </Suspense>
+        <DotPattern
+          width={20}
+          height={20}
+          cx={1}
+          cy={1}
+          cr={1}
+          className={cn(
+            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
+          )}
+        />
       </div>
-      <div id="courses" className="py-5">
+      <div id="courses" className="py-5 relative">
         <Suspense fallback={<div>Loading...</div>}>
           <LearningModules />
         </Suspense>
+        <DotPattern
+          width={20}
+          height={20}
+          cx={16}
+          cy={1}
+          cr={1}
+          className={cn(
+            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
+          )}
+        />
       </div>
-      <div id="kits" className="py-5">
+      <div id="kits" className="py-5 relative">
         <Suspense fallback={<div>Loading...</div>}>
           <ElectronicsKits />
         </Suspense>
+        <DotPattern
+          width={20}
+          height={20}
+          cx={16}
+          cy={1}
+          cr={1}
+          className={cn(
+            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
+          )}
+        />
       </div>
       <div id="team" className="py-5">
         <Suspense fallback={<div>Loading...</div>}>

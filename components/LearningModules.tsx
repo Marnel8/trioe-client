@@ -6,7 +6,7 @@ const LearningModules = () => {
   return (
     <section className="py-5">
       <PageHeader title="LEARNING MODULES" />
-      <div className="py-5 flex flex-wrap lg:flex-nowrap gap-5">
+      <div className="py-5 flex flex-wrap justify-center lg:flex-nowrap gap-5">
         <ModuleCard
           title="STEAM"
           description="This module covers the basics of IoT technology, including sensors, actuators, and communication protocols."

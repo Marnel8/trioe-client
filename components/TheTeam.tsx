@@ -6,7 +6,7 @@ const TheTeam = () => {
   return (
     <section className="py-5">
       <PageHeader title="MEET THE TEAM" />
-      <div className="flex flex-wrap justify-center md:justify-start gap-4 py-5 items-center">
+      <div className="flex flex-wrap justify-center   gap-4 py-5 items-center">
         <TeamCard />
       </div>
     </section>
