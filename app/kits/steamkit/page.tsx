@@ -292,7 +292,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/samples/tutorial-1.jpg"
+                    src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1974&auto=format&fit=crop"
                     alt="Getting Started"
                     fill
                     className="object-cover"
@@ -319,7 +319,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/samples/tutorial-2.jpg"
+                    src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=2070&auto=format&fit=crop"
                     alt="LED Projects"
                     fill
                     className="object-cover"
@@ -343,7 +343,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/samples/tutorial-3.jpg"
+                    src="https://images.unsplash.com/photo-1553406830-ef2513450d76?q=80&w=2070&auto=format&fit=crop"
                     alt="Sensor Basics"
                     fill
                     className="object-cover"
@@ -375,7 +375,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/samples/module-1.jpg"
+                    src="https://images.unsplash.com/photo-1557264305-7e2764da873b?q=80&w=2070&auto=format&fit=crop"
                     alt="Distance Sensor Module"
                     fill
                     className="object-cover"
@@ -401,7 +401,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/samples/module-2.jpg"
+                    src="https://images.unsplash.com/photo-1624969862644-791f3dc98927?q=80&w=2070&auto=format&fit=crop"
                     alt="OLED Display Module"
                     fill
                     className="object-cover"
@@ -428,7 +428,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/samples/module-3.jpg"
+                    src="https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?q=80&w=2070&auto=format&fit=crop"
                     alt="RGB LED Array"
                     fill
                     className="object-cover"
