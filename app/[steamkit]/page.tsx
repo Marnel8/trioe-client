@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const SteamKit = () => {
   const thumbnails = [
-    "/samples/steamkit-1.jpg",
-    "/samples/steamkit-2.jpg",
-    "/samples/steamkit-3.jpg",
-    "/samples/steamkit-4.jpg",
+    "/samples/Steam_1.png",
+    "/samples/Steam_1.png",
+    "/samples/Steam_1.png",
+    "/samples/Steam_1.png",
   ];
 
   return (
@@ -18,11 +18,12 @@ const SteamKit = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Product Image Section */}
             <div className="space-y-4">
-              <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-cyan-50">
+              <div className="relative w-full h-[500px] rounded-lg overflow-hidden bg-cyan-50 flex items-center justify-center">
                 <Image
-                  src="/samples/steamkit-main.jpg"
+                  src="/samples/Steam_1.png"
                   alt="STEAM Kit"
-                  fill
+                  width={500}
+                  height={500}
                   className="object-cover"
                 />
               </div>
@@ -73,13 +74,13 @@ const SteamKit = () => {
               <h2 className="text-2xl font-bold mb-4">Package Inclusions</h2>
               <table className="w-full">
                 <thead>
-                  <tr className="text-left text-sm">
+                  <tr className="text-left text-base">
                     <th className="pb-2">Quantity</th>
                     <th className="pb-2">Name</th>
                     <th className="pb-2">Specifications</th>
                   </tr>
                 </thead>
-                <tbody className="text-sm">
+                <tbody className="text-base">
                   <tr>
                     <td className="py-1">1</td>
                     <td>Trioe - Main Board</td>
@@ -149,7 +150,7 @@ const SteamKit = () => {
               <h2 className="text-2xl font-bold mb-4">
                 Main Board Technical Specifications
               </h2>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 text-base">
                 <div>
                   <p className="font-semibold">Core</p>
                   <p>2</p>
@@ -218,7 +219,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/samples/course-1.jpg"
+                    src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1469&auto=format&fit=crop"
                     alt="Basic IoT Course"
                     fill
                     className="object-cover"
@@ -240,7 +241,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/samples/course-2.jpg"
+                    src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=1470&auto=format&fit=crop"
                     alt="OLED Display Programming"
                     fill
                     className="object-cover"
@@ -262,7 +263,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/samples/course-3.jpg"
+                    src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1469&auto=format&fit=crop"
                     alt="Sensor Integration"
                     fill
                     className="object-cover"
