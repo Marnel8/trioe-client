@@ -11,7 +11,7 @@ const LearningModules = () => {
           title="STEAM"
           description="This module covers the basics of IoT technology, including sensors, actuators, and communication protocols."
           imageSrc="/samples/MODULE (2).png"
-          learnRoute="/learn/steam"
+          learnRoute="/steam-learn"
         />
         <ModuleCard
           title="Agri-Aqua"
