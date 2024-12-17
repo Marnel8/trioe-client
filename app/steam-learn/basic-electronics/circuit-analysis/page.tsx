@@ -327,8 +327,8 @@ export default function LessonPage() {
           </div>
           {currentSection === lesson.sections.length - 1 ? (
             <Button asChild>
-              <Link href="/steam-learn/digital-logic">
-                Next Module
+              <Link href="/steam-learn/basic-electronics/circuit-analysis/quiz">
+                Take the Quiz
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Link>
             </Button>
