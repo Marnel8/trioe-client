@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -85,12 +86,6 @@ const ElectronicsKits = () => {
                     <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-                {/* <RainbowButton 
-                  onClick={() => router.push(kit.learnRoute)}
-                  className="flex-1 mt-4 sm:mt-5 p-5 rounded-full text-sm sm:text-base tracking-wide"
-                >
-                  Start Learning
-                </RainbowButton> */}
               </div>
             </CardFooter>
           </Card>
