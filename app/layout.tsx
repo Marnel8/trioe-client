@@ -36,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${helveticaRegular.variable} ${helveticaMedium.variable} ${helveticaBold.variable} antialiased pt-5 px-5 max-w-[1900px] mx-auto scroll-smooth`}
       >
-        <div className="">
+        <div>
           <MobileNav />
         </div>
         {children}
