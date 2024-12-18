@@ -54,6 +54,11 @@ export function MobileNav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Ensure initial state is consistent
+  React.useEffect(() => {
+    setIsScrolled(false); // Set initial state to false
+  }, []);
+
   const handleNavigation = (href: string, title: string) => {
     if (href.includes("events") || href.includes("community")) {
       setPendingNavigation(href);
@@ -89,7 +94,7 @@ export function MobileNav() {
 
   return (
     <>
-      <div className="fixed bottom-4 left-4 right-4 z-50 flex flex-col items-center gap-2">
+      <div className="fixed bottom-4 left-4 right-4 z-50 max-w-[400px] mx-auto flex flex-col items-center gap-2">
         {/* Page Indicator - Updated with darker background */}
         <div className={cn(
           "px-4 py-1 rounded-full bg-background/90 backdrop-blur-md border text-xs transition-opacity duration-200",
