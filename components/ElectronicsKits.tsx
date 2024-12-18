@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Card,
   CardContent,
@@ -48,7 +46,6 @@ const kits = [
 ];
 
 const ElectronicsKits = () => {
-  const router = useRouter();
   return (
     <section className="flex flex-col items-center">
       <PageHeader title="ELECTRONICS KITS" />

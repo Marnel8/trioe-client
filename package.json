@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "^1.2.2",
+=======
+>>>>>>> parent of 7e2e93a (Merge branch 'main' of https://github.com/Marnel8/trioe-client)
     "@radix-ui/react-aspect-ratio": "^1.1.0",
     "@radix-ui/react-collapsible": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
