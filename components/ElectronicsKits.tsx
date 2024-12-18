@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -9,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import PageHeader from "./PageHeader";
 import { RainbowButton } from "./ui/rainbow-button";
+import { useRouter } from "next/navigation";
 
 const kits = [
   {
@@ -18,6 +21,8 @@ const kits = [
       "Perfect for beginners, this kit includes an Arduino board and essential components.",
     image: "/samples/KITS_new (2).png",
     difficulty: "Beginner",
+    route: "/kits/drm",
+    learnRoute: "/learn/drm"
   },
   {
     id: 2,
@@ -26,6 +31,8 @@ const kits = [
       "A powerful single-board computer kit for advanced projects in IoT and robotics.",
     image: "/samples/PROMOTION_6.png",
     difficulty: "Beginner",
+    route: "/kits/steam",
+    learnRoute: "/learn/steam"
   },
   {
     id: 3,
@@ -34,10 +41,13 @@ const kits = [
       "Create stunning visual displays with this programmable LED matrix kit.",
     image: "/samples/KITS_new (1).png",
     difficulty: "Advanced",
+    route: "/kits/agriaqua",
+    learnRoute: "/learn/agriaqua"
   },
 ];
 
 const ElectronicsKits = () => {
+  const router = useRouter();
   return (
     <section className="flex flex-col items-center">
       <PageHeader title="ELECTRONICS KITS" />
@@ -65,10 +75,20 @@ const ElectronicsKits = () => {
               <p className="text-sm text-muted-foreground">{kit.description}</p>
             </CardContent>
             <CardFooter className="p-4">
-              <RainbowButton className="w-full mt-4 sm:mt-5 p-5 rounded-full text-sm sm:text-base tracking-wide">
-                {" "}
-                LEARN MORE
-              </RainbowButton>
+              <div className="flex space-x-4">
+                <RainbowButton 
+                  onClick={() => router.push(kit.route)}
+                  className="flex-1 mt-4 sm:mt-5 p-5 rounded-full text-sm sm:text-base tracking-wide"
+                >
+                  Learn More
+                </RainbowButton>
+                {/* <RainbowButton 
+                  onClick={() => router.push(kit.learnRoute)}
+                  className="flex-1 mt-4 sm:mt-5 p-5 rounded-full text-sm sm:text-base tracking-wide"
+                >
+                  Start Learning
+                </RainbowButton> */}
+              </div>
             </CardFooter>
           </Card>
         ))}
