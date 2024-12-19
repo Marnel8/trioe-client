@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import React from "react";
-import { Button } from "./ui/button";
-import { ArrowRightIcon } from "lucide-react";
 import ShinyButton from "./ui/shiny-button";
 import { useRouter } from "next/navigation";
 
