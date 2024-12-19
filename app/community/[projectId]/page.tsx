@@ -64,7 +64,7 @@ const project = {
   video: "/placeholder-video.mp4",
 };
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+export default function ProjectPage() {
 //   if (params.id !== project.id) {
 //     notFound();
 //   }
