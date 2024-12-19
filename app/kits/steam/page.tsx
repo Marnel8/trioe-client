@@ -88,7 +88,11 @@ const SteamKit = () => {
                   </tr>
                   <tr>
                     <td className="py-1">5</td>
+<<<<<<< HEAD
                     <td>Trioe - General Purpose Board</td>
+=======
+                    <td>Trioe - General Purpose Strip</td>
+>>>>>>> parent of 5fb959d (Merge branch 'main' into latest)
                     <td>Custom PCB</td>
                   </tr>
                   <tr>
@@ -103,6 +107,19 @@ const SteamKit = () => {
                   </tr>
                   <tr>
                     <td className="py-1">1</td>
+<<<<<<< HEAD
+=======
+                    <td>KY-016 RGB LED</td>
+                    <td>Through Hole, 5V RGB</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>KY-016 RGB LED</td>
+                    <td>Through Hole, 5V RGB</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+>>>>>>> parent of 5fb959d (Merge branch 'main' into latest)
                     <td>LED Assorted</td>
                     <td>5mm Red Green Blue</td>
                   </tr>
