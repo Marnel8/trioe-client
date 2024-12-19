@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { MobileNav } from "@/components/MobileNav";
-import Providers from "@/hoc/Providers";
 
 const helveticaRegular = localFont({
   src: "./fonts/HelveticaNowDisplay-Regular.woff",
@@ -35,14 +34,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${helveticaRegular.variable} ${helveticaMedium.variable} ${helveticaBold.variable} antialiased max-w-[1900px] mx-auto scroll-smooth`}
+        className={`${helveticaRegular.variable} ${helveticaMedium.variable} ${helveticaBold.variable} antialiased pt-5 px-5 max-w-[1900px] mx-auto scroll-smooth`}
       >
-        <Providers>
-          <div>
-            <MobileNav />
-          </div>
-          {children}
-        </Providers>
+        <div className="">
+          <MobileNav />
+        </div>
+        {children}
       </body>
     </html>
   );

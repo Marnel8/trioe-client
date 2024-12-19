@@ -9,7 +9,7 @@ import Socials from "./socials";
 
 const Hero = () => {
   return (
-    <section className="bg-hero-image bg-cover bg-center bg-no-repeat py-4 lg:px-[40px] ">
+    <section className="bg-hero-image bg-cover bg-center bg-no-repeat rounded-lg py-4 lg:px-[40px] ">
       {/* <HeaderNav /> */}
       <div className="flex items-center justify-between">
         <div className="hero-content text-white flex-1">
