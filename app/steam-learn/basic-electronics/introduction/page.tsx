@@ -192,7 +192,7 @@ export default function LessonPage() {
   }, [currentSection]);
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8 h-screen">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">

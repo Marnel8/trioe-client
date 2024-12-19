@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const SteamKit = () => {
   const thumbnails = [
-    "/samples/Steam_1.png",
-    "/samples/Steam_1.png",
-    "/samples/Steam_1.png",
-    "/samples/Steam_1.png",
+    "/samples/steamkit-1.jpg",
+    "/samples/steamkit-2.jpg",
+    "/samples/steamkit-3.jpg",
+    "/samples/steamkit-4.jpg",
   ];
 
   return (
@@ -18,12 +18,11 @@ const SteamKit = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Product Image Section */}
             <div className="space-y-4">
-              <div className="relative w-full h-[500px] rounded-lg overflow-hidden bg-cyan-50 flex items-center justify-center">
+              <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-cyan-50">
                 <Image
-                  src="/samples/Steam_1.png"
+                  src="/samples/steamkit-main.jpg"
                   alt="STEAM Kit"
-                  width={500}
-                  height={500}
+                  fill
                   className="object-cover"
                 />
               </div>
@@ -74,13 +73,13 @@ const SteamKit = () => {
               <h2 className="text-2xl font-bold mb-4">Package Inclusions</h2>
               <table className="w-full">
                 <thead>
-                  <tr className="text-left text-base">
+                  <tr className="text-left text-sm">
                     <th className="pb-2">Quantity</th>
                     <th className="pb-2">Name</th>
                     <th className="pb-2">Specifications</th>
                   </tr>
                 </thead>
-                <tbody className="text-base">
+                <tbody className="text-sm">
                   <tr>
                     <td className="py-1">1</td>
                     <td>Trioe - Main Board</td>
@@ -150,7 +149,7 @@ const SteamKit = () => {
               <h2 className="text-2xl font-bold mb-4">
                 Main Board Technical Specifications
               </h2>
-              <div className="grid grid-cols-2 gap-4 text-base">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="font-semibold">Core</p>
                   <p>2</p>
@@ -219,7 +218,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1469&auto=format&fit=crop"
+                    src="/samples/course-1.jpg"
                     alt="Basic IoT Course"
                     fill
                     className="object-cover"
@@ -241,7 +240,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=1470&auto=format&fit=crop"
+                    src="/samples/course-2.jpg"
                     alt="OLED Display Programming"
                     fill
                     className="object-cover"
@@ -263,7 +262,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1469&auto=format&fit=crop"
+                    src="/samples/course-3.jpg"
                     alt="Sensor Integration"
                     fill
                     className="object-cover"
@@ -292,7 +291,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1974&auto=format&fit=crop"
+                    src="/samples/tutorial-1.jpg"
                     alt="Getting Started"
                     fill
                     className="object-cover"
@@ -319,7 +318,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=2070&auto=format&fit=crop"
+                    src="/samples/tutorial-2.jpg"
                     alt="LED Projects"
                     fill
                     className="object-cover"
@@ -343,7 +342,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="https://images.unsplash.com/photo-1553406830-ef2513450d76?q=80&w=2070&auto=format&fit=crop"
+                    src="/samples/tutorial-3.jpg"
                     alt="Sensor Basics"
                     fill
                     className="object-cover"
@@ -375,7 +374,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="https://images.unsplash.com/photo-1557264305-7e2764da873b?q=80&w=2070&auto=format&fit=crop"
+                    src="/samples/module-1.jpg"
                     alt="Distance Sensor Module"
                     fill
                     className="object-cover"
@@ -401,7 +400,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="https://images.unsplash.com/photo-1624969862644-791f3dc98927?q=80&w=2070&auto=format&fit=crop"
+                    src="/samples/module-2.jpg"
                     alt="OLED Display Module"
                     fill
                     className="object-cover"
@@ -428,7 +427,7 @@ const SteamKit = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?q=80&w=2070&auto=format&fit=crop"
+                    src="/samples/module-3.jpg"
                     alt="RGB LED Array"
                     fill
                     className="object-cover"

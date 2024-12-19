@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Card,
   CardContent,
@@ -12,6 +11,7 @@ import Image from "next/image";
 import PageHeader from "./PageHeader";
 import { RainbowButton } from "./ui/rainbow-button";
 import { useRouter } from "next/navigation";
+import { ArrowRightIcon } from "lucide-react";
 
 const kits = [
   {
@@ -22,7 +22,7 @@ const kits = [
     image: "/samples/KITS_new (2).png",
     difficulty: "Beginner",
     route: "/kits/drm",
-    learnRoute: "/learn/drm"
+    learnRoute: "/learn/drm",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const kits = [
     image: "/samples/PROMOTION_6.png",
     difficulty: "Beginner",
     route: "/kits/steam",
-    learnRoute: "/learn/steam"
+    learnRoute: "/learn/steam",
   },
   {
     id: 3,
@@ -42,12 +42,11 @@ const kits = [
     image: "/samples/KITS_new (1).png",
     difficulty: "Advanced",
     route: "/kits/agriaqua",
-    learnRoute: "/learn/agriaqua"
+    learnRoute: "/learn/agriaqua",
   },
 ];
 
 const ElectronicsKits = () => {
-  const router = useRouter();
   return (
     <section className="flex flex-col items-center">
       <PageHeader title="ELECTRONICS KITS" />
@@ -76,23 +75,21 @@ const ElectronicsKits = () => {
             </CardContent>
             <CardFooter className="p-4">
               <div className="flex space-x-4">
-                <RainbowButton 
-                  onClick={() => router.push(kit.route)}
-                  className="flex-1 mt-4 sm:mt-5 p-5 rounded-full text-sm sm:text-base tracking-wide"
+                <Button
+                  variant="ghost"
+                  asChild
+                  size="sm"
+                  className="pointer-events-auto"
                 >
-                  Learn More
-                </RainbowButton>
-                {/* <RainbowButton 
-                  onClick={() => router.push(kit.learnRoute)}
-                  className="flex-1 mt-4 sm:mt-5 p-5 rounded-full text-sm sm:text-base tracking-wide"
-                >
-                  Start Learning
-                </RainbowButton> */}
+                  <a href={`/kits/${kit.id}$`}>
+                    Learn More
+                    <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
               </div>
             </CardFooter>
           </Card>
         ))}
-    
       </div>
       <div className="text-center mt-8">
         <Button variant="outline" size="lg">

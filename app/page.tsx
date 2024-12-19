@@ -17,7 +17,7 @@ const Home = () => {
       <div id="hero">
         <Hero />
       </div>
-      <div className="py-5">
+      <div className="py-5 px-5">
         <Suspense fallback={<div>Loading...</div>}>
           <BentoGridComponent />
         </Suspense>
@@ -37,7 +37,7 @@ const Home = () => {
           )}
         />
       </div>
-      <div id="courses" className="py-5 relative">
+      <div id="courses" className="py-5 px-5 relative">
         <Suspense fallback={<div>Loading...</div>}>
           <LearningModules />
         </Suspense>
@@ -52,7 +52,7 @@ const Home = () => {
           )}
         />
       </div>
-      <div id="kits" className="py-5 relative">
+      <div id="kits" className="py-5 px-5 relative">
         <Suspense fallback={<div>Loading...</div>}>
           <ElectronicsKits />
         </Suspense>
@@ -67,12 +67,12 @@ const Home = () => {
           )}
         />
       </div>
-      <div id="team" className="py-5">
+      <div id="team" className="py-5 px-5">
         <Suspense fallback={<div>Loading...</div>}>
           <TheTeam />
         </Suspense>
       </div>
-      <div id="testimonials" className="py-5">
+      <div id="testimonials" className="py-5 px-5">
         <Suspense fallback={<div>Loading...</div>}>
           <Testimonials />
         </Suspense>

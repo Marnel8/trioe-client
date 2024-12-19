@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -8,6 +9,8 @@ import {
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChevronDown } from "lucide-react";
 import { ProjectCard } from "@/components/ProjectCard";
+import { AddProjectDialog } from "@/components/community/add-project-dialog";
+
 
 interface Project {
   id: string;
@@ -64,7 +67,7 @@ export default function ProjectGallery() {
               <DropdownMenuItem>Mathematics</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button className="bg-blue-500 hover:bg-blue-600">Add Yours</Button>
+          <AddProjectDialog />
         </div>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
