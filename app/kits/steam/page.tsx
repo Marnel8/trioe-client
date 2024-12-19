@@ -88,7 +88,7 @@ const SteamKit = () => {
                   </tr>
                   <tr>
                     <td className="py-1">5</td>
-                    <td>Trioe - General Purpose Board</td>
+                    <td>Trioe - General Purpose Strip</td>
                     <td>Custom PCB</td>
                   </tr>
                   <tr>
@@ -100,6 +100,16 @@ const SteamKit = () => {
                     <td className="py-1">1</td>
                     <td>Ultrasonic Sensor</td>
                     <td>HC-SR04</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>KY-016 RGB LED</td>
+                    <td>Through Hole, 5V RGB</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>KY-016 RGB LED</td>
+                    <td>Through Hole, 5V RGB</td>
                   </tr>
                   <tr>
                     <td className="py-1">1</td>
