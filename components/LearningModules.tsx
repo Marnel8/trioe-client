@@ -16,13 +16,13 @@ const LearningModules = () => {
           title="Agri-Aqua"
           description="This module covers the basics of IoT technology, including sensors, actuators, and communication protocols."
           imageSrc="/samples/MODULE (3).png"
-          learnRoute="/agri-aqua-learn"
+          // learnRoute="/agri-aqua-learn"
         />
         <ModuleCard
           title="DRM"
           description="This module covers the basics of IoT technology, including sensors, actuators, and communication protocols."
           imageSrc="/samples/MODULE (1).png"
-          learnRoute="/drm-learn"
+          // learnRoute="/drm-learn"
         />
       </div>
     </section>
