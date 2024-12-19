@@ -270,3 +270,4 @@ export default function QuizPage() {
       </Card>
     </div>
   );
+}

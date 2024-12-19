@@ -262,7 +262,7 @@ void publishData(float temp, float humidity) {
   ],
 };
 
-export default function LessonPage() {
+export default function TemperaturePage() {
   const [currentSection, setCurrentSection] = React.useState(0);
   const [progress, setProgress] = React.useState(0);
 
@@ -348,3 +348,4 @@ export default function LessonPage() {
       </div>
     </div>
   );
+}

@@ -16,10 +16,7 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  Code,
-  FileCode,
-  Binary,
-  Function,
+
 } from "lucide-react";
 
 const lesson = {
@@ -360,3 +357,4 @@ export default function LessonPage() {
       </div>
     </div>
   );
+}

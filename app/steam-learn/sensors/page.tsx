@@ -97,7 +97,7 @@ const topics = [
   },
 ];
 
-export default function SensorsModule() {
+export default function SensorsPage() {
   return (
     <div className="container mx-auto py-8">
       <div className="max-w-4xl mx-auto">
@@ -159,3 +159,4 @@ export default function SensorsModule() {
       </div>
     </div>
   );
+}

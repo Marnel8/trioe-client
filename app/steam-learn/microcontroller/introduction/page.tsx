@@ -237,7 +237,7 @@ const lesson = {
   ],
 };
 
-export default function LessonPage() {
+export default function IntroductionPage() {
   const [currentSection, setCurrentSection] = React.useState(0);
   const [progress, setProgress] = React.useState(0);
 
@@ -323,3 +323,4 @@ export default function LessonPage() {
       </div>
     </div>
   );
+}

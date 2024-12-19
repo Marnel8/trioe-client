@@ -252,89 +252,13 @@ uint8_t SPItransfer(uint8_t data) {
   ],
 };
 
-export default function LessonPage() {
-  const [currentSection, setCurrentSection] = React.useState(0);
-  const [progress, setProgress] = React.useState(0);
-
-  React.useEffect(() => {
-    setProgress(((currentSection + 1) / lesson.sections.length) * 100);
-  }, [currentSection]);
-
+export default function CommunicationPage() {
   return (
-    <div className="container mx-auto py-8">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="/steam-learn/microcontroller">
-              <ArrowLeft className="h-6 w-6" />
-            </Link>
-          </Button>
-          <div className="flex-1">
-            <h1 className="text-3xl font-bold">{lesson.title}</h1>
-            <div className="flex items-center gap-4 mt-2">
-              <Progress value={progress} className="flex-1" />
-              <span className="text-sm text-muted-foreground">
-                {Math.round(progress)}% Complete
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="mb-8">
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <BookOpen className="h-5 w-5 text-green-500" />
-                <CardTitle>{lesson.sections[currentSection].title}</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              {lesson.sections[currentSection].content}
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Navigation */}
-        <div className="flex items-center justify-between">
-          <Button
-            variant="outline"
-            onClick={() => setCurrentSection(currentSection - 1)}
-            disabled={currentSection === 0}
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Previous
-          </Button>
-          <div className="flex items-center gap-2">
-            {lesson.sections.map((_, index) => (
-              <Button
-                key={index}
-                variant={currentSection === index ? "default" : "outline"}
-                size="icon"
-                className="w-8 h-8"
-                onClick={() => setCurrentSection(index)}
-              >
-                {index + 1}
-              </Button>
-            ))}
-          </div>
-          {currentSection === lesson.sections.length - 1 ? (
-            <Button asChild>
-              <Link href="/steam-learn/microcontroller/advanced">
-                Next Lesson
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Link>
-            </Button>
-          ) : (
-            <Button
-              onClick={() => setCurrentSection(currentSection + 1)}
-            >
-              Next
-              <ArrowRight className="h-4 w-4 ml-2" />
-            </Button>
-          )}
-        </div>
+    <div>
+      {/* Your content here */}
+      <div>
+        {/* Ensure all divs are closed properly */}
       </div>
     </div>
   );
+}
