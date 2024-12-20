@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { MobileNav } from "@/components/MobileNav";
 import Providers from "@/hoc/Providers";
+import { Toaster } from "@/components/ui/toaster";
 
 const helveticaRegular = localFont({
   src: "./fonts/HelveticaNowDisplay-Regular.woff",
@@ -41,7 +42,8 @@ export default function RootLayout({
           <div>
             <MobileNav />
           </div>
-          {children}
+          <main>{children}</main>
+          <Toaster />
         </Providers>
       </body>
     </html>

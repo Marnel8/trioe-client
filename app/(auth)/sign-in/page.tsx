@@ -3,7 +3,7 @@ import React from "react";
 
 const SignInPage = () => {
   return (
-    <section className="p-5 mb-20">
+    <section>
       <SignInForm />
     </section>
   );

@@ -6,7 +6,7 @@ import ProjectGallery from "@/components/ProjectGallery";
 
 const CommunityPage = () => {
   return (
-    <section>
+    <section className="container mx-auto p-5">
       <div className="bg-community-image bg-cover bg-center h-[500px] rounded-xl flex flex-col gap-4 justify-center items-center">
         <Image
           src="/images/TRIOE_LOGO.png"

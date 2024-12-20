@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import React, { useState } from "react"
-import { Eye, EyeOff } from 'lucide-react'
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
+import React, { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { useRouter } from "next/navigation";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -16,7 +16,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
+} from "@/components/ui/form";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { useLogin } from "@/hooks/auth/useLogin";
+import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -25,10 +35,13 @@ const formSchema = z.object({
   password: z.string().min(8, {
     message: "Password must be at least 8 characters long.",
   }),
-})
+});
 
 const SignInForm = () => {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const { mutateAsync: login, isPending: isLoginPending } = useLogin();
+
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,93 +49,128 @@ const SignInForm = () => {
       email: "",
       password: "",
     },
-  })
+  });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("Sign in attempted with:", values)
-    // Here you would typically handle the sign-in logic
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const { email, password } = values;
+    try {
+      await login({ email, password });
+      toast({
+        description: "Login successful",
+        className: "success-toast",
+      });
+      form.reset();
+      router.push("/");
+    } catch (error: any) {
+      toast({
+        description: error.message,
+        className: "error-toast",
+      });
+    }
   }
 
   return (
-    <div className="flex flex-col md:flex-row h-auto md:h-[600px] w-full md:w-[1000px] rounded-xl shadow-lg bg-white">
-      <div className="flex-1 flex flex-col items-center justify-center bg-sign-in-bg bg-cover rounded-t-xl md:rounded-l-xl p-5 text-white">
-        <Image
-          src="/images/TRIOE_LOGO.png"
-          alt="TRIOE Logo"
-          width={150}
-          height={150}
-          className="mb-4"
-        />
-        <h1 className="text-5xl font-bold tracking-wider mb-4">TRIOE</h1>
-        <p className="text-xl text-center">Tinkering Resources for Internet of Everything</p>
-      </div>
-      <div className="flex-1 rounded-b-xl md:rounded-r-xl p-6 md:p-12 flex flex-col justify-center">
-        <h2 className="text-3xl font-semibold tracking-wider mb-8 text-center">SIGN IN</h2>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter your email" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+    <div className="flex justify-center items-center min-h-screen bg-hero-image bg-cover bg-center bg-no-repeat p-4">
+      <Card className="w-full max-w-4xl shadow-2xl overflow-hidden">
+        <div className="md:flex">
+          <div className="md:w-1/2 bg-sign-in-bg p-8 flex flex-col justify-center items-center relative overflow-hidden">
+            <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+            <img
+              src="/images/LOGO_WITH_TEXT.png"
+              alt="Company Logo"
+              className="w-[200px] h-[200px] object-contain "
             />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <div className="relative">
-                      <Input
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Enter your password"
-                        {...field}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 transform -translate-y-1/2"
-                      >
-                        {showPassword ? (
-                          <EyeOff className="h-5 w-5 text-gray-500" />
-                        ) : (
-                          <Eye className="h-5 w-5 text-gray-500" />
-                        )}
-                      </button>
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" className="w-full">Sign In</Button>
-          </form>
-        </Form>
-        <div className="mt-6 text-center">
-          <a href="#" className="text-sm text-blue-600 hover:underline">
-            Forgot password?
-          </a>
+            <h2 className="text-4xl font-bold mb-4 text-center">Welcome</h2>
+            <p className="text-lg mb-6 text-center text-gray-700">
+              Join our community and unlock amazing features.
+            </p>
+          </div>
+          <div className="md:w-1/2 p-8">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl font-bold mb-2">Sign In</CardTitle>
+              <CardDescription>
+                Enter your credentials to access your account
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Form {...form}>
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-4"
+                >
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Enter your email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Password</FormLabel>
+                        <FormControl>
+                          <div className="relative">
+                            <Input
+                              type={showPassword ? "text" : "password"}
+                              placeholder="Enter your password"
+                              {...field}
+                            />
+                            <button
+                              type="button"
+                              onClick={() => setShowPassword(!showPassword)}
+                              className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                            >
+                              {showPassword ? (
+                                <EyeOff className="h-5 w-5 text-gray-500" />
+                              ) : (
+                                <Eye className="h-5 w-5 text-gray-500" />
+                              )}
+                            </button>
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-[#87d9ff] to-[#b5ebff] hover:from-[#b5ebff] hover:to-[#87d9ff] text-white"
+                  >
+                    Sign In
+                  </Button>
+                </form>
+              </Form>
+            </CardContent>
+            <CardFooter className="flex flex-col justify-center">
+              <div className="mt-6 text-center">
+                <a href="#" className="text-sm text-blue-600 hover:underline">
+                  Forgot password?
+                </a>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="text-sm text-gray-600">
+                  Don't have an account?{" "}
+                  <a href="/sign-up" className="text-blue-600 hover:underline">
+                    Sign up
+                  </a>
+                </p>
+              </div>
+            </CardFooter>
+          </div>
         </div>
-        <div className="mt-4 text-center">
-          <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
-            <a href="#" className="text-blue-600 hover:underline">
-              Sign up
-            </a>
-          </p>
-        </div>
-      </div>
+      </Card>
     </div>
-  )
-}
+  );
+};
 
-export default SignInForm
-
+export default SignInForm;
