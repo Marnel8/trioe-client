@@ -89,7 +89,7 @@ export function MobileNav() {
 
   return (
     <>
-      <div className="fixed bottom-4 left-4 right-4 z-50 flex flex-col items-center gap-2">
+      <div className="fixed bottom-4 left-4 right-4 z-50 flex flex-col items-center gap-2 pointer-events-none">
         {/* Page Indicator - Updated with darker background */}
         <div className={cn(
           "px-4 py-1 rounded-full bg-background/90 backdrop-blur-md border text-xs transition-opacity duration-200",
@@ -100,7 +100,7 @@ export function MobileNav() {
 
         {/* Navigation Bar - Updated with darker background */}
         <div className={cn(
-          "max-w-[400px] w-full transition-transform duration-200",
+          "max-w-[400px] w-full transition-transform duration-200 pointer-events-auto",
           isScrolled ? "-translate-y-3" : "translate-y-0"
         )}>
           <TooltipProvider>

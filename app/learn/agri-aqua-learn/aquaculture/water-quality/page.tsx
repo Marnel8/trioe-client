@@ -13,7 +13,7 @@ export default function WaterQualityPage() {
         className="mb-8"
         asChild
       >
-        <Link href="/agri-aqua-learn/aquaculture">
+        <Link href="/learn/agri-aqua-learn/aquaculture">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Aquaculture Basics
         </Link>
@@ -106,13 +106,13 @@ export default function WaterQualityPage() {
 
         <div className="flex justify-between">
           <Button variant="outline" asChild>
-            <Link href="/agri-aqua-learn/aquaculture">
+            <Link href="/learn/agri-aqua-learn/aquaculture">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Module
             </Link>
           </Button>
           <Button asChild>
-            <Link href="/agri-aqua-learn/aquaculture/feeding">
+            <Link href="/learn/agri-aqua-learn/aquaculture/feeding">
               Next Lesson: Feeding Systems
             </Link>
           </Button>

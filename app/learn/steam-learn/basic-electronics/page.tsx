@@ -26,7 +26,7 @@ const lessons = [
       "Safety Guidelines",
     ],
     progress: 0,
-    href: "/steam-learn/basic-electronics/introduction",
+    href: "/learn/steam-learn/basic-electronics/introduction",
   },
   {
     title: "Voltage, Current, and Resistance",
@@ -39,7 +39,7 @@ const lessons = [
       "Ohm's Law",
     ],
     progress: 0,
-    href: "/steam-learn/basic-electronics/electrical-quantities",
+    href: "/learn/steam-learn/basic-electronics/electrical-quantities",
   },
   {
     title: "Basic Components",
@@ -52,7 +52,7 @@ const lessons = [
       "Transistors",
     ],
     progress: 0,
-    href: "/steam-learn/basic-electronics/components",
+    href: "/learn/steam-learn/basic-electronics/components",
   },
   {
     title: "Circuit Analysis",
@@ -65,7 +65,7 @@ const lessons = [
       "Troubleshooting Basics",
     ],
     progress: 0,
-    href: "/steam-learn/basic-electronics/circuit-analysis",
+    href: "/learn/steam-learn/basic-electronics/circuit-analysis",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function BasicElectronicsPage() {
     <div className="container mx-auto py-8">
       <div className="flex items-center gap-4 mb-8">
         <Button variant="ghost" size="icon" asChild>
-          <Link href="/steam-learn">
+          <Link href="/learn/steam-learn">
             <ArrowLeft className="h-6 w-6" />
           </Link>
         </Button>

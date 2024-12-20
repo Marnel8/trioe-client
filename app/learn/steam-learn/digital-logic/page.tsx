@@ -26,7 +26,7 @@ const lessons = [
       "Applications",
     ],
     progress: 0,
-    href: "/steam-learn/digital-logic/boolean",
+    href: "/learn/steam-learn/digital-logic/boolean",
   },
   {
     title: "Logic Gates",
@@ -39,7 +39,7 @@ const lessons = [
       "Universal Gates",
     ],
     progress: 0,
-    href: "/steam-learn/digital-logic/gates",
+    href: "/learn/steam-learn/digital-logic/gates",
   },
   {
     title: "Digital Circuits",
@@ -52,7 +52,7 @@ const lessons = [
       "Decoders",
     ],
     progress: 0,
-    href: "/steam-learn/digital-logic/circuits",
+    href: "/learn/steam-learn/digital-logic/circuits",
   },
   {
     title: "Sequential Logic",
@@ -65,7 +65,7 @@ const lessons = [
       "State Machines",
     ],
     progress: 0,
-    href: "/steam-learn/digital-logic/sequential",
+    href: "/learn/steam-learn/digital-logic/sequential",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function DigitalLogicPage() {
     <div className="container mx-auto py-8">
       <div className="flex items-center gap-4 mb-8">
         <Button variant="ghost" size="icon" asChild>
-          <Link href="/steam-learn">
+          <Link href="/learn/steam-learn">
             <ArrowLeft className="h-6 w-6" />
           </Link>
         </Button>

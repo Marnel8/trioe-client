@@ -11,19 +11,19 @@ const LearningModules = () => {
           title="STEAM"
           description="This module covers the basics of IoT technology, including sensors, actuators, and communication protocols."
           imageSrc="/samples/MODULE (2).png"
-          learnRoute="/steam-learn"
+          learnRoute="/learn/steam-learn"
         />
         <ModuleCard
           title="Agri-Aqua"
           description="This module covers the basics of IoT technology, including sensors, actuators, and communication protocols."
           imageSrc="/samples/MODULE (3).png"
-          learnRoute="/agri-aqua-learn"
+          learnRoute="/learn/agri-aqua-learn"
         />
         <ModuleCard
           title="DRM"
           description="This module covers the basics of IoT technology, including sensors, actuators, and communication protocols."
           imageSrc="/samples/MODULE (1).png"
-          learnRoute="/drm-learn"
+          learnRoute="/learn/drm-learn"
         />
       </div>
     </section>

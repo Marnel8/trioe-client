@@ -13,7 +13,7 @@ export default function UnderstandingDisastersPage() {
         className="mb-8"
         asChild
       >
-        <Link href="/drm-learn/disaster-preparedness">
+        <Link href="/learn/drm-learn/disaster-preparedness">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Disaster Preparedness
         </Link>
@@ -109,13 +109,13 @@ export default function UnderstandingDisastersPage() {
 
         <div className="flex justify-between">
           <Button variant="outline" asChild>
-            <Link href="/drm-learn/disaster-preparedness">
+            <Link href="/learn/drm-learn/disaster-preparedness">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Module
             </Link>
           </Button>
           <Button asChild>
-            <Link href="/drm-learn/disaster-preparedness/planning">
+            <Link href="/learn/drm-learn/disaster-preparedness/planning">
               Next Lesson: Emergency Planning
             </Link>
           </Button>

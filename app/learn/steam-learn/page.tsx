@@ -37,7 +37,7 @@ const modules = [
       "Basic Components",
       "Circuit Analysis",
     ],
-    href: "/steam-learn/basic-electronics",
+    href: "/learn/steam-learn/basic-electronics",
   },
   {
     title: "Digital Logic",
@@ -52,7 +52,7 @@ const modules = [
       "Digital Circuits",
       "Sequential Logic",
     ],
-    href: "/steam-learn/digital-logic",
+    href: "/learn/steam-learn/digital-logic",
   },
   {
     title: "Microcontroller Programming",
@@ -67,7 +67,7 @@ const modules = [
       "Analog Sensors",
       "Serial Communication",
     ],
-    href: "/steam-learn/microcontroller",
+    href: "/learn/steam-learn/microcontroller",
   },
   {
     title: "Sensors and Actuators",
@@ -82,7 +82,7 @@ const modules = [
       "Actuator Control",
       "Feedback Systems",
     ],
-    href: "/steam-learn/sensors",
+    href: "/learn/steam-learn/sensors",
   },
   {
     title: "IoT and Connectivity",
@@ -97,7 +97,7 @@ const modules = [
       "Cloud Integration",
       "Data Visualization",
     ],
-    href: "/steam-learn/iot",
+    href: "/learn/steam-learn/iot",
   },
   {
     title: "Data Analysis",
@@ -112,7 +112,7 @@ const modules = [
       "Data Visualization",
       "Machine Learning Basics",
     ],
-    href: "/steam-learn/data-analysis",
+    href: "/learn/steam-learn/data-analysis",
   },
   {
     title: "Engineering Design",
@@ -127,7 +127,7 @@ const modules = [
       "Prototyping",
       "Testing and Iteration",
     ],
-    href: "/steam-learn/engineering-design",
+    href: "/learn/steam-learn/engineering-design",
   },
   {
     title: "Project Integration",
@@ -142,7 +142,7 @@ const modules = [
       "Testing and Debugging",
       "Documentation",
     ],
-    href: "/steam-learn/project-integration",
+    href: "/learn/steam-learn/project-integration",
   },
 ];
 
