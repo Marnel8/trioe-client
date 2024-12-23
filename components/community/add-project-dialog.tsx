@@ -37,6 +37,10 @@ import { Upload, X, Video, Plus } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { useCreateProjectMutation } from "@/hooks/community/useCreateProject";
 import { useFetchUser } from "@/hooks/auth/useFetchuser";
+import {
+	IInstructions,
+	useUpdateProjectMutation,
+} from "@/hooks/community/useUpdateProject";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
@@ -52,14 +56,15 @@ const formSchema = z.object({
 	category: z.string({
 		required_error: "Please select a project category.",
 	}),
-	components: z.string().min(2, {
+	componentsUsed: z.string().min(2, {
 		message: "Please list the components used.",
 	}),
 	instructions: z
 		.array(
 			z.object({
+				id: z.string().optional(),
 				text: z.string().min(1, { message: "Instruction cannot be empty." }),
-				image: z.any().optional(),
+				imagePath: z.any().optional(),
 			})
 		)
 		.min(1, { message: "At least one instruction is required." }),
@@ -76,45 +81,89 @@ const formSchema = z.object({
 		.optional(),
 });
 
-export function AddProjectDialog() {
+interface AddProjectDialogProps {
+	projectData?: z.infer<typeof formSchema> & { id: string }; // Include id in projectData type
+	trigger: React.ReactNode;
+}
+
+export function AddProjectDialog({
+	projectData,
+	trigger,
+}: AddProjectDialogProps) {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			title: "",
-			description: "",
-			components: "",
-			instructions: [{ text: "", image: undefined }],
-			video: undefined,
+			title: projectData?.title || "", // Update default values for editing
+			description: projectData?.description || "",
+			category: projectData?.category || "", // New field for category
+			componentsUsed: projectData?.componentsUsed || "",
+			instructions: projectData?.instructions.map((instruction) => {
+				return {
+					id: instruction.id,
+					text: instruction.text,
+					image: instruction.imagePath,
+				};
+			}) || [{ text: "", imagePath: undefined }],
+			video: projectData?.video || undefined,
 		},
 	});
 	const { mutateAsync: createProject, isPending: isCreating } =
 		useCreateProjectMutation();
+	const { mutateAsync: updateProject, isPending: isUpdating } =
+		useUpdateProjectMutation();
 
 	const { data: user } = useFetchUser();
 
 	async function onSubmit(values: z.infer<typeof formSchema>) {
-		const { title, description, category, components, instructions, video } =
-			values;
+		const {
+			title,
+			description,
+			category,
+			componentsUsed,
+			instructions,
+			video,
+		} = values;
 
 		try {
-			await createProject({
-				title,
-				description,
-				category,
-				componentsUsed: components,
-				instructions: instructions.map((instruction) => ({
-					text: instruction.text,
-					image: instruction.image,
-				})),
-				demoVideo: video,
-			});
+			if (projectData) {
+				// Handle update logic here
+				await updateProject({
+					projectId: projectData.id,
+					projectData: {
+						title,
+						description,
+						category,
+						componentsUsed,
+						instructions: instructions.map((instruction) => ({
+							text: instruction.text,
+							id: instruction.id,
+							image: instruction.imagePath,
+						})) as IInstructions[],
+						demoVideo: video,
+					},
+				});
+			} else {
+				// Handle create logic here
+				await createProject({
+					title,
+					description,
+					category,
+					componentsUsed,
+					instructions: instructions.map((instruction) => ({
+						text: instruction.text,
+						image: instruction.imagePath,
+					})) as IInstructions[], // Explicitly cast to IInstructions[]
+					demoVideo: video,
+				});
+				form.reset();
+			}
 
 			toast({
-				description: "Project added successfully",
+				description: projectData
+					? "Project updated successfully"
+					: "Project added successfully",
 				className: "success-toast",
 			});
-
-			form.reset();
 		} catch (error: any) {
 			toast({
 				description: error.message,
@@ -126,7 +175,7 @@ export function AddProjectDialog() {
 	function addInstruction() {
 		form.setValue("instructions", [
 			...form.getValues("instructions"),
-			{ text: "", image: undefined },
+			{ text: "", imagePath: undefined },
 		]);
 	}
 
@@ -138,14 +187,7 @@ export function AddProjectDialog() {
 
 	return (
 		<Dialog>
-			<DialogTrigger asChild>
-				<Button
-					className="bg-[#4285f4] hover:bg-[#3367d6] text-white disabled:cursor-not-allowed"
-					disabled={isCreating || !user}
-				>
-					Add Yours
-				</Button>
-			</DialogTrigger>
+			<DialogTrigger asChild>{trigger}</DialogTrigger>
 			<DialogContent className="w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl overflow-y-auto max-h-screen">
 				<DialogHeader>
 					<DialogTitle className="text-xl sm:text-2xl font-bold">
@@ -223,7 +265,7 @@ export function AddProjectDialog() {
 						/>
 						<FormField
 							control={form.control}
-							name="components"
+							name="componentsUsed"
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel>Components Used</FormLabel>
@@ -276,7 +318,10 @@ export function AddProjectDialog() {
 															accept={ACCEPTED_IMAGE_TYPES.join(",")}
 															onChange={(e) => {
 																const file = e.target.files?.[0];
-																field.onChange({ ...field.value, image: file });
+																field.onChange({
+																	...field.value,
+																	imagePath: file,
+																});
 															}}
 															className="hidden"
 															id={`instruction-image-${index}`}
@@ -288,10 +333,12 @@ export function AddProjectDialog() {
 															<Upload className="w-5 h-5 mr-2" />
 															Upload Image
 														</label>
-														{field.value.image && (
+														{field.value.imagePath && (
 															<div className="relative">
 																<img
-																	src={URL.createObjectURL(field.value.image)}
+																	src={URL.createObjectURL(
+																		field.value.imagePath
+																	)}
 																	alt={`Instruction ${index + 1}`}
 																	className="w-20 h-20 object-cover rounded"
 																/>
@@ -300,7 +347,7 @@ export function AddProjectDialog() {
 																	onClick={() =>
 																		field.onChange({
 																			...field.value,
-																			image: undefined,
+																			imagePath: undefined,
 																		})
 																	}
 																	className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1"
@@ -403,7 +450,7 @@ export function AddProjectDialog() {
 								type="submit"
 								className="w-full sm:w-auto bg-primary tracking-wider"
 							>
-								Submit Project
+								{projectData ? "Update Project" : "	Submit Project "}
 							</Button>
 						</DialogFooter>
 					</form>

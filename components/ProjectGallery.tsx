@@ -71,7 +71,13 @@ export default function ProjectGallery() {
 							<DropdownMenuItem>Mathematics</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
-					<AddProjectDialog />
+					<AddProjectDialog
+						trigger={
+							<Button className="bg-[#4285f4] hover:bg-[#3367d6] text-white disabled:cursor-not-allowed">
+								Add Yours
+							</Button>
+						}
+					/>
 				</div>
 			</div>
 			<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
