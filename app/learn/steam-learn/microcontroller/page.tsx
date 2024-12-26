@@ -26,7 +26,7 @@ const topics = [
 		title: "Introduction to Microcontrollers",
 		description: "Learn about microcontroller architecture and basic concepts",
 		icon: Cpu,
-		href: "/steam-learn/microcontroller/introduction",
+		href: "/learn/steam-learn/microcontroller/introduction",
 		lessons: [
 			"What is a Microcontroller?",
 			"Architecture Overview",
@@ -38,7 +38,7 @@ const topics = [
 		title: "Basic Programming",
 		description: "Master fundamental programming concepts for microcontrollers",
 		icon: Code,
-		href: "/steam-learn/microcontroller/programming",
+		href: "/learn/steam-learn/microcontroller/programming",
 		lessons: [
 			"Digital I/O Operations",
 			"Variables and Data Types",
@@ -50,7 +50,7 @@ const topics = [
 		title: "Timers and Interrupts",
 		description: "Understand timing control and interrupt handling",
 		icon: Timer,
-		href: "/steam-learn/microcontroller/timers",
+		href: "/learn/steam-learn/microcontroller/timers",
 		lessons: [
 			"Timer Configurations",
 			"Interrupt Types",
@@ -62,7 +62,7 @@ const topics = [
 		title: "Communication Protocols",
 		description: "Learn various communication methods between devices",
 		icon: Wifi,
-		href: "/steam-learn/microcontroller/communication",
+		href: "/learn/steam-learn/microcontroller/communication",
 		lessons: [
 			"UART Communication",
 			"SPI Protocol",
@@ -74,7 +74,7 @@ const topics = [
 		title: "Advanced Topics",
 		description: "Explore advanced microcontroller features and applications",
 		icon: Zap,
-		href: "/steam-learn/microcontroller/advanced",
+		href: "/learn/steam-learn/microcontroller/advanced",
 		lessons: [
 			"ADC and DAC",
 			"PWM Control",
@@ -149,7 +149,7 @@ export default function MicrocontrollerPage() {
 							</div>
 						</CardHeader>
 						<CardFooter>
-							<Link href="/steam-learn/microcontroller/quiz" className="w-full">
+							<Link href="/learn/steam-learn/microcontroller/quiz" className="w-full">
 								<Button className="w-full">
 									Take Quiz
 									<ArrowRight className="ml-2 h-4 w-4" />

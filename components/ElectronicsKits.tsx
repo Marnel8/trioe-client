@@ -81,7 +81,7 @@ const ElectronicsKits = () => {
                   size="sm"
                   className="pointer-events-auto"
                 >
-                  <a href={`/kits/${kit.id}$`}>
+                  <a href={kit.route}>
                     Learn More
                     <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </a>

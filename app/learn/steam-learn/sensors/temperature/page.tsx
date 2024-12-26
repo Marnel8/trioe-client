@@ -283,7 +283,7 @@ export default function LessonPage() {
 				{/* Header */}
 				<div className="flex items-center gap-4 mb-8">
 					<Button variant="ghost" size="icon" asChild>
-						<Link href="/steam-learn/sensors">
+						<Link href="/learn/steam-learn/sensors">
 							<ArrowLeft className="h-6 w-6" />
 						</Link>
 					</Button>
@@ -336,7 +336,7 @@ export default function LessonPage() {
 					</div>
 					{currentSection === lesson.sections.length - 1 ? (
 						<Button asChild>
-							<Link href="/steam-learn/sensors/motion">
+							<Link href="/learn/steam-learn/sensors/motion">
 								Next Lesson
 								<ArrowRight className="h-4 w-4 ml-2" />
 							</Link>

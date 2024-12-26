@@ -27,7 +27,7 @@ const topics = [
 		title: "Introduction to Sensors",
 		description: "Learn about sensor basics, types, and characteristics",
 		icon: <Gauge className="w-6 h-6" />,
-		href: "/steam-learn/sensors/introduction",
+		href: "/learn/steam-learn/sensors/introduction",
 		lessons: [
 			"What are Sensors?",
 			"Sensor Characteristics",
@@ -39,7 +39,7 @@ const topics = [
 		title: "Temperature and Humidity",
 		description: "Explore temperature and humidity sensing technologies",
 		icon: <Thermometer className="w-6 h-6" />,
-		href: "/steam-learn/sensors/temperature",
+		href: "/learn/steam-learn/sensors/temperature",
 		lessons: [
 			"Temperature Sensors",
 			"Humidity Sensors",
@@ -51,7 +51,7 @@ const topics = [
 		title: "Motion and Position",
 		description: "Understand motion detection and position sensing",
 		icon: <Compass className="w-6 h-6" />,
-		href: "/steam-learn/sensors/motion",
+		href: "/learn/steam-learn/sensors/motion",
 		lessons: [
 			"Accelerometers",
 			"Gyroscopes",
@@ -63,7 +63,7 @@ const topics = [
 		title: "Light and Optical",
 		description: "Learn about light sensors and optical measurement",
 		icon: <Eye className="w-6 h-6" />,
-		href: "/steam-learn/sensors/optical",
+		href: "/learn/steam-learn/sensors/optical",
 		lessons: [
 			"Photodiodes",
 			"Image Sensors",
@@ -75,7 +75,7 @@ const topics = [
 		title: "Sound and Vibration",
 		description: "Discover acoustic and vibration sensing principles",
 		icon: <Waves className="w-6 h-6" />,
-		href: "/steam-learn/sensors/acoustic",
+		href: "/learn/steam-learn/sensors/acoustic",
 		lessons: [
 			"Microphones",
 			"Vibration Sensors",
@@ -87,7 +87,7 @@ const topics = [
 		title: "Advanced Applications",
 		description: "Explore advanced sensor applications and fusion",
 		icon: <Binary className="w-6 h-6" />,
-		href: "/steam-learn/sensors/advanced",
+		href: "/learn/steam-learn/sensors/advanced",
 		lessons: [
 			"Sensor Fusion",
 			"IoT Applications",
@@ -155,7 +155,7 @@ export default function SensorsModule() {
 					</CardHeader>
 					<CardFooter className="flex justify-center">
 						<Button asChild>
-							<Link href="/steam-learn/sensors/quiz">Take Quiz</Link>
+							<Link href="/learn/steam-learn/sensors/quiz">Take Quiz</Link>
 						</Button>
 					</CardFooter>
 				</Card>
