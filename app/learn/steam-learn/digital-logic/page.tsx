@@ -12,79 +12,79 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { CircuitBoard, ArrowLeft, CheckCircle2, Info } from "lucide-react";
+import { Cpu, ArrowLeft, CheckCircle2, Info } from "lucide-react";
 
 const lessons = [
   {
-    title: "Introduction to Electronics",
-    description: "Learn the basics of electronics and electrical concepts",
+    title: "Boolean Logic",
+    description: "Learn about Boolean algebra and logic operations",
     duration: "30 mins",
     topics: [
-      "What is Electronics?",
-      "Basic Electrical Concepts",
-      "Circuit Fundamentals",
-      "Safety Guidelines",
+      "Basic Boolean Values",
+      "Boolean Operations",
+      "Boolean Laws",
+      "Applications",
     ],
     progress: 0,
-    href: "/steam-learn/basic-electronics/introduction",
+    href: "/learn/steam-learn/digital-logic/boolean",
   },
   {
-    title: "Voltage, Current, and Resistance",
-    description: "Understand the fundamental electrical quantities",
+    title: "Logic Gates",
+    description: "Understanding basic logic gates and their operations",
     duration: "45 mins",
     topics: [
-      "Understanding Voltage",
-      "Current Flow",
-      "Resistance in Circuits",
-      "Ohm's Law",
+      "NOT and AND Gates",
+      "OR and XOR Gates",
+      "NAND and NOR Gates",
+      "Universal Gates",
     ],
     progress: 0,
-    href: "/steam-learn/basic-electronics/electrical-quantities",
+    href: "/learn/steam-learn/digital-logic/gates",
   },
   {
-    title: "Basic Components",
-    description: "Explore common electronic components and their functions",
+    title: "Digital Circuits",
+    description: "Building and analyzing digital circuits",
     duration: "45 mins",
     topics: [
-      "Resistors and Capacitors",
-      "Inductors and Transformers",
-      "Diodes and LEDs",
-      "Transistors",
+      "Combinational Circuits",
+      "Half and Full Adders",
+      "Multiplexers",
+      "Decoders",
     ],
     progress: 0,
-    href: "/steam-learn/basic-electronics/components",
+    href: "/learn/steam-learn/digital-logic/circuits",
   },
   {
-    title: "Circuit Analysis",
-    description: "Learn to analyze and understand electronic circuits",
+    title: "Sequential Logic",
+    description: "Understanding flip-flops and sequential circuits",
     duration: "1 hour",
     topics: [
-      "Series and Parallel Circuits",
-      "Kirchhoff's Laws",
-      "Circuit Analysis Techniques",
-      "Troubleshooting Basics",
+      "Latches and Flip-flops",
+      "Registers",
+      "Counters",
+      "State Machines",
     ],
     progress: 0,
-    href: "/steam-learn/basic-electronics/circuit-analysis",
+    href: "/learn/steam-learn/digital-logic/sequential",
   },
 ];
 
-export default function BasicElectronicsPage() {
+export default function DigitalLogicPage() {
   return (
     <div className="container mx-auto py-8">
       <div className="flex items-center gap-4 mb-8">
         <Button variant="ghost" size="icon" asChild>
-          <Link href="/steam-learn">
+          <Link href="/learn/steam-learn">
             <ArrowLeft className="h-6 w-6" />
           </Link>
         </Button>
         <div>
           <h1 className="text-4xl font-bold flex items-center gap-3">
-            <CircuitBoard className="h-8 w-8 text-blue-500" />
-            Basic Electronics
+            <Cpu className="h-8 w-8 text-green-500" />
+            Digital Logic
           </h1>
           <p className="text-muted-foreground mt-2">
-            Master the fundamentals of electronics through hands-on learning
+            Master the fundamentals of digital logic and circuit design
           </p>
         </div>
       </div>
@@ -95,7 +95,7 @@ export default function BasicElectronicsPage() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-500">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-green-500">
                     {index + 1}
                   </div>
                   <div>

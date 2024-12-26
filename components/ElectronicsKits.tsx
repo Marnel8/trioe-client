@@ -32,7 +32,7 @@ const kits = [
     image: "/samples/PROMOTION_6.png",
     difficulty: "Beginner",
     route: "/kits/steam",
-    learnRoute: "/learn/steam",
+    learnRoute: "/kits/steam",
   },
   {
     id: 3,

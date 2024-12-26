@@ -24,17 +24,16 @@ import {
 } from "lucide-react";
 
 const lesson = {
-  title: "Introduction to Electronics",
+  title: "Boolean Logic",
   sections: [
     {
       id: "overview",
-      title: "What is Electronics?",
+      title: "Introduction to Boolean Logic",
       content: (
         <div className="space-y-4">
           <p>
-            Electronics is the study and application of devices that control the
-            flow of electrons. It forms the foundation of modern technology,
-            from smartphones to satellites.
+            Boolean logic is the foundation of digital electronics and computer science. It deals with
+            binary values (true/false, 1/0) and logical operations between them.
           </p>
           <div className="bg-muted p-4 rounded-lg">
             <h4 className="font-semibold mb-2 flex items-center gap-2">
@@ -42,48 +41,63 @@ const lesson = {
               Key Concepts
             </h4>
             <ul className="list-disc list-inside space-y-1">
-              <li>Electronics vs Electricity</li>
-              <li>Basic Circuit Components</li>
-              <li>Electronic Signals</li>
-              <li>Applications in Modern Technology</li>
+              <li>Binary Values (0 and 1)</li>
+              <li>Logical Operations</li>
+              <li>Truth Tables</li>
+              <li>Boolean Expressions</li>
             </ul>
           </div>
         </div>
       ),
     },
     {
-      id: "basic-concepts",
-      title: "Basic Electrical Concepts",
+      id: "basic-operations",
+      title: "Basic Boolean Operations",
       content: (
         <div className="space-y-4">
           <p>
-            Before diving into electronics, it&apos;s essential to understand basic
-            electrical concepts that govern how electronic devices work.
+            Boolean algebra consists of three fundamental operations that form the basis
+            of all digital logic operations.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Electricity</CardTitle>
+                <CardTitle className="text-lg">AND Operation</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc list-inside space-y-1">
-                  <li>Flow of electrical charge</li>
-                  <li>Measured in Coulombs</li>
-                  <li>Creates magnetic fields</li>
-                  <li>Powers electronic devices</li>
+                  <li>Symbol: · or ∧</li>
+                  <li>0 · 0 = 0</li>
+                  <li>0 · 1 = 0</li>
+                  <li>1 · 0 = 0</li>
+                  <li>1 · 1 = 1</li>
                 </ul>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Electronics</CardTitle>
+                <CardTitle className="text-lg">OR Operation</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc list-inside space-y-1">
-                  <li>Control of electrical flow</li>
-                  <li>Uses semiconductor devices</li>
-                  <li>Processes signals</li>
-                  <li>Creates functionality</li>
+                  <li>Symbol: + or ∨</li>
+                  <li>0 + 0 = 0</li>
+                  <li>0 + 1 = 1</li>
+                  <li>1 + 0 = 1</li>
+                  <li>1 + 1 = 1</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">NOT Operation</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Symbol: ¬ or '</li>
+                  <li>¬0 = 1</li>
+                  <li>¬1 = 0</li>
+                  <li>Inverts input</li>
                 </ul>
               </CardContent>
             </Card>
@@ -92,40 +106,32 @@ const lesson = {
       ),
     },
     {
-      id: "circuit-fundamentals",
-      title: "Circuit Fundamentals",
+      id: "laws",
+      title: "Boolean Laws and Properties",
       content: (
         <div className="space-y-4">
           <p>
-            A circuit is a complete path through which electricity can flow. Let&apos;s
-            explore the basic components and concepts of electrical circuits.
+            Boolean algebra follows several important laws and properties that help simplify
+            logical expressions.
           </p>
-          <div className="relative h-48 mb-4">
-            <Image
-              src="/images/basic-circuit.png"
-              alt="Basic Circuit Diagram"
-              fill
-              className="object-contain"
-            />
-          </div>
           <div className="bg-muted p-4 rounded-lg">
-            <h4 className="font-semibold mb-2">Circuit Elements:</h4>
+            <h4 className="font-semibold mb-2">Key Laws:</h4>
             <ul className="grid grid-cols-2 gap-2">
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-500" />
-                Power Source
+                Commutative Law
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-500" />
-                Conductors
+                Associative Law
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-500" />
-                Load/Component
+                Distributive Law
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-500" />
-                Switch
+                DeMorgan's Law
               </li>
             </ul>
           </div>
@@ -133,46 +139,37 @@ const lesson = {
       ),
     },
     {
-      id: "safety",
-      title: "Safety Guidelines",
+      id: "applications",
+      title: "Applications",
       content: (
         <div className="space-y-4">
           <p>
-            Safety is paramount when working with electronics. Following proper
-            safety guidelines prevents accidents and protects both you and your
-            equipment.
+            Boolean logic is fundamental to digital systems and has numerous practical
+            applications in modern technology.
           </p>
-          <Card className="border-yellow-200 bg-yellow-50">
+          <Card className="border-green-200 bg-green-50">
             <CardHeader>
-              <CardTitle className="text-yellow-800">
-                Essential Safety Rules
+              <CardTitle className="text-green-800">
+                Real-world Applications
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-yellow-800">
+            <CardContent className="text-green-800">
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 mt-0.5 text-yellow-600" />
-                  <span>
-                    Always disconnect power before modifying circuits
-                  </span>
+                  <CheckCircle2 className="h-5 w-5 mt-0.5 text-green-600" />
+                  <span>Digital Circuit Design</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 mt-0.5 text-yellow-600" />
-                  <span>
-                    Use appropriate tools and protective equipment
-                  </span>
+                  <CheckCircle2 className="h-5 w-5 mt-0.5 text-green-600" />
+                  <span>Computer Programming</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 mt-0.5 text-yellow-600" />
-                  <span>
-                    Keep your workspace clean and organized
-                  </span>
+                  <CheckCircle2 className="h-5 w-5 mt-0.5 text-green-600" />
+                  <span>Database Systems</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 mt-0.5 text-yellow-600" />
-                  <span>
-                    Never work alone with high-voltage circuits
-                  </span>
+                  <CheckCircle2 className="h-5 w-5 mt-0.5 text-green-600" />
+                  <span>Control Systems</span>
                 </li>
               </ul>
             </CardContent>
@@ -192,12 +189,12 @@ export default function LessonPage() {
   }, [currentSection]);
 
   return (
-    <div className="container mx-auto py-8 h-screen">
+    <div className="container mx-auto py-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <Button variant="ghost" size="icon" asChild>
-            <Link href="/steam-learn/basic-electronics">
+            <Link href="/steam-learn/digital-logic">
               <ArrowLeft className="h-6 w-6" />
             </Link>
           </Button>
@@ -217,7 +214,7 @@ export default function LessonPage() {
           <Card>
             <CardHeader>
               <div className="flex items-center gap-2">
-                <BookOpen className="h-5 w-5 text-blue-500" />
+                <BookOpen className="h-5 w-5 text-green-500" />
                 <CardTitle>{lesson.sections[currentSection].title}</CardTitle>
               </div>
             </CardHeader>
@@ -252,7 +249,7 @@ export default function LessonPage() {
           </div>
           {currentSection === lesson.sections.length - 1 ? (
             <Button asChild>
-              <Link href="/steam-learn/basic-electronics/electrical-quantities">
+              <Link href="/steam-learn/digital-logic/gates">
                 Next Lesson
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Link>

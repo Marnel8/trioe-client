@@ -79,45 +79,59 @@ const DRMKit = () => {
                   </tr>
                 </thead>
                 <tbody className="text-base">
+                  {/* Main Components */}
                   <tr>
                     <td className="py-1">1</td>
-                    <td>Arduino Uno Board</td>
-                    <td>ATmega328P</td>
+                    <td>Trioe - Main Board</td>
+                    <td>Microcontroller board</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">4</td>
+                    <td>Trioe - General Purpose Strip</td>
+                    <td>Custom PCB</td>
                   </tr>
                   <tr>
                     <td className="py-1">1</td>
-                    <td>Breadboard</td>
-                    <td>830 points</td>
+                    <td>Display</td>
+                    <td>1.5" SH1107 OLED Display</td>
                   </tr>
                   <tr>
-                    <td className="py-1">40</td>
-                    <td>Jumper Wires</td>
-                    <td>Male to Male</td>
+                    <td className="py-1">1</td>
+                    <td>433MHz SX1278 LoRa Module</td>
+                    <td>10KM Ra-02, IPX Antenna</td>
+                  </tr>
+                  {/* Tools */}
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>Soldering Iron with stand and lead</td>
+                    <td>60W - temp adjustable</td>
                   </tr>
                   <tr>
-                    <td className="py-1">20</td>
-                    <td>LEDs</td>
-                    <td>Various Colors</td>
+                    <td className="py-1">1</td>
+                    <td>Side Cutter</td>
+                    <td>Mini Precision Wire Cutter</td>
                   </tr>
+
+                  {/* Accessories and Connectors */}
                   <tr>
                     <td className="py-1">10</td>
-                    <td>Resistors</td>
-                    <td>220Ω, 1kΩ, 10kΩ</td>
+                    <td>Male/Female Headers</td>
+                    <td>Generic</td>
                   </tr>
                   <tr>
                     <td className="py-1">2</td>
-                    <td>Push Buttons</td>
-                    <td>Tactile Switch</td>
+                    <td>1x20 dupont cables</td>
+                    <td>20cm male to female</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">6</td>
+                    <td>1x40 headers</td>
+                    <td>2.54mm male and female</td>
                   </tr>
                   <tr>
                     <td className="py-1">1</td>
-                    <td>USB Cable</td>
-                    <td>Type A to B</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1">1</td>
-                    <td>Storage Box</td>
-                    <td>Plastic Organizer</td>
+                    <td>Power Adapter</td>
+                    <td>5V 2A DC Power Supply</td>
                   </tr>
                 </tbody>
               </table>

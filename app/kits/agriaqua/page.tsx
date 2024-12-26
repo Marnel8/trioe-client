@@ -79,55 +79,82 @@ const AgriAquaKit = () => {
                   </tr>
                 </thead>
                 <tbody className="text-base">
+                  {/* Main Components */}
                   <tr>
                     <td className="py-1">1</td>
-                    <td>Main Control Board</td>
-                    <td>ESP32-based</td>
+                    <td>Trioe - Main Board</td>
+                    <td>Microcontroller board</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">5</td>
+                    <td>Trioe - General Purpose Strip</td>
+                    <td>Custom PCB</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>Display</td>
+                    <td>Generic, 128X128</td>
+                  </tr>
+                  
+                  {/* Sensors and Actuators */}
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>BME280</td>
+                    <td>Temperature, Humidity, and Pressure Sensor</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>MQ-135</td>
+                    <td>Air Quality Gas Sensor</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>Ultrasonic Sensor</td>
+                    <td>HC-SR04</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>Servo Motor</td>
+                    <td>SG90 9g Micro Servo</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>LED</td>
+                    <td>Through Hole, 3.3V Assorted</td>
+                  </tr>
+
+                  {/* Tools */}
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>Soldering Iron with stand and lead</td>
+                    <td>60W - temp adjustable</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">1</td>
+                    <td>Side Cutter</td>
+                    <td>Mini Precision Wire Cutter</td>
+                  </tr>
+
+                  {/* Accessories and Connectors */}
+                  <tr>
+                    <td className="py-1">10</td>
+                    <td>Male/Female Headers</td>
+                    <td>Generic</td>
                   </tr>
                   <tr>
                     <td className="py-1">2</td>
-                    <td>Temperature Sensors</td>
-                    <td>DS18B20 Waterproof</td>
+                    <td>1x20 dupont cables</td>
+                    <td>20cm male to female</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">6</td>
+                    <td>1x40 headers</td>
+                    <td>2.54mm male and female</td>
                   </tr>
                   <tr>
                     <td className="py-1">1</td>
-                    <td>pH Sensor</td>
-                    <td>Analog pH Meter Kit</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1">1</td>
-                    <td>TDS Sensor</td>
-                    <td>Water Quality Monitor</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1">1</td>
-                    <td>Soil Moisture Sensor</td>
-                    <td>Capacitive</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1">1</td>
-                    <td>Water Pump</td>
-                    <td>12V DC Submersible</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1">1</td>
-                    <td>Relay Module</td>
-                    <td>4-Channel, 5V</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1">1</td>
-                    <td>LCD Display</td>
-                    <td>16x2 I2C</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1">1</td>
-                    <td>Power Supply</td>
-                    <td>12V 2A Adapter</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1">1</td>
-                    <td>Tubing Set</td>
-                    <td>Food-grade PVC</td>
+                    <td>Power Adapter</td>
+                    <td>5V 2A DC Power Supply</td>
                   </tr>
                 </tbody>
               </table>

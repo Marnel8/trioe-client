@@ -1,4 +1,4 @@
-"use client";
+  "use client";
 
 import React from "react";
 import Link from "next/link";
@@ -13,147 +13,147 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  CircuitBoard,
-  Code,
-  Cpu,
-  Database,
-  Lightbulb,
-  Radio,
-  Ruler,
-  Waves,
+  Sprout,
+  Droplets,
+  Fish,
+  LineChart,
+  Leaf,
+  Sun,
+  Building2,
+  Microscope,
 } from "lucide-react";
 
 const modules = [
   {
-    title: "Basic Electronics",
-    description: "Learn fundamental electronics concepts and components",
+    title: "Soil Science",
+    description: "Learn about soil properties and management",
     difficulty: "Beginner",
     duration: "2-3 hours",
-    icon: CircuitBoard,
-    color: "text-blue-500",
-    lessons: [
-      "Introduction to Electronics",
-      "Voltage, Current, and Resistance",
-      "Basic Components",
-      "Circuit Analysis",
-    ],
-    href: "/steam-learn/basic-electronics",
-  },
-  {
-    title: "Digital Logic",
-    description: "Understand digital circuits and logic gates",
-    difficulty: "Intermediate",
-    duration: "3-4 hours",
-    icon: Cpu,
+    icon: Sprout,
     color: "text-green-500",
     lessons: [
-      "Boolean Logic",
-      "Logic Gates",
-      "Digital Circuits",
-      "Sequential Logic",
+      "Soil Composition",
+      "pH and Nutrients",
+      "Soil Testing",
+      "Soil Conservation",
     ],
-    href: "/steam-learn/digital-logic",
+    href: "/agri-aqua-learn/soil-science",
   },
   {
-    title: "Microcontroller Programming",
-    description: "Program microcontrollers using Arduino",
-    difficulty: "Intermediate",
-    duration: "4-5 hours",
-    icon: Code,
-    color: "text-purple-500",
-    lessons: [
-      "Introduction to Arduino",
-      "Digital I/O",
-      "Analog Sensors",
-      "Serial Communication",
-    ],
-    href: "/steam-learn/microcontroller",
-  },
-  {
-    title: "Sensors and Actuators",
-    description: "Work with various sensors and control systems",
+    title: "Water Management",
+    description: "Understanding water systems in agriculture",
     difficulty: "Intermediate",
     duration: "3-4 hours",
-    icon: Radio,
-    color: "text-orange-500",
+    icon: Droplets,
+    color: "text-blue-500",
     lessons: [
-      "Sensor Types",
-      "Signal Processing",
-      "Actuator Control",
-      "Feedback Systems",
+      "Irrigation Systems",
+      "Water Quality",
+      "Water Conservation",
+      "Drainage Systems",
     ],
-    href: "/steam-learn/sensors",
+    href: "/agri-aqua-learn/water-management",
   },
   {
-    title: "IoT and Connectivity",
-    description: "Connect your projects to the internet",
-    difficulty: "Advanced",
+    title: "Aquaculture Basics",
+    description: "Introduction to fish farming and aquaculture",
+    difficulty: "Intermediate",
     duration: "4-5 hours",
-    icon: Waves,
+    icon: Fish,
     color: "text-cyan-500",
     lessons: [
-      "IoT Fundamentals",
-      "WiFi Communication",
-      "Cloud Integration",
-      "Data Visualization",
+      "Fish Species Selection",
+      "Water Quality Management",
+      "Feeding Systems",
+      "Disease Prevention",
     ],
-    href: "/steam-learn/iot",
+    href: "/agri-aqua-learn/aquaculture",
   },
   {
-    title: "Data Analysis",
-    description: "Analyze and visualize sensor data",
-    difficulty: "Advanced",
+    title: "Crop Management",
+    description: "Learn effective crop management techniques",
+    difficulty: "Intermediate",
     duration: "3-4 hours",
-    icon: Database,
+    icon: Leaf,
+    color: "text-emerald-500",
+    lessons: [
+      "Crop Selection",
+      "Planting Techniques",
+      "Pest Management",
+      "Harvest Management",
+    ],
+    href: "/agri-aqua-learn/crop-management",
+  },
+  {
+    title: "Climate Smart Agriculture",
+    description: "Adapt farming to climate change",
+    difficulty: "Advanced",
+    duration: "4-5 hours",
+    icon: Sun,
     color: "text-yellow-500",
     lessons: [
-      "Data Collection",
-      "Statistical Analysis",
-      "Data Visualization",
-      "Machine Learning Basics",
+      "Climate Impact",
+      "Adaptation Strategies",
+      "Sustainable Practices",
+      "Resource Efficiency",
     ],
-    href: "/steam-learn/data-analysis",
+    href: "/agri-aqua-learn/climate-smart",
   },
   {
-    title: "Engineering Design",
-    description: "Learn the engineering design process",
-    difficulty: "Intermediate",
-    duration: "4-5 hours",
-    icon: Ruler,
-    color: "text-red-500",
+    title: "Farm Analytics",
+    description: "Data-driven farming decisions",
+    difficulty: "Advanced",
+    duration: "3-4 hours",
+    icon: LineChart,
+    color: "text-purple-500",
     lessons: [
-      "Design Thinking",
-      "Project Planning",
-      "Prototyping",
-      "Testing and Iteration",
+      "Data Collection",
+      "Yield Analysis",
+      "Cost Management",
+      "Predictive Analytics",
     ],
-    href: "/steam-learn/engineering-design",
+    href: "/agri-aqua-learn/farm-analytics",
   },
   {
-    title: "Project Integration",
-    description: "Build complete STEAM projects",
+    title: "Controlled Environment",
+    description: "Indoor and greenhouse farming",
+    difficulty: "Advanced",
+    duration: "4-5 hours",
+    icon: Building2,
+    color: "text-orange-500",
+    lessons: [
+      "Greenhouse Design",
+      "Climate Control",
+      "Hydroponics",
+      "Vertical Farming",
+    ],
+    href: "/agri-aqua-learn/controlled-environment",
+  },
+  {
+    title: "Plant Science",
+    description: "Understanding plant biology and genetics",
     difficulty: "Advanced",
     duration: "5-6 hours",
-    icon: Lightbulb,
+    icon: Microscope,
     color: "text-indigo-500",
     lessons: [
-      "Project Selection",
-      "System Integration",
-      "Testing and Debugging",
-      "Documentation",
+      "Plant Biology",
+      "Plant Nutrition",
+      "Plant Breeding",
+      "Disease Management",
     ],
-    href: "/steam-learn/project-integration",
+    href: "/agri-aqua-learn/plant-science",
   },
 ];
 
-export default function SteamLearnPage() {
+export default function AgriAquaLearnPage() {
   return (
     <div className="container mx-auto py-8">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">STEAM Learning Modules</h1>
+        <h1 className="text-4xl font-bold mb-4">Agri-Aqua Learning Modules</h1>
         <p className="text-muted-foreground text-lg">
-          Explore our comprehensive STEAM learning modules designed to help you
-          master electronics and programming concepts.
+          Explore our comprehensive agriculture and aquaculture learning modules designed to help you
+          master modern farming and aquaculture practices.
         </p>
       </div>
 
