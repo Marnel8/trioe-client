@@ -2,6 +2,10 @@ import React from "react";
 import Installations from "@/components/docs/installations";
 import { DocumentationSidebar } from "@/components/DocumentationSidebar";
 import { SidebarInset } from "@/components/ui/sidebar";
+import Monitor from "@/components/icons/Monitor";
+import Download from "@/components/icons/Download";
+import Clock from "@/components/icons/Clock";
+import { InstallationSteps } from "@/components/docs/InstallationSteps";
 
 export default function DocumentationPage() {
   return (
@@ -42,7 +46,49 @@ export default function DocumentationPage() {
                 </div>
 
                 <div id="installation">
-                  <Installations />
+                  <h2 className="text-2xl font-bold mb-6">Installation Guide</h2>
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg p-6">
+                      <h3 className="text-xl font-medium mb-2">Getting Started with TRIOE</h3>
+                      <p className="text-blue-100">
+                        Follow this step-by-step guide to set up your TRIOE development environment. Make sure to complete each step before moving to the next one.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-white rounded-lg shadow-sm p-6">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                            <Monitor className="w-5 h-5 text-blue-500" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium mb-1">System Requirements</h4>
+                            <p className="text-sm text-gray-600">Windows 10/11, macOS 10.14+, or Linux</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                            <Download className="w-5 h-5 text-blue-500" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium mb-1">Download Size</h4>
+                            <p className="text-sm text-gray-600">Arduino IDE (~200MB)</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                            <Clock className="w-5 h-5 text-blue-500" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium mb-1">Setup Time</h4>
+                            <p className="text-sm text-gray-600">~15-20 minutes</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <InstallationSteps />
+                    </div>
+                  </div>
                 </div>
 
                 <div id="quick-start">
