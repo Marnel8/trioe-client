@@ -60,16 +60,19 @@ export function QuoteRequestModal({ quantity, price }: QuoteRequestModalProps) {
 				</Button>
 			</DialogTrigger>
 			<DialogContent>
-				<ScrollArea className="max-h-[80vh]">
-					<DialogHeader>
-						<DialogTitle>Request a Quote</DialogTitle>
-						<DialogDescription>
-							Fill out this form to receive a customized quote for {quantity}{" "}
-							STEAM Kit(s).
-						</DialogDescription>
-					</DialogHeader>
+				<DialogHeader className="px-2">
+					<DialogTitle>Request a Quote</DialogTitle>
+					<DialogDescription>
+						Fill out this form to receive a customized quote for {quantity}{" "}
+						STEAM Kit(s).
+					</DialogDescription>
+				</DialogHeader>
+				<ScrollArea className="max-h-[80vh] ">
 					<Form {...form}>
-						<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+						<form
+							onSubmit={form.handleSubmit(onSubmit)}
+							className="space-y-6 px-2"
+						>
 							<div className="grid grid-cols-2 gap-4">
 								<FormField
 									control={form.control}
