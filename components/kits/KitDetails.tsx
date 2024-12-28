@@ -150,7 +150,6 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 						</div>
 					</div>
 				</Card>
-
 				{/* Specifications Tabs */}
 				<Card className="p-8 shadow">
 					<Tabs defaultValue="inclusions" className="space-y-6">
@@ -239,7 +238,6 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 						</Link>
 					</div>
 				</Card>
-
 				{/* Related Courses */}
 				<Card className="p-8 shadow">
 					<h2 className="text-2xl font-bold text-gray-800 mb-6">

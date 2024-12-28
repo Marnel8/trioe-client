@@ -14,39 +14,6 @@ import { ArrowRightIcon } from "lucide-react";
 import { kits } from "@/constants";
 import Link from "next/link";
 
-// const kits = [
-//   {
-//     id: 1,
-//     name: "DRM KIT",
-//     description:
-//       "Perfect for beginners, this kit includes an Arduino board and essential components.",
-//     image: "/samples/KITS_new (2).png",
-//     difficulty: "Beginner",
-//     route: "/kits/drm",
-//     learnRoute: "/learn/drm",
-//   },
-//   {
-//     id: 2,
-//     name: "STEAM KIT",
-//     description:
-//       "A powerful single-board computer kit for advanced projects in IoT and robotics.",
-//     image: "/samples/PROMOTION_6.png",
-//     difficulty: "Beginner",
-//     route: "/kits/steam",
-//     learnRoute: "/kits/steam",
-//   },
-//   {
-//     id: 3,
-//     name: "AGRI-AQUA KIT",
-//     description:
-//       "Create stunning visual displays with this programmable LED matrix kit.",
-//     image: "/samples/KITS_new (1).png",
-//     difficulty: "Advanced",
-//     route: "/kits/agriaqua",
-//     learnRoute: "/learn/agriaqua",
-//   },
-// ];
-
 const ElectronicsKits = () => {
 	return (
 		<section className="flex flex-col items-center">
