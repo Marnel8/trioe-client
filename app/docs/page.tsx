@@ -1,48 +1,33 @@
-import React from "react";
-import Installations from "@/components/docs/installations";
+'use client';
+
 import { DocumentationSidebar } from "@/components/DocumentationSidebar";
 import { SidebarInset } from "@/components/ui/sidebar";
 import Monitor from "@/components/icons/Monitor";
 import Download from "@/components/icons/Download";
 import Clock from "@/components/icons/Clock";
+import Cpu from "@/components/icons/Cpu";
+import GraduationCap from "@/components/icons/GraduationCap";
 import { InstallationSteps } from "@/components/docs/InstallationSteps";
+import { QuickStartSteps } from "@/components/docs/QuickStartSteps";
 
 export default function DocumentationPage() {
   return (
-    <div className="flex h-screen">
-      <div className="lg:w-64">
+    <div className="flex h-screen overflow-hidden">
+      <div className="lg:w-64 flex-shrink-0">
         <DocumentationSidebar />
       </div>
-      <SidebarInset className="flex-1 w-full rounded-lg">
-        <div className="flex h-full">
-          <main className="w-full p-6 overflow-y-auto">
-            <h1 className="text-4xl font-bold mb-4 text-primary">
-              Getting Started with TRIOE
-            </h1>
-            <p className="mb-6">
-              Welcome to TRIOE's comprehensive documentation. This guide will help you understand
-              our electronics kits and get started with your learning journey.
-            </p>
-
-            {/* Getting Started Section */}
-            <section id="getting-started" className="mb-12">
-              <div className="space-y-8">
+      <div className="flex-1 overflow-hidden">
+        <div className="h-full overflow-y-auto">
+          <main className="container max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <section>
+              <div className="prose max-w-none">
                 <div id="introduction">
-                  <h3 className="docs-title">Introduction to TRIOE</h3>
+                  <h2 className="text-2xl font-bold mb-6">Introduction</h2>
                   <p className="mb-4">
-                    TRIOE is an innovative electronics learning platform designed to make electronics
-                    education accessible and engaging. Our platform combines hardware kits with
-                    interactive software to create a comprehensive learning experience.
+                    Welcome to TRIOE documentation. Here you'll find comprehensive guides and
+                    documentation to help you start working with TRIOE as quickly as
+                    possible, as well as support if you get stuck.
                   </p>
-                  <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                    <h4 className="font-semibold mb-2">What You'll Learn</h4>
-                    <ul className="list-disc list-inside space-y-2">
-                      <li>Basic to advanced electronics concepts</li>
-                      <li>Programming microcontrollers and sensors</li>
-                      <li>Building real-world electronics projects</li>
-                      <li>IoT and smart device development</li>
-                    </ul>
-                  </div>
                 </div>
 
                 <div id="installation">
@@ -92,18 +77,48 @@ export default function DocumentationPage() {
                 </div>
 
                 <div id="quick-start">
-                  <h3 className="docs-title">Quick Start Guide</h3>
-                  <p className="mb-4">
-                    Get up and running with your TRIOE kit in minutes. Follow these steps to begin
-                    your learning journey.
-                  </p>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <ol className="list-decimal list-inside space-y-3">
-                      <li>Unbox your TRIOE kit and verify all components</li>
-                      <li>Install the required software and drivers</li>
-                      <li>Connect your board to your computer</li>
-                      <li>Run your first test program</li>
-                    </ol>
+                  <h2 className="text-2xl font-bold mb-6">Quick Start Guide</h2>
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg p-6">
+                      <h3 className="text-xl font-medium mb-2">Get Started with TRIOE</h3>
+                      <p className="text-green-100">
+                        Follow this quick guide to get your TRIOE board up and running in minutes. We'll walk you through the basic setup and your first program.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-white rounded-lg shadow-sm p-6">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                            <Clock className="w-5 h-5 text-green-500" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium mb-1">Time Required</h4>
+                            <p className="text-sm text-gray-600">5-10 minutes</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                            <Cpu className="w-5 h-5 text-green-500" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium mb-1">Requirements</h4>
+                            <p className="text-sm text-gray-600">TRIOE Board & USB Cable</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                            <GraduationCap className="w-5 h-5 text-green-500" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium mb-1">Difficulty</h4>
+                            <p className="text-sm text-gray-600">Beginner Friendly</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <QuickStartSteps />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -302,7 +317,7 @@ export default function DocumentationPage() {
             </section>
           </main>
         </div>
-      </SidebarInset>
+      </div>
     </div>
   );
 }
