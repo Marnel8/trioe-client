@@ -26,10 +26,49 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { QuoteRequestModal } from "@/components/kits/quote-request";
-import { kits } from "@/constants";
+import { kits, sensors, actuators } from "@/constants";
+
+// Define types for our data structures
+type Inclusion = {
+	id: string;
+	name: string;
+	quantity: number;
+	specifications: string;
+	type: "sensor" | "actuator" | "other";
+};
+
+type Kit = {
+	id: number;
+	name: string;
+	description: string;
+	thumbnail: string;
+	difficulty: string;
+	quantity: number;
+	price: number;
+	learnRoute: string;
+	route: string;
+	images: string[];
+	inclusions: Inclusion[];
+	technicalSpecs: { key: string; value: string }[];
+	schematicDiagram: string;
+	category: string;
+	relatedCourses: {
+		name: string;
+		route: string;
+		image: string;
+		description: string;
+	}[];
+};
+
+type Component = {
+	id: string;
+	name: string;
+	image: string;
+	category: string;
+};
 
 const KitDetails = ({ kitId }: { kitId: string }) => {
-	const kit = kits.find((kit) => kit.id === parseInt(kitId));
+	const kit = kits.find((kit) => kit.id === parseInt(kitId)) as Kit | undefined;
 
 	const [quantity, setQuantity] = useState(1);
 	const [selectedImage, setSelectedImage] = useState(kit?.thumbnail || "");
@@ -48,9 +87,19 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 	};
 
 	const handleQuoteRequest = () => {
-		console.log(`Quote requested for ${quantity} STEAM Kit(s)`);
+		console.log(`Quote requested for ${quantity} ${kit?.name}(s)`);
 		// Here you would typically handle the quote request logic
 	};
+
+	const getComponentDetails = (inclusion: Inclusion): Component | undefined => {
+		if (inclusion.type === "sensor") {
+			return sensors.find((s) => s.id === inclusion.id);
+		} else if (inclusion.type === "actuator") {
+			return actuators.find((a) => a.id === inclusion.id);
+		}
+		return undefined;
+	};
+
 	return (
 		<div className="min-h-screen bg-white">
 			<div className="container mx-auto px-4 py-12 space-y-12">
@@ -62,7 +111,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 							<div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-blue-100">
 								<Image
 									src={selectedImage}
-									alt="STEAM Kit"
+									alt={kit?.name || "Kit"}
 									fill
 									className="object-contain transition-transform duration-300 hover:scale-105"
 								/>
@@ -78,7 +127,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 									>
 										<Image
 											src={thumb}
-											alt={`STEAM Kit thumbnail ${index + 1}`}
+											alt={`${kit.name} thumbnail ${index + 1}`}
 											fill
 											className="object-contain p-2"
 										/>
@@ -145,7 +194,10 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 										</Button>
 									</div>
 								</div>
-								<QuoteRequestModal quantity={quantity} price={2500} />
+								<QuoteRequestModal
+									quantity={quantity}
+									price={kit?.price || 0}
+								/>
 							</div>
 						</div>
 					</div>
@@ -153,9 +205,10 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 				{/* Specifications Tabs */}
 				<Card className="p-8 shadow">
 					<Tabs defaultValue="inclusions" className="space-y-6">
-						<TabsList className="grid w-full max-w-[400px] grid-cols-2 mx-auto">
+						<TabsList className="grid w-full max-w-[600px] grid-cols-3 mx-auto">
 							<TabsTrigger value="inclusions">Package Inclusions</TabsTrigger>
 							<TabsTrigger value="specs">Technical Specs</TabsTrigger>
+							<TabsTrigger value="components">Components</TabsTrigger>
 						</TabsList>
 						<TabsContent value="inclusions" className="space-y-4">
 							<h2 className="text-2xl font-bold text-gray-800">
@@ -203,6 +256,75 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 								))}
 							</div>
 						</TabsContent>
+						<TabsContent value="components" className="space-y-4">
+							<h2 className="text-2xl font-bold text-gray-800">
+								Kit Components
+							</h2>
+							<div className="space-y-6">
+								<div>
+									<h3 className="text-xl font-semibold text-gray-700 mb-4">
+										Sensors
+									</h3>
+									<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+										{kit?.inclusions
+											.filter((item) => item.type === "sensor")
+											.map((item) => {
+												const component = getComponentDetails(item);
+												if (component) {
+													return (
+														<Link
+															key={component.id}
+															href={`/sensors/${component.id}`}
+															className="bg-gray-50/50 p-4 rounded-lg hover:bg-gray-100/50 transition-colors flex items-center space-x-4"
+														>
+															<div>
+																<p className="font-semibold text-gray-700">
+																	{component.name}
+																</p>
+																<p className="text-sm text-gray-600">
+																	{component.category}
+																</p>
+															</div>
+														</Link>
+													);
+												}
+												return null;
+											})}
+									</div>
+								</div>
+								<div>
+									<h3 className="text-xl font-semibold text-gray-700 mb-4">
+										Actuators
+									</h3>
+									<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+										{kit?.inclusions
+											.filter((item) => item.type === "actuator")
+											.map((item) => {
+												const component = getComponentDetails(item);
+												if (component) {
+													return (
+														<Link
+															key={component.id}
+															href={`/actuators/${component.id}`}
+															className="bg-gray-50/50 p-4 rounded-lg hover:bg-gray-100/50 transition-colors flex items-center space-x-4"
+														>
+															<div>
+																<p className="font-semibold text-gray-700">
+																	{component.name}
+																</p>
+																<p className="text-sm text-gray-600">
+																	{component.category}
+																</p>
+															</div>
+														</Link>
+													);
+												}
+												return null;
+											})}
+									</div>
+								</div>
+							</div>
+						</TabsContent>
 					</Tabs>
 				</Card>
 				{/* Technical Details */}
@@ -244,29 +366,28 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 						Related Courses
 					</h2>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-						{[1, 2, 3].map((index) => (
+						{kit?.relatedCourses.map((course, index) => (
 							<Card
 								key={index}
 								className="overflow-hidden hover:shadow transition-all duration-300"
 							>
 								<div className="relative h-48">
 									<Image
-										src={`/samples/course-${index}.jpg`}
-										alt={`Course ${index}`}
+										src={course.image}
+										alt={course.name}
 										fill
 										className="object-cover transition-transform duration-300 hover:scale-105"
 									/>
 								</div>
 								<CardContent className="p-6">
 									<h3 className="font-semibold text-lg mb-2 text-gray-800">
-										Course Title {index}
+										{course.name}
 									</h3>
 									<p className="text-gray-600 text-sm mb-4">
-										Learn essential concepts and practical applications with
-										hands-on projects.
+										{course.description}
 									</p>
 									<Link
-										href="#"
+										href={course.route}
 										className="text-blue-400 hover:underline inline-flex items-center space-x-2 group"
 									>
 										<span>Learn More</span>

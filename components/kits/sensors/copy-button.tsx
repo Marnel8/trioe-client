@@ -21,16 +21,16 @@ export function CopyButton({ text }: CopyButtonProps) {
 		<Button
 			size="sm"
 			variant="ghost"
-			className="absolute right-10 top-4 text-gray-50 hover:bg-none"
+			className="absolute right-8 top-10 text-gray-500 hover:bg-none"
 			onClick={copy}
 		>
 			{isCopied ? (
 				<>
-					<Check className="h-4 w-4" />
+					<Check className="h-5 w-5" />
 				</>
 			) : (
 				<>
-					<Copy className="h-4 w-4" />
+					<Copy className="h-5 w-5" />
 				</>
 			)}
 		</Button>

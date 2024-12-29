@@ -64,79 +64,108 @@ export const kits = [
 		],
 		inclusions: [
 			{
+				id: "trioe-main-board",
 				name: "Trioe - Main Board",
 				quantity: 1,
 				specifications: "Microcontroller board",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "trioe-gp-strip",
 				name: "Trioe - General Purpose Strip",
 				quantity: 5,
 				specifications: "Custom PCB",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "bme280",
 				name: "BME280 Sensor (I2C)",
 				quantity: 1,
 				specifications: "Generic",
+				type: "sensor",
+				category: "sensors",
 			},
 			{
+				id: "oled-display",
 				name: "0.96 SSD1306 OLED Display",
 				quantity: 1,
 				specifications: "Generic, 128X64",
+				type: "actuator",
+				category: "actuators",
 			},
 			{
+				id: "servo-motor",
 				name: "Servo Motor",
 				quantity: 1,
 				specifications: "SG90",
+				type: "actuator",
+				category: "actuators",
 			},
 			{
+				id: "ultrasonic-sensor",
 				name: "Ultrasonic Sensor",
 				quantity: 1,
 				specifications: "HCSR04",
+				type: "sensor",
+				category: "sensors",
 			},
 			{
-				name: "470 Ohm Resistors",
+				id: "dht11",
+				name: "DHT11 Temperature and Humidity Sensor",
 				quantity: 1,
-				specifications: "Through Hole; 1/4 Watt",
-			},
-			{
-				name: "10k Ohm Resistors",
-				quantity: 1,
-				specifications: "Through Hole; 1/4 watt",
-			},
-			{
-				name: "LED Assorted",
-				quantity: 1,
-				specifications: "5mm Red Green Blue",
-			},
-			{
-				name: "2-pin tactile push buttons",
-				quantity: 10,
 				specifications: "Generic",
+				type: "sensor",
+				category: "sensors",
 			},
 			{
-				name: "10k Potentiometer",
-				quantity: 2,
+				id: "soil-moisture-sensor",
+				name: "Soil Moisture Sensor",
+				quantity: 1,
 				specifications: "Generic",
+				type: "sensor",
+				category: "sensors",
 			},
 			{
-				name: "Small Side Cutter",
+				id: "water-pump",
+				name: "Mini Water Pump",
 				quantity: 1,
-				specifications: "Generic/Plato",
+				specifications: "3-6V DC",
+				type: "actuator",
+				category: "actuators",
 			},
 			{
-				name: "Soldering Iron with stand and lead",
+				id: "relay-module",
+				name: "Relay Module",
 				quantity: 1,
-				specifications: "60W - temp adjustable",
+				specifications: "5V, 1 Channel",
+				type: "actuator",
+				category: "actuators",
 			},
 			{
-				name: "Dupont cables",
-				quantity: 3,
-				specifications: "100mm, male to male, female to female",
+				id: "jumper-wires",
+				name: "Jumper Wires",
+				quantity: 40,
+				specifications: "Male to Male, Female to Female, Male to Female",
+				type: "other",
+				category: "actuators",
 			},
 			{
-				name: "Headers",
-				quantity: 8,
-				specifications: "1x40, 2.54mm, male and female",
+				id: "breadboard",
+				name: "Breadboard",
+				quantity: 1,
+				specifications: "830 points",
+				type: "other",
+				category: "actuators",
+			},
+			{
+				id: "usb-cable",
+				name: "USB Cable",
+				quantity: 1,
+				specifications: "Type A to Type B",
+				type: "other",
+				category: "actuators",
 			},
 		],
 		technicalSpecs: [
@@ -195,79 +224,124 @@ export const kits = [
 		],
 		inclusions: [
 			{
+				id: "trioe-main-board",
 				name: "Trioe - Main Board",
 				quantity: 1,
 				specifications: "Microcontroller board",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "trioe-gp-strip",
 				name: "Trioe - General Purpose Strip",
 				quantity: 5,
 				specifications: "Custom PCB",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "bme280",
 				name: "BME280 Sensor (I2C)",
 				quantity: 1,
 				specifications: "Generic",
+				type: "sensor",
+				category: "sensors",
 			},
 			{
+				id: "oled-display",
 				name: "0.96 SSD1306 OLED Display",
 				quantity: 1,
 				specifications: "Generic, 128X64",
+				type: "actuator",
+				category: "actuators",
 			},
 			{
+				id: "servo-motor",
 				name: "Servo Motor",
 				quantity: 1,
 				specifications: "SG90",
+				type: "actuator",
+				category: "actuators",
 			},
 			{
+				id: "ultrasonic-sensor",
 				name: "Ultrasonic Sensor",
 				quantity: 1,
 				specifications: "HCSR04",
+				type: "sensor",
+				category: "sensors",
 			},
 			{
+				id: "470-ohm-resistors",
 				name: "470 Ohm Resistors",
 				quantity: 1,
 				specifications: "Through Hole; 1/4 Watt",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "10k-ohm-resistors",
 				name: "10k Ohm Resistors",
 				quantity: 1,
 				specifications: "Through Hole; 1/4 watt",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "led-assorted",
 				name: "LED Assorted",
 				quantity: 1,
 				specifications: "5mm Red Green Blue",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "tactile-push-buttons",
 				name: "2-pin tactile push buttons",
 				quantity: 10,
 				specifications: "Generic",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "10k-potentiometer",
 				name: "10k Potentiometer",
 				quantity: 2,
 				specifications: "Generic",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "small-side-cutter",
 				name: "Small Side Cutter",
 				quantity: 1,
 				specifications: "Generic/Plato",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "soldering-iron",
 				name: "Soldering Iron with stand and lead",
 				quantity: 1,
 				specifications: "60W - temp adjustable",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "dupont-cables",
 				name: "Dupont cables",
 				quantity: 3,
 				specifications: "100mm, male to male, female to female",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "headers",
 				name: "Headers",
 				quantity: 8,
 				specifications: "1x40, 2.54mm, male and female",
+				type: "other",
+				category: "actuators",
 			},
 		],
 		technicalSpecs: [
@@ -326,79 +400,124 @@ export const kits = [
 		],
 		inclusions: [
 			{
+				id: "trioe-main-board",
 				name: "Trioe - Main Board",
 				quantity: 1,
 				specifications: "Microcontroller board",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "trioe-gp-strip",
 				name: "Trioe - General Purpose Strip",
 				quantity: 5,
 				specifications: "Custom PCB",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "bme280",
 				name: "BME280 Sensor (I2C)",
 				quantity: 1,
 				specifications: "Generic",
+				type: "sensor",
+				category: "sensors",
 			},
 			{
+				id: "oled-display",
 				name: "0.96 SSD1306 OLED Display",
 				quantity: 1,
 				specifications: "Generic, 128X64",
+				type: "actuator",
+				category: "actuators",
 			},
 			{
+				id: "servo-motor",
 				name: "Servo Motor",
 				quantity: 1,
 				specifications: "SG90",
+				type: "actuator",
+				category: "actuators",
 			},
 			{
+				id: "ultrasonic-sensor",
 				name: "Ultrasonic Sensor",
 				quantity: 1,
 				specifications: "HCSR04",
+				type: "sensor",
+				category: "sensors",
 			},
 			{
+				id: "470-ohm-resistors",
 				name: "470 Ohm Resistors",
 				quantity: 1,
 				specifications: "Through Hole; 1/4 Watt",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "10k-ohm-resistors",
 				name: "10k Ohm Resistors",
 				quantity: 1,
 				specifications: "Through Hole; 1/4 watt",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "led",
 				name: "LED Assorted",
 				quantity: 1,
 				specifications: "5mm Red Green Blue",
+				type: "actuator",
+				category: "actuators",
 			},
 			{
+				id: "tactile-push-buttons",
 				name: "2-pin tactile push buttons",
 				quantity: 10,
 				specifications: "Generic",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "10k-potentiometer",
 				name: "10k Potentiometer",
 				quantity: 2,
 				specifications: "Generic",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "small-side-cutter",
 				name: "Small Side Cutter",
 				quantity: 1,
 				specifications: "Generic/Plato",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "soldering-iron",
 				name: "Soldering Iron with stand and lead",
 				quantity: 1,
 				specifications: "60W - temp adjustable",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "dupont-cables",
 				name: "Dupont cables",
 				quantity: 3,
 				specifications: "100mm, male to male, female to female",
+				type: "other",
+				category: "actuators",
 			},
 			{
+				id: "headers",
 				name: "Headers",
 				quantity: 8,
 				specifications: "1x40, 2.54mm, male and female",
+				type: "other",
+				category: "actuators",
 			},
 		],
 		technicalSpecs: [
@@ -688,5 +807,528 @@ export const actuators = [
 		videoLink: "https://youtube.com/example",
 		downloads: 1567,
 		likes: 432,
+	},
+	{
+		id: "dht11",
+		name: "DHT11 Temperature and Humidity Sensor",
+		image: "/placeholder.svg?height=400&width=600",
+		detail:
+			"The DHT11 is a widely used sensor for measuring temperature and humidity. It is commonly used in weather stations, IoT projects, and environmental monitoring systems.",
+		uploadedDate: "December 27, 2024",
+		category: "Sensors - Environmental Monitoring",
+		tags: [
+			"DHT11",
+			"Temperature",
+			"Humidity",
+			"Arduino",
+			"IoT",
+			"Embedded Systems",
+		],
+		pinDescription: [
+			{
+				pin: "VCC",
+				description: "Power supply (3.3V or 5V, depending on the module)",
+			},
+			{ pin: "GND", description: "Ground (-)" },
+			{ pin: "DATA", description: "Data communication pin" },
+		],
+		specs: [
+			{ key: "Operating Voltage", value: "3.3V or 5V" },
+			{ key: "Current Consumption", value: "< 2.5mA" },
+			{ key: "Temperature Range", value: "-40°C to +85°C, ±2°C accuracy" },
+			{ key: "Humidity Range", value: "0% to 100%, ±5% accuracy" },
+			{ key: "Dimensions", value: "15mm x 15mm x 5mm" },
+		],
+		sampleCode: {
+			language: "cpp",
+			code: `#include <DHT.h>
+#define DHTPIN 2     // Pin where the DHT11 is connected
+#define DHTTYPE DHT11   // DHT 11
+DHT dht(DHTPIN, DHTTYPE);
+void setup() {
+	Serial.begin(9600);
+	dht.begin();
+}
+void loop() {
+	float h = dht.readHumidity();
+	float t = dht.readTemperature();
+	if (isnan(h) || isnan(t)) {
+		Serial.println("Failed to read from DHT sensor!");
+		return;
+	}
+	float hic = dht.computeHeatIndex(t, h, false);
+	Serial.print("Humidity: ");
+	Serial.print(h);
+	Serial.print(" %\t");
+	Serial.print("Temperature: ");
+	Serial.print(t);
+	Serial.print(" *C\t");
+	Serial.print("Heat index: ");
+	Serial.print(hic);
+	Serial.println(" *C");
+	delay(2000);
+}`,
+		},
+		crashCourse: {
+			objective:
+				"Teach learners how to use the DHT11 sensor module to measure temperature and humidity, and integrate its readings with an Arduino microcontroller.",
+			materialsRequired: [
+				"DHT11 Temperature and Humidity Sensor Module",
+				"Arduino Uno (or any compatible microcontroller)",
+				"Breadboard and jumper wires",
+				"USB cable for programming the Arduino",
+				"Computer with Arduino IDE installed",
+			],
+			steps: [
+				{
+					title: "Understand the DHT11 Sensor",
+					content: [
+						"The DHT11 measures: Temperature in degrees Celsius, Humidity as a percentage.",
+						"Pin Description: VCC: Power supply (3.3V or 5V), GND: Ground, DATA: Data communication pin.",
+					],
+				},
+				{
+					title: "Set Up the Circuit",
+					content: [
+						"Connect the VCC pin to the Arduino's 3.3V (or 5V, if supported) pin.",
+						"Connect the GND pin to the Arduino's GND.",
+						"Connect the DATA pin to the Arduino's digital pin 2.",
+					],
+				},
+				{
+					title: "Install the DHT Library",
+					content: [
+						"Open the Arduino IDE.",
+						"Go to Sketch > Include Library > Manage Libraries.",
+						"Search for 'DHT sensor library' and install the library.",
+						"Also, install the 'DHT library' if prompted.",
+					],
+				},
+			],
+		},
+		videoLink: "https://youtube.com/example",
+		downloads: 1234,
+		likes: 567,
+	},
+];
+
+export const sensors = [
+	{
+		id: "bme280",
+		name: "BME280 Environmental Sensor Module",
+		image: "/placeholder.svg?height=400&width=600",
+		detail:
+			"The BME280 is a highly accurate sensor that measures temperature, humidity, and atmospheric pressure. It is commonly used in weather stations, IoT projects, and environmental monitoring systems.",
+		uploadedDate: "December 27, 2024",
+		category: "Sensors - Environmental Monitoring",
+		tags: [
+			"BME280",
+			"Environmental Sensor",
+			"Temperature",
+			"Humidity",
+			"Pressure",
+			"Arduino",
+			"IoT",
+			"Embedded Systems",
+		],
+		pinDescription: [
+			{
+				pin: "VCC",
+				description: "Power supply (3.3V or 5V, depending on the module)",
+			},
+			{ pin: "GND", description: "Ground (-)" },
+			{ pin: "SDA", description: "I2C data line" },
+			{ pin: "SCL", description: "I2C clock line" },
+		],
+		specs: [
+			{
+				key: "Operating Voltage",
+				value: "1.8V - 3.6V (or 5V if module includes a voltage regulator)",
+			},
+			{ key: "Communication Protocols", value: "I2C and SPI" },
+			{ key: "Temperature Range", value: "-40°C to +85°C, ±1°C accuracy" },
+			{ key: "Humidity Range", value: "0% to 100%, ±3% accuracy" },
+			{ key: "Pressure Range", value: "300 hPa to 1100 hPa, ±1 hPa accuracy" },
+			{ key: "Low Power Consumption", value: "< 1 µA in sleep mode" },
+			{ key: "Dimensions", value: "2.5mm x 2.5mm x 0.93mm (sensor chip)" },
+		],
+		sampleCode: {
+			language: "cpp",
+			code: `#include <Wire.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_BME280.h>
+#define BME280_ADDRESS 0x76  // I2C address of the BME280 sensor
+Adafruit_BME280 bme; // Create an instance of the BME280 sensor
+void setup() {
+	Serial.begin(9600);
+	if (!bme.begin(BME280_ADDRESS)) {
+	  Serial.println("Could not find a valid BME280 sensor, check wiring!");
+	  while (1);
+	}
+}
+void loop() {
+	Serial.print("Temperature: ");
+	Serial.print(bme.readTemperature());
+	Serial.println(" °C");
+	Serial.print("Humidity: ");
+	Serial.print(bme.readHumidity());
+	Serial.println(" %");
+	Serial.print("Pressure: ");
+	Serial.print(bme.readPressure() / 100.0F);
+	Serial.println(" hPa");
+	delay(1000);
+}`,
+		},
+		crashCourse: {
+			objective:
+				"Teach learners how to use the BME280 sensor module to measure temperature, humidity, and atmospheric pressure, and integrate its readings with an Arduino microcontroller.",
+			materialsRequired: [
+				"BME280 Sensor Module",
+				"Arduino Uno (or any compatible microcontroller)",
+				"Breadboard and jumper wires",
+				"USB cable for programming the Arduino",
+				"Computer with Arduino IDE installed",
+			],
+			steps: [
+				{
+					title: "Understand the BME280 Sensor",
+					content: [
+						"The BME280 measures: Temperature in degrees Celsius, Humidity as a percentage, Pressure in hPa (hectopascal).",
+						"Communication Protocols: I2C (2-wire communication with SDA and SCL), SPI (optional for advanced users).",
+					],
+				},
+				{
+					title: "Set Up the Circuit",
+					content: [
+						"Connect the VCC pin to the Arduino's 3.3V (or 5V, if supported) pin.",
+						"Connect the GND pin to the Arduino's GND.",
+						"Connect the SDA pin to the Arduino's A4 pin (for most Arduino boards).",
+						"Connect the SCL pin to the Arduino's A5 pin.",
+					],
+				},
+				{
+					title: "Install the BME280 Library",
+					content: [
+						"Open the Arduino IDE.",
+						"Go to Sketch > Include Library > Manage Libraries.",
+						"Search for 'Adafruit BME280' and install the library.",
+						"Also, install the 'Adafruit Unified Sensor' library, if prompted.",
+					],
+				},
+			],
+		},
+		videoLink: "https://youtube.com/example",
+		downloads: 3456,
+		likes: 1011,
+	},
+	{
+		id: "ultrasonic-sensor",
+		name: "Ultrasonic Sensor Module (HC-SR04)",
+		image: "/placeholder.svg?height=400&width=600",
+		detail:
+			"The HC-SR04 Ultrasonic Sensor is a widely used module for distance measurement. It works by emitting sound waves and calculating the time it takes for the echo to return. This sensor is often used in obstacle detection, robotics, and range-finding applications.",
+		uploadedDate: "December 27, 2024",
+		category: "Sensors - Distance Measurement",
+		tags: [
+			"Ultrasonic Sensor",
+			"HC-SR04",
+			"Arduino",
+			"IoT",
+			"Distance Measurement",
+			"Robotics",
+		],
+		pinDescription: [
+			{ pin: "VCC", description: "Power supply (+5V)" },
+			{ pin: "GND", description: "Ground (-)" },
+			{ pin: "TRIG", description: "Trigger pin (sends an ultrasonic pulse)" },
+			{ pin: "ECHO", description: "Echo pin (receives the reflected wave)" },
+		],
+		specs: [
+			{ key: "Operating Voltage", value: "5V" },
+			{ key: "Measuring Range", value: "2cm to 400cm" },
+			{ key: "Accuracy", value: "±3mm" },
+			{ key: "Trigger Input Signal", value: "10µs TTL pulse" },
+			{
+				key: "Echo Output Signal",
+				value: "TTL pulse proportional to distance",
+			},
+			{ key: "Dimensions", value: "45mm x 20mm x 15mm" },
+		],
+		sampleCode: {
+			language: "cpp",
+			code: `#define TRIG_PIN 9 // Trigger pin connected to digital pin 9
+#define ECHO_PIN 10 // Echo pin connected to digital pin 10
+
+void setup() {
+	Serial.begin(9600);
+	pinMode(TRIG_PIN, OUTPUT);
+	pinMode(ECHO_PIN, INPUT);
+}
+
+void loop() {
+	long duration, distance;
+
+	// Send a 10-microsecond pulse to trigger the sensor
+	digitalWrite(TRIG_PIN, LOW);
+	delayMicroseconds(2);
+	digitalWrite(TRIG_PIN, HIGH);
+	delayMicroseconds(10);
+	digitalWrite(TRIG_PIN, LOW);
+
+	// Read the echo pulse duration
+	duration = pulseIn(ECHO_PIN, HIGH);
+
+	// Calculate the distance in cm
+	distance = (duration / 2) / 29.1;
+
+	// Display the distance
+	Serial.print("Distance: ");
+	Serial.print(distance);
+	Serial.println(" cm");
+
+	delay(1000); // Wait for a second before the next reading
+}`,
+		},
+		crashCourse: {
+			objective:
+				"Teach learners how to use the HC-SR04 ultrasonic sensor module to measure distances and integrate it with an Arduino microcontroller.",
+			materialsRequired: [
+				"HC-SR04 Ultrasonic Sensor Module",
+				"Arduino Uno (or any compatible microcontroller)",
+				"Breadboard and jumper wires",
+				"USB cable for programming the Arduino",
+				"Ruler or tape measure (for calibration and testing)",
+			],
+			steps: [
+				{
+					title: "Understand the HC-SR04 Sensor",
+					content: [
+						"The HC-SR04 emits ultrasonic sound waves and calculates distance based on the time it takes for the echo to return.",
+						"Key Pins: TRIG: Trigger pin sends an ultrasonic pulse, ECHO: Echo pin receives the reflected wave.",
+					],
+				},
+				{
+					title: "Set Up the Circuit",
+					content: [
+						"Connect the VCC pin to the Arduino's 5V pin.",
+						"Connect the GND pin to the Arduino's GND.",
+						"Connect the TRIG pin to Digital Pin 9 on the Arduino.",
+						"Connect the ECHO pin to Digital Pin 10.",
+					],
+				},
+				{
+					title: "Write and Upload the Code",
+					content: [
+						"Write the code provided in the sample code section.",
+						"Connect the Arduino to your computer via USB.",
+						"Select the correct board and COM port in the Arduino IDE.",
+						"Click Upload to send the code to the Arduino.",
+					],
+				},
+			],
+		},
+		videoLink: "https://youtube.com/example",
+		downloads: 2345,
+		likes: 789,
+	},
+	{
+		id: "dht11",
+		name: "DHT11 Temperature and Humidity Sensor",
+		image: "/placeholder.svg?height=400&width=600",
+		detail:
+			"The DHT11 is a widely used sensor for measuring temperature and humidity. It is commonly used in weather stations, IoT projects, and environmental monitoring systems.",
+		uploadedDate: "December 27, 2024",
+		category: "Sensors - Environmental Monitoring",
+		tags: [
+			"DHT11",
+			"Temperature",
+			"Humidity",
+			"Arduino",
+			"IoT",
+			"Embedded Systems",
+		],
+		pinDescription: [
+			{
+				pin: "VCC",
+				description: "Power supply (3.3V or 5V, depending on the module)",
+			},
+			{ pin: "GND", description: "Ground (-)" },
+			{ pin: "DATA", description: "Data communication pin" },
+		],
+		specs: [
+			{ key: "Operating Voltage", value: "3.3V or 5V" },
+			{ key: "Current Consumption", value: "< 2.5mA" },
+			{ key: "Temperature Range", value: "-40°C to +85°C, ±2°C accuracy" },
+			{ key: "Humidity Range", value: "0% to 100%, ±5% accuracy" },
+			{ key: "Dimensions", value: "15mm x 15mm x 5mm" },
+		],
+		sampleCode: {
+			language: "cpp",
+			code: `#include <DHT.h>
+
+#define DHTPIN 2     // Pin where the DHT11 is connected
+#define DHTTYPE DHT11   // DHT 11
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+	Serial.begin(9600);
+	dht.begin();
+}
+
+void loop() {
+	// Reading temperature or humidity takes about 250 milliseconds!
+	// Sensor readings may also be up to 2 seconds 'old' (it's a very slow sensor)
+	float h = dht.readHumidity();
+	// Read temperature as Celsius (the default)
+	float t = dht.readTemperature();
+
+	// Check if any reads failed and exit early (to try again)
+	if (isnan(h) || isnan(t)) {
+		Serial.println("Failed to read from DHT sensor!");
+		return;
+	}
+
+	// Compute heat index in Celsius (isFahreheit = false)
+	float hic = dht.computeHeatIndex(t, h, false);
+
+	Serial.print("Humidity: ");
+	Serial.print(h);
+	Serial.print(" %\t");
+	Serial.print("Temperature: ");
+	Serial.print(t);
+	Serial.print(" *C\t");
+	Serial.print("Heat index: ");
+	Serial.print(hic);
+	Serial.println(" *C");
+
+	delay(2000);
+}`,
+		},
+		crashCourse: {
+			objective:
+				"Teach learners how to use the DHT11 sensor module to measure temperature and humidity, and integrate its readings with an Arduino microcontroller.",
+			materialsRequired: [
+				"DHT11 Temperature and Humidity Sensor Module",
+				"Arduino Uno (or any compatible microcontroller)",
+				"Breadboard and jumper wires",
+				"USB cable for programming the Arduino",
+				"Computer with Arduino IDE installed",
+			],
+			steps: [
+				{
+					title: "Understand the DHT11 Sensor",
+					content: [
+						"The DHT11 measures: Temperature in degrees Celsius, Humidity as a percentage.",
+						"Pin Description: VCC: Power supply (3.3V or 5V), GND: Ground, DATA: Data communication pin.",
+					],
+				},
+				{
+					title: "Set Up the Circuit",
+					content: [
+						"Connect the VCC pin to the Arduino's 3.3V (or 5V, if supported) pin.",
+						"Connect the GND pin to the Arduino's GND.",
+						"Connect the DATA pin to the Arduino's digital pin 2.",
+					],
+				},
+				{
+					title: "Install the DHT Library",
+					content: [
+						"Open the Arduino IDE.",
+						"Go to Sketch > Include Library > Manage Libraries.",
+						"Search for 'DHT sensor library' and install the library.",
+						"Also, install the 'DHT library' if prompted.",
+					],
+				},
+			],
+		},
+		videoLink: "https://youtube.com/example",
+		downloads: 1234,
+		likes: 567,
+	},
+	{
+		id: "soil-moisture-sensor",
+		name: "Soil Moisture Sensor",
+		image: "/placeholder.svg?height=400&width=600",
+		detail:
+			"The soil moisture sensor is used to measure the moisture content of soil. It is commonly used in gardening, agriculture, and environmental monitoring systems.",
+		uploadedDate: "December 27, 2024",
+		category: "Sensors - Environmental Monitoring",
+		tags: ["Soil Moisture Sensor", "Arduino", "IoT", "Embedded Systems"],
+		pinDescription: [
+			{
+				pin: "VCC",
+				description: "Power supply (3.3V or 5V, depending on the module)",
+			},
+			{ pin: "GND", description: "Ground (-)" },
+			{ pin: "AO", description: "Analog output signal" },
+		],
+		specs: [
+			{ key: "Operating Voltage", value: "3.3V or 5V" },
+			{ key: "Current Consumption", value: "< 2.5mA" },
+			{ key: "Moisture Range", value: "0% to 100%" },
+			{ key: "Dimensions", value: "15mm x 15mm x 5mm" },
+		],
+		sampleCode: {
+			language: "cpp",
+			code: `#include <MoistureSensor.h>
+
+MoistureSensor moistureSensor;
+
+void setup() {
+	Serial.begin(9600);
+	moistureSensor.begin();
+}
+
+void loop() {
+	int moisturePercentage = moistureSensor.readPercentage();
+
+	Serial.print("Moisture: ");
+	Serial.print(moisturePercentage);
+	Serial.println(" %");
+
+	delay(1000);
+}`,
+		},
+		crashCourse: {
+			objective:
+				"Teach learners how to use the soil moisture sensor to measure soil moisture, and integrate its readings with an Arduino microcontroller.",
+			materialsRequired: [
+				"Soil Moisture Sensor Module",
+				"Arduino Uno (or any compatible microcontroller)",
+				"Breadboard and jumper wires",
+				"USB cable for programming the Arduino",
+				"Computer with Arduino IDE installed",
+			],
+			steps: [
+				{
+					title: "Understand the Soil Moisture Sensor",
+					content: [
+						"The soil moisture sensor measures the moisture content of soil.",
+						"Pin Description: VCC: Power supply (3.3V or 5V), GND: Ground, AO: Analog output signal.",
+					],
+				},
+				{
+					title: "Set Up the Circuit",
+					content: [
+						"Connect the VCC pin to the Arduino's 3.3V (or 5V, if supported) pin.",
+						"Connect the GND pin to the Arduino's GND.",
+						"Connect the AO pin to the Arduino's analog pin A0.",
+					],
+				},
+				{
+					title: "Install the Moisture Sensor Library",
+					content: [
+						"Open the Arduino IDE.",
+						"Go to Sketch > Include Library > Manage Libraries.",
+						"Search for 'MoistureSensor' and install the library.",
+						"Also, install the 'MoistureSensor' library, if prompted.",
+					],
+				},
+			],
+		},
+		videoLink: "https://youtube.com/example",
+		downloads: 1234,
+		likes: 567,
 	},
 ];
