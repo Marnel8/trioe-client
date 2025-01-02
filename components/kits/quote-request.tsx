@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { use } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -27,13 +27,23 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { quoteFormSchema } from "@/lib/schema";
 import { ScrollArea } from "../ui/scroll-area";
+import { toast } from "@/hooks/use-toast";
+import { useRequestForQuotation } from "@/hooks/rfq/useRequestForQuotation";
 
 interface QuoteRequestModalProps {
 	quantity: number;
 	price: number;
+	kitName: string;
 }
 
-export function QuoteRequestModal({ quantity, price }: QuoteRequestModalProps) {
+export function QuoteRequestModal({
+	quantity,
+	price,
+	kitName,
+}: QuoteRequestModalProps) {
+	const { mutateAsync: sendQuote, isPending: isSending } =
+		useRequestForQuotation();
+
 	const form = useForm<z.infer<typeof quoteFormSchema>>({
 		resolver: zodResolver(quoteFormSchema),
 		defaultValues: {
@@ -46,9 +56,31 @@ export function QuoteRequestModal({ quantity, price }: QuoteRequestModalProps) {
 		},
 	});
 
-	function onSubmit(values: z.infer<typeof quoteFormSchema>) {
-		// This is where you would typically send the form data to your server
-		console.log(values);
+	async function onSubmit(values: z.infer<typeof quoteFormSchema>) {
+		try {
+			const data = {
+				firstName: values.firstName,
+				lastName: values.lastName,
+				email: values.email,
+				contactNumber: values.phone,
+				organization: values.organization,
+				additionalRequirements: values.message,
+				kitName: kitName,
+				quantity: quantity,
+				price: price,
+			};
+			await sendQuote(data);
+
+			toast({
+				description: "Your quote request has been sent successfully.",
+			});
+
+			form.reset();
+		} catch (error: any) {
+			toast({
+				description: error.message || "Something went wrong. Please try again.",
+			});
+		}
 	}
 
 	return (
@@ -179,8 +211,9 @@ export function QuoteRequestModal({ quantity, price }: QuoteRequestModalProps) {
 							<Button
 								type="submit"
 								className="w-full bg-blue-400 hover:bg-blue-500"
+								disabled={isSending}
 							>
-								Submit Quote Request
+								{isSending ? "Sending..." : "Submit Quote Request"}
 							</Button>
 						</form>
 					</Form>

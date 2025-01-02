@@ -197,6 +197,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 								<QuoteRequestModal
 									quantity={quantity}
 									price={kit?.price || 0}
+									kitName={kit?.name || ""}
 								/>
 							</div>
 						</div>

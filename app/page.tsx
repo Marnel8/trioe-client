@@ -12,76 +12,76 @@ import { cn } from "@/lib/utils";
 import React, { Suspense } from "react";
 
 const Home = () => {
-  return (
-    <div className="scroll-smooth">
-      <div id="hero">
-        <Hero />
-      </div>
-      <div className="p-5">
-        <Suspense fallback={<div>Loading...</div>}>
-          <BentoGridComponent />
-        </Suspense>
-      </div>
-      <div id="video" className="relative p-5">
-        <Suspense fallback={<div>Loading...</div>}>
-          <TrioeVideo />
-        </Suspense>
-        <DotPattern
-          width={20}
-          height={20}
-          cx={1}
-          cy={1}
-          cr={1}
-          className={cn(
-            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
-          )}
-        />
-      </div>
-      <div id="courses" className="p-5 relative">
-        <Suspense fallback={<div>Loading...</div>}>
-          <LearningModules />
-        </Suspense>
-        <DotPattern
-          width={20}
-          height={20}
-          cx={16}
-          cy={1}
-          cr={1}
-          className={cn(
-            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
-          )}
-        />
-      </div>
-      <div id="kits" className="p-5 relative">
-        <Suspense fallback={<div>Loading...</div>}>
-          <ElectronicsKits />
-        </Suspense>
-        <DotPattern
-          width={20}
-          height={20}
-          cx={16}
-          cy={1}
-          cr={1}
-          className={cn(
-            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
-          )}
-        />
-      </div>
-      <div id="team" className="p-5">
-        <Suspense fallback={<div>Loading...</div>}>
-          <TheTeam />
-        </Suspense>
-      </div>
-      <div id="testimonials" className="p-5">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Testimonials />
-        </Suspense>
-      </div>
-      <div id="footer">
-        <Footer />
-      </div>
-    </div>
-  );
+	return (
+		<div className="scroll-smooth">
+			<div id="hero">
+				<Hero />
+			</div>
+			<div className="p-5">
+				<Suspense fallback={<div>Loading...</div>}>
+					<BentoGridComponent />
+				</Suspense>
+			</div>
+			<div id="video" className="relative p-5">
+				<Suspense fallback={<div>Loading...</div>}>
+					<TrioeVideo />
+				</Suspense>
+				<DotPattern
+					width={20}
+					height={20}
+					cx={1}
+					cy={1}
+					cr={1}
+					className={cn(
+						"[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
+					)}
+				/>
+			</div>
+			<div id="courses" className="p-5 relative">
+				<Suspense fallback={<div>Loading...</div>}>
+					<LearningModules />
+				</Suspense>
+				<DotPattern
+					width={20}
+					height={20}
+					cx={16}
+					cy={1}
+					cr={1}
+					className={cn(
+						"[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
+					)}
+				/>
+			</div>
+			<div id="kits" className="p-5 relative">
+				<Suspense fallback={<div>Loading...</div>}>
+					<ElectronicsKits />
+				</Suspense>
+				<DotPattern
+					width={20}
+					height={20}
+					cx={16}
+					cy={1}
+					cr={1}
+					className={cn(
+						"[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
+					)}
+				/>
+			</div>
+			<div id="team" className="p-5">
+				<Suspense fallback={<div>Loading...</div>}>
+					<TheTeam />
+				</Suspense>
+			</div>
+			<div id="testimonials" className="p-5">
+				<Suspense fallback={<div>Loading...</div>}>
+					<Testimonials />
+				</Suspense>
+			</div>
+			<div id="footer">
+				<Footer />
+			</div>
+		</div>
+	);
 };
 
 export default Home;
