@@ -99,7 +99,7 @@ export const kits = [
 				id: "servo-motor",
 				name: "Servo Motor",
 				quantity: 1,
-				specifications: "SG90",
+				specifications: "SG90 Micro Servo",
 				type: "actuator",
 				category: "actuators",
 			},
@@ -609,9 +609,9 @@ export const actuators = [
 				{
 					title: "Understanding the Servo Motor",
 					content: [
-						"A servo motor is a rotary actuator that allows precise control of angular positions",
-						"Uses a potentiometer and control circuitry for feedback",
-						"Key Pins: VCC (power), GND (ground), SIGNAL (PWM control)",
+						"A servo motor is a compact and efficient actuator commonly used for precise position control in robotics, automation, and electronics projects.",
+						"Uses PWM (Pulse Width Modulation) signals to control the angle of rotation.",
+						"Key Pins: VCC: Power supply (4.8V - 6V), GND: Ground, SIGNAL: PWM control signal.",
 					],
 				},
 				{
