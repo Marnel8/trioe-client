@@ -102,7 +102,7 @@ const lesson = {
           </p>
           <div className="relative h-48 mb-4">
             <Image
-              src="/images/basic-circuit.png"
+              src="/tutorials/circuit.png"
               alt="Basic Circuit Diagram"
               fill
               className="object-contain"
