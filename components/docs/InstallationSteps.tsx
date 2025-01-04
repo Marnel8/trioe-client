@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { Progress } from "../ui/progress";
+import { useRouter } from "next/navigation";
 
 interface StepProps {
 	number: number;
@@ -440,6 +441,8 @@ export function InstallationSteps() {
 	const [currentStep, setCurrentStep] = React.useState(1);
 	const totalSteps = 4;
 
+	const router = useRouter();
+
 	const steps = [
 		{ number: 1, title: "Download Arduino IDE", icon: Download },
 		{ number: 2, title: "Install USB Driver", icon: Usb },
@@ -467,7 +470,7 @@ export function InstallationSteps() {
 				step={currentStep}
 				onComplete={() => {
 					if (currentStep == totalSteps) {
-						setCurrentStep(1);
+						router.push("/docs#quick-start");
 					}
 					if (currentStep < totalSteps) {
 						setCurrentStep(currentStep + 1);

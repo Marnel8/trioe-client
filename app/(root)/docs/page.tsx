@@ -12,7 +12,7 @@ import { QuickStartSteps } from "@/components/docs/QuickStartSteps";
 
 export default function DocumentationPage() {
 	return (
-		<div className="flex h-screen overflow-hidden">
+		<div className="flex h-screen overflow-hidden scroll-smooth">
 			<div className="lg:w-64 flex-shrink-0">
 				<DocumentationSidebar />
 			</div>
@@ -47,7 +47,7 @@ export default function DocumentationPage() {
 											</p>
 										</div>
 
-										<div className=" rounded-lg shadow-sm bg-gray-50 p-6">
+										<div className=" rounded-lg shadow-sm bg-gray-100 p-6">
 											<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 												<div className="flex items-start gap-4">
 													<div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
@@ -105,7 +105,7 @@ export default function DocumentationPage() {
 											</p>
 										</div>
 
-										<div className="rounded-lg shadow-sm bg-gray-50 p-6">
+										<div className="rounded-lg shadow-sm bg-gray-100 p-6">
 											<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 												<div className="flex items-start gap-4">
 													<div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">

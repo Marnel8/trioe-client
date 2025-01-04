@@ -72,6 +72,19 @@ const QuickStartStepContent: FC<QuickStartStepContentProps> = ({
 			icon: Plug,
 			content: (
 				<div className="space-y-6">
+					<div className="flex justify-between items-center">
+						<div className="text-sm text-gray-500">
+							<AlertCircle className="inline-block w-4 h-4 mr-1" />
+							Make sure the USB cable supports data transfer
+						</div>
+						<button
+							onClick={onComplete}
+							className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+						>
+							Next Step
+							<ChevronRight className="inline-block w-4 h-4 ml-1" />
+						</button>
+					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div>
 							<h5 className="font-medium mb-4">Physical Setup</h5>
@@ -115,10 +128,18 @@ const QuickStartStepContent: FC<QuickStartStepContentProps> = ({
 							</div>
 						</div>
 					</div>
+				</div>
+			),
+		},
+		{
+			title: "Open Example",
+			icon: Code,
+			content: (
+				<div className="space-y-6">
 					<div className="flex justify-between items-center">
 						<div className="text-sm text-gray-500">
 							<AlertCircle className="inline-block w-4 h-4 mr-1" />
-							Make sure the USB cable supports data transfer
+							This is a basic test to verify your setup
 						</div>
 						<button
 							onClick={onComplete}
@@ -128,14 +149,6 @@ const QuickStartStepContent: FC<QuickStartStepContentProps> = ({
 							<ChevronRight className="inline-block w-4 h-4 ml-1" />
 						</button>
 					</div>
-				</div>
-			),
-		},
-		{
-			title: "Open Example",
-			icon: Code,
-			content: (
-				<div className="space-y-6">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div>
 							<h5 className="font-medium mb-4">Load Example Code</h5>
@@ -197,10 +210,18 @@ void loop() {
 							</div>
 						</div>
 					</div>
+				</div>
+			),
+		},
+		{
+			title: "Upload Code",
+			icon: Upload,
+			content: (
+				<div className="space-y-6">
 					<div className="flex justify-between items-center">
 						<div className="text-sm text-gray-500">
 							<AlertCircle className="inline-block w-4 h-4 mr-1" />
-							This is a basic test to verify your setup
+							Wait for upload to complete
 						</div>
 						<button
 							onClick={onComplete}
@@ -210,14 +231,6 @@ void loop() {
 							<ChevronRight className="inline-block w-4 h-4 ml-1" />
 						</button>
 					</div>
-				</div>
-			),
-		},
-		{
-			title: "Upload Code",
-			icon: Upload,
-			content: (
-				<div className="space-y-6">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div>
 							<h5 className="font-medium mb-4">Upload Process</h5>
@@ -287,19 +300,6 @@ void loop() {
 							</div>
 						</div>
 					</div>
-					<div className="flex justify-between items-center">
-						<div className="text-sm text-gray-500">
-							<AlertCircle className="inline-block w-4 h-4 mr-1" />
-							Wait for upload to complete
-						</div>
-						<button
-							onClick={onComplete}
-							className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
-						>
-							Next Step
-							<ChevronRight className="inline-block w-4 h-4 ml-1" />
-						</button>
-					</div>
 				</div>
 			),
 		},
@@ -308,6 +308,20 @@ void loop() {
 			icon: MonitorPlay,
 			content: (
 				<div className="space-y-6">
+					<div className="flex justify-between items-center">
+						<div className="text-sm text-gray-500">
+							<AlertCircle className="inline-block w-4 h-4 mr-1" />
+							Congratulations on completing the quick start guide!
+						</div>
+						<button
+							onClick={onComplete}
+							className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
+							disabled
+						>
+							Setup Completed
+							<CheckCircle2 className="inline-block w-4 h-4 ml-1" />
+						</button>
+					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div>
 							<h5 className="font-medium mb-4">Check Results</h5>
@@ -398,19 +412,6 @@ void loop() {
 								</div>
 							</div>
 						</div>
-					</div>
-					<div className="flex justify-between items-center">
-						<div className="text-sm text-gray-500">
-							<AlertCircle className="inline-block w-4 h-4 mr-1" />
-							Congratulations on completing the quick start guide!
-						</div>
-						<button
-							onClick={onComplete}
-							className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
-						>
-							Complete Guide
-							<CheckCircle2 className="inline-block w-4 h-4 ml-1" />
-						</button>
 					</div>
 				</div>
 			),
