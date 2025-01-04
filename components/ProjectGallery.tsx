@@ -40,8 +40,6 @@ const projects: Project[] = [
 export default function ProjectGallery() {
 	const { data: projectsData } = useGetProjects();
 
-	console.log("projectsData", projectsData);
-
 	return (
 		<div className="container mx-auto p-8">
 			<div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -65,10 +63,8 @@ export default function ProjectGallery() {
 						</DropdownMenuTrigger>
 						<DropdownMenuContent className="z-50" sideOffset={4}>
 							<DropdownMenuItem>STEAM</DropdownMenuItem>
-							<DropdownMenuItem>Technology</DropdownMenuItem>
-							<DropdownMenuItem>Engineering</DropdownMenuItem>
-							<DropdownMenuItem>Arts</DropdownMenuItem>
-							<DropdownMenuItem>Mathematics</DropdownMenuItem>
+							<DropdownMenuItem>AGRI-AQUA</DropdownMenuItem>
+							<DropdownMenuItem>DRM</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
 					<AddProjectDialog

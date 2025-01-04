@@ -22,7 +22,7 @@ const ElectronicsKits = () => {
 				{kits.map((kit) => (
 					<Card
 						key={kit.id}
-						className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+						className="rounded-xl p-6 z-10 w-full max-w-[500px] max-h-[600px] bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
 					>
 						<CardHeader className="p-0">
 							<div className="relative h-48 md:h-[300px] w-full">
@@ -30,7 +30,7 @@ const ElectronicsKits = () => {
 									src={kit.thumbnail}
 									alt={kit.name}
 									layout="fill"
-									className="object-cover"
+									className="object-contain rounded-xl"
 								/>
 							</div>
 						</CardHeader>
@@ -50,7 +50,7 @@ const ElectronicsKits = () => {
 									className="pointer-events-auto"
 								>
 									<Link href={kit.route}>
-										Learn More
+										View Details
 										<ArrowRightIcon className="ml-2 h-4 w-4" />
 									</Link>
 								</Button>

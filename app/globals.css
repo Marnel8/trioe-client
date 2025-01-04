@@ -109,7 +109,7 @@ body {
   }
 
   .title {
-    @apply text-[55.58px] 3xl:text-[70px] font-bold;
+    @apply text-[55.58px] 3xl:text-[70px] font-bold font-roboto-bold;
   }
 
   .subtitle {

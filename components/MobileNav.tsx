@@ -57,20 +57,18 @@ export function MobileNav() {
 	const { data: user } = useFetchUser();
 	const { mutateAsync: logout, isPending: logoutPending } = useLogout();
 
-	// Add scroll event listener
+	// Modify the scroll handling logic
 	React.useEffect(() => {
+		// Set initial scroll state
+		setIsScrolled(window.scrollY > 20);
+
 		const handleScroll = () => {
 			const scrollPosition = window.scrollY;
-			setIsScrolled(scrollPosition > 20); // Change state when scrolled more than 20px
+			setIsScrolled(scrollPosition > 20);
 		};
 
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
-
-	// Ensure initial state is consistent
-	React.useEffect(() => {
-		setIsScrolled(false); // Set initial state to false
 	}, []);
 
 	const handleNavigation = (href: string, title: string) => {
@@ -185,12 +183,12 @@ export function MobileNav() {
 									<PopoverTrigger asChild>
 										<Avatar className="size-10 cursor-pointer hover:opacity-80 transition-opacity">
 											<AvatarImage
-												src={getImageUrl(user.avatar)}
-												alt={user.firstName || "User avatar"}
+												src={getImageUrl(user?.avatar)}
+												alt={user?.firstName || "User avatar"}
 												className="object-cover"
 											/>
 											<AvatarFallback className="bg-primary/10 text-primary">
-												{user.firstName
+												{user?.firstName
 													? user.firstName
 															.split(" ")
 															.map((n: any) => n[0])

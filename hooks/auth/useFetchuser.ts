@@ -1,25 +1,61 @@
 import api from "@/utils/api";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+	useQuery,
+	useQueryClient,
+	UseQueryResult,
+} from "@tanstack/react-query";
+
+interface User {
+	id: string;
+	firstName: string;
+	lastName: string;
+	email: string;
+	avatar: string;
+}
 
 const fetchUser = async () => {
-  try {
-    const response = await api.get("/user/me");
-    return response.data;
-  } catch (error: any) {
-    if (error.response) {
-      throw new Error(error.response.data.message || "Failed to fetch user");
-    } else if (error.request) {
-      throw new Error("No response from server");
-    } else {
-      throw new Error("Error in fetch user request: " + error.message);
-    }
-  }
+	try {
+		const response = await api.get("/user/me");
+		return response.data;
+	} catch (error: any) {
+		if (error.response) {
+			throw new Error(error.response.data.message || "Failed to fetch user");
+		} else if (error.request) {
+			throw new Error("No response from server");
+		} else {
+			throw new Error("Error in fetch user request: " + error.message);
+		}
+	}
 };
 
 export const useFetchUser = () => {
-  return useQuery({
-    queryKey: ["user"],
-    queryFn: fetchUser,
-    staleTime: 5000,
-  });
+	const queryClient = useQueryClient();
+	return useQuery({
+		queryKey: ["user"],
+		queryFn: fetchUser,
+		staleTime: 1000 * 60 * 5, // Data stays fresh for 5 minutes
+		retry: 1,
+		// retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+		initialData: () => {
+			return queryClient.getQueryData<User>(["user"]);
+		},
+	});
+};
+
+// Utility function to prefetch user data
+export const prefetchUserData = async (queryClient: any) => {
+	await queryClient.prefetchQuery({
+		queryKey: ["user"],
+		queryFn: fetchUser,
+	});
+};
+
+// Function to invalidate user cache when needed
+export const invalidateUserCache = (queryClient: any) => {
+	queryClient.invalidateQueries({ queryKey: ["user"] });
+};
+
+// Function to update user cache directly
+export const updateUserCache = (queryClient: any, userData: User) => {
+	queryClient.setQueryData(["user"], userData);
 };

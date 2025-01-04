@@ -3,6 +3,7 @@ import ElectronicsKits from "@/components/ElectronicsKits";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LearningModules from "@/components/LearningModules";
+import Loader from "@/components/loader/Loader";
 import { Testimonials } from "@/components/Testimonials";
 import TheTeam from "@/components/TheTeam";
 import TrioeVideo from "@/components/TrioeVideo";
@@ -13,17 +14,17 @@ import React, { Suspense } from "react";
 
 const Home = () => {
 	return (
-		<div className="scroll-smooth">
-			<div id="hero">
+		<div className="scroll-smooth font-roboto-regular">
+			<div id="hero" className="">
 				<Hero />
 			</div>
 			<div className="p-5">
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<Loader />}>
 					<BentoGridComponent />
 				</Suspense>
 			</div>
 			<div id="video" className="relative p-5">
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<Loader />}>
 					<TrioeVideo />
 				</Suspense>
 				<DotPattern
@@ -38,7 +39,7 @@ const Home = () => {
 				/>
 			</div>
 			<div id="courses" className="p-5 relative">
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<Loader />}>
 					<LearningModules />
 				</Suspense>
 				<DotPattern
@@ -53,7 +54,7 @@ const Home = () => {
 				/>
 			</div>
 			<div id="kits" className="p-5 relative">
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<Loader />}>
 					<ElectronicsKits />
 				</Suspense>
 				<DotPattern
@@ -68,12 +69,12 @@ const Home = () => {
 				/>
 			</div>
 			<div id="team" className="p-5">
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<Loader />}>
 					<TheTeam />
 				</Suspense>
 			</div>
 			<div id="testimonials" className="p-5">
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<Loader />}>
 					<Testimonials />
 				</Suspense>
 			</div>

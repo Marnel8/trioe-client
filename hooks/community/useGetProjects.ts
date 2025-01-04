@@ -22,5 +22,7 @@ export const useGetProjects = () =>
 	useQuery({
 		queryKey: ["projects"],
 		queryFn: getProjects,
-		staleTime: 5000,
+		staleTime: 1000 * 60 * 5,
+		retry: 1,
+		// retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
 	});
