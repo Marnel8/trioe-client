@@ -22,7 +22,7 @@ const Hero = () => {
 			{/* <HeaderNav /> */}
 			<div className="flex items-center justify-between ">
 				<div className="hero-content text-white flex-1">
-					<p className="lg:text-[50px] 2xl:text-[45.58px] 3xl:text-[57px] text-[25px] md:text-[25px] tracking-wider text-black text-center lg:text-left font-black">
+					<p className="lg:text-[35px] 2xl:text-[45.58px] 3xl:text-[55px] text-[25px] md:text-[25px] tracking-wider text-black text-center lg:text-left font-black">
 						Tinkering Resources for Internet of Everything <br />
 						<span className="inline-flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-start md:gap-2 max-w-[200px]">
 							with{" "}

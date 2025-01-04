@@ -24,7 +24,7 @@ export function EventCard({
 	thumbnail,
 }: EventCardProps) {
 	return (
-		<Card className="w-full rounded-none overflow-hidden">
+		<Card className="w-full 4xl:w-[1500px] rounded-none overflow-hidden">
 			<div className="flex flex-col lg:flex-row">
 				<div className="flex flex-col justify-start items-center lg:items-start gap-4 p-4 sm:p-6 lg:p-8 w-full lg:w-auto lg:min-w-[250px] border-b lg:border-b-0 lg:border-r border-gray-200">
 					<div className="flex flex-row  justify-between w-full items-center gap-4 lg:gap-6">
