@@ -67,6 +67,19 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 			icon: Download,
 			content: (
 				<div className="space-y-6">
+					<div className="flex justify-between items-center">
+						<div className="text-sm text-gray-500">
+							<AlertCircle className="inline-block w-4 h-4 mr-1" />
+							Make sure to download version 2.0 or later
+						</div>
+						<button
+							onClick={onComplete}
+							className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+						>
+							Next Step
+							<ChevronRight className="inline-block w-4 h-4 ml-1" />
+						</button>
+					</div>
 					<div className="relative aspect-video w-full rounded-lg overflow-hidden">
 						<Image
 							src="/docs/arduino-download.png"
@@ -101,10 +114,18 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 							</ol>
 						</div>
 					</div>
+				</div>
+			),
+		},
+		{
+			title: "Install USB Driver",
+			icon: Usb,
+			content: (
+				<div className="space-y-6">
 					<div className="flex justify-between items-center">
 						<div className="text-sm text-gray-500">
 							<AlertCircle className="inline-block w-4 h-4 mr-1" />
-							Make sure to download version 2.0 or later
+							Restart your computer after installation
 						</div>
 						<button
 							onClick={onComplete}
@@ -114,14 +135,6 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 							<ChevronRight className="inline-block w-4 h-4 ml-1" />
 						</button>
 					</div>
-				</div>
-			),
-		},
-		{
-			title: "Install USB Driver",
-			icon: Usb,
-			content: (
-				<div className="space-y-6">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div>
 							<h5 className="font-medium mb-4">Download CH340 Driver</h5>
@@ -193,10 +206,18 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 							</div>
 						</div>
 					</div>
+				</div>
+			),
+		},
+		{
+			title: "Configure IDE",
+			icon: Settings,
+			content: (
+				<div className="space-y-6">
 					<div className="flex justify-between items-center">
 						<div className="text-sm text-gray-500">
 							<AlertCircle className="inline-block w-4 h-4 mr-1" />
-							Restart your computer after installation
+							Double-check all settings before proceeding
 						</div>
 						<button
 							onClick={onComplete}
@@ -206,14 +227,6 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 							<ChevronRight className="inline-block w-4 h-4 ml-1" />
 						</button>
 					</div>
-				</div>
-			),
-		},
-		{
-			title: "Configure IDE",
-			icon: Settings,
-			content: (
-				<div className="space-y-6">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div>
 							<h5 className="font-medium mb-4">Board Configuration</h5>
@@ -294,19 +307,6 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 							</div>
 						</div>
 					</div>
-					<div className="flex justify-between items-center">
-						<div className="text-sm text-gray-500">
-							<AlertCircle className="inline-block w-4 h-4 mr-1" />
-							Double-check all settings before proceeding
-						</div>
-						<button
-							onClick={onComplete}
-							className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-						>
-							Next Step
-							<ChevronRight className="inline-block w-4 h-4 ml-1" />
-						</button>
-					</div>
 				</div>
 			),
 		},
@@ -315,6 +315,19 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 			icon: Monitor,
 			content: (
 				<div className="space-y-6">
+					<div className="flex justify-between items-center">
+						<div className="text-sm text-gray-500">
+							<AlertCircle className="inline-block w-4 h-4 mr-1" />
+							Save this sketch for future testing
+						</div>
+						<button
+							onClick={onComplete}
+							className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+						>
+							Complete Setup
+							<CheckCircle2 className="inline-block w-4 h-4 ml-1" />
+						</button>
+					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div>
 							<h5 className="font-medium mb-4">Upload Test Sketch</h5>
@@ -415,19 +428,6 @@ void loop() {
 							</div>
 						</div>
 					</div>
-					<div className="flex justify-between items-center">
-						<div className="text-sm text-gray-500">
-							<AlertCircle className="inline-block w-4 h-4 mr-1" />
-							Save this sketch for future testing
-						</div>
-						<button
-							onClick={onComplete}
-							className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
-						>
-							Complete Setup
-							<CheckCircle2 className="inline-block w-4 h-4 ml-1" />
-						</button>
-					</div>
 				</div>
 			),
 		},
@@ -466,6 +466,9 @@ export function InstallationSteps() {
 			<InstallationStepContent
 				step={currentStep}
 				onComplete={() => {
+					if (currentStep == totalSteps) {
+						setCurrentStep(1);
+					}
 					if (currentStep < totalSteps) {
 						setCurrentStep(currentStep + 1);
 					}

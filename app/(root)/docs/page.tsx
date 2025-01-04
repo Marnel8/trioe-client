@@ -19,8 +19,8 @@ export default function DocumentationPage() {
 			<div className="flex-1 overflow-hidden">
 				<div className="h-full overflow-y-auto">
 					<main className="container max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-						<section>
-							<div className="prose max-w-none">
+						<section className="mb-5">
+							<div className="prose max-w-none space-y-5">
 								<div id="introduction">
 									<h2 className="text-2xl font-bold mb-6">Introduction</h2>
 									<p className="mb-4">
@@ -47,7 +47,7 @@ export default function DocumentationPage() {
 											</p>
 										</div>
 
-										<div className="bg-white rounded-lg shadow-sm p-6">
+										<div className=" rounded-lg shadow-sm bg-gray-50 p-6">
 											<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 												<div className="flex items-start gap-4">
 													<div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
@@ -105,7 +105,7 @@ export default function DocumentationPage() {
 											</p>
 										</div>
 
-										<div className="bg-white rounded-lg shadow-sm p-6">
+										<div className="rounded-lg shadow-sm bg-gray-50 p-6">
 											<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 												<div className="flex items-start gap-4">
 													<div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">

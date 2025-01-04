@@ -1,271 +1,250 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import Loader from "./loader/Loader";
 
 const TrioeScene = () => {
-  const sceneRef = useRef<HTMLDivElement | null>(null);
-  const mixerRef = useRef<THREE.AnimationMixer | null>(null);
-  const controlsRef = useRef<OrbitControls | null>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const sceneObjRef = useRef<THREE.Scene | null>(null);
-  const modelRef = useRef<THREE.Group | null>(null);
-  const frameIdRef = useRef<number>(0);
-  const mountedRef = useRef<boolean>(true);
+	const sceneRef = useRef<HTMLDivElement | null>(null);
+	const mixerRef = useRef<THREE.AnimationMixer | null>(null);
+	const controlsRef = useRef<OrbitControls | null>(null);
+	const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+	const sceneObjRef = useRef<THREE.Scene | null>(null);
+	const modelRef = useRef<THREE.Group | null>(null);
+	const frameIdRef = useRef<number>(0);
+	const mountedRef = useRef<boolean>(true);
+	const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (!sceneRef.current) return;
+	useEffect(() => {
+		if (!sceneRef.current) return;
 
-    mountedRef.current = true;
+		mountedRef.current = true;
 
-    const scene = new THREE.Scene();
-    sceneObjRef.current = scene;
-    const clock = new THREE.Clock();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      1, // We'll update this in the resize handler
-      0.1,
-      500
-    );
+		const scene = new THREE.Scene();
+		sceneObjRef.current = scene;
+		const clock = new THREE.Clock();
+		const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 500);
 
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-      powerPreference: "high-performance",
-    });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio
-    rendererRef.current = renderer;
+		const renderer = new THREE.WebGLRenderer({
+			alpha: true,
+			antialias: true,
+			powerPreference: "high-performance",
+		});
+		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+		rendererRef.current = renderer;
 
-    // Instead of appending to body, append to our container
-    sceneRef.current.appendChild(renderer.domElement);
+		sceneRef.current.appendChild(renderer.domElement);
 
-    // Initial size setup
-    const updateSize = () => {
-      if (!sceneRef.current || !renderer) return;
+		const updateSize = () => {
+			if (!sceneRef.current || !renderer) return;
 
-      const width = sceneRef.current.clientWidth;
-      const height = sceneRef.current.clientHeight;
+			const width = sceneRef.current.clientWidth;
+			const height = sceneRef.current.clientHeight;
 
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
+			camera.aspect = width / height;
+			camera.updateProjectionMatrix();
 
-      renderer.setSize(width, height, false); // Added false to prevent style changes
-    };
+			renderer.setSize(width, height, false);
+		};
 
-    // Call once for initial setup
-    updateSize();
+		updateSize();
+		window.addEventListener("resize", updateSize);
 
-    // Add resize listener
-    window.addEventListener("resize", updateSize);
+		const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+		directionalLight.position.set(5, 5, 5);
+		scene.add(directionalLight);
 
-    // Updated lighting setup
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5); // Increased intensity
-    directionalLight.position.set(5, 5, 5); // Adjusted position for front-right lighting
-    scene.add(directionalLight);
+		const backLight = new THREE.DirectionalLight(0xffffff, 1);
+		backLight.position.set(-5, 3, -5);
+		scene.add(backLight);
 
-    // Add a second directional light for back lighting
-    const backLight = new THREE.DirectionalLight(0xffffff, 1);
-    backLight.position.set(-5, 3, -5); // Position it behind and slightly above
-    scene.add(backLight);
+		const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+		scene.add(ambientLight);
 
-    // Increased ambient light intensity for better overall illumination
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Changed color to white and adjusted intensity
-    scene.add(ambientLight);
+		const loader = new GLTFLoader();
+		const modelUrl = "/models/trioe.glb";
 
-    // Load the GLB Model
-    const loader = new GLTFLoader();
-    const modelUrl = "/models/trioe.glb"; // Update this path to the location of your model
+		loader.load(
+			modelUrl,
+			(gltf) => {
+				if (!mountedRef.current) return;
 
-    loader.load(
-      modelUrl,
-      (gltf) => {
-        if (!mountedRef.current) return;
+				const model = gltf.scene;
+				modelRef.current = model;
+				scene.add(model);
 
-        const model = gltf.scene;
-        modelRef.current = model;
-        scene.add(model);
+				const smallerScale = window.innerWidth < 1024 ? 0.02 : 0.03;
+				model.position.set(-1, 10, 0);
+				model.rotation.set(0, Math.PI, 0);
+				model.scale.set(smallerScale, smallerScale, smallerScale);
 
-        // Adjust scale based on screen width
-        const smallerScale = window.innerWidth < 1024 ? 0.02 : 0.03; // Smaller scale for large and below screens
-        model.position.set(-1, 10, 0);
-        model.rotation.set(0, Math.PI, 0);
-        model.scale.set(smallerScale, smallerScale, smallerScale);
+				model.traverse((child) => {
+					if ((child as THREE.Mesh).isMesh) {
+						const mesh = child as THREE.Mesh;
+						if (mesh.geometry) {
+							mesh.geometry.computeBoundingSphere();
+							mesh.geometry.computeBoundingBox();
+						}
+						if (mesh.material) {
+							(mesh.material as THREE.Material).dispose();
+						}
+					}
+				});
 
-        // Optimize geometries
-        model.traverse((child) => {
-          if ((child as THREE.Mesh).isMesh) {
-            const mesh = child as THREE.Mesh;
-            // Optimize geometries
-            if (mesh.geometry) {
-              mesh.geometry.computeBoundingSphere();
-              mesh.geometry.computeBoundingBox();
-            }
-            // Optimize materials
-            if (mesh.material) {
-              (mesh.material as THREE.Material).dispose();
-            }
-          }
-        });
+				mixerRef.current = new THREE.AnimationMixer(model);
 
-        // Setup animation mixer
-        mixerRef.current = new THREE.AnimationMixer(model);
+				if (gltf.animations.length) {
+					gltf.animations.forEach((clip) => {
+						const action = mixerRef.current?.clipAction(clip);
+						if (action) {
+							action.timeScale = 0.5;
+							action.play();
+						}
+					});
+				}
 
-        // Play all animations at reduced speed
-        if (gltf.animations.length) {
-          gltf.animations.forEach((clip) => {
-            const action = mixerRef.current?.clipAction(clip);
-            if (action) {
-              action.timeScale = 0.5; // Reduce animation speed to half
-              action.play();
-            }
-          });
-        }
+				const box = new THREE.Box3().setFromObject(model);
+				const center = box.getCenter(new THREE.Vector3());
+				const size = box.getSize(new THREE.Vector3());
+				const maxDim = Math.max(size.x, size.y, size.z);
+				camera.position.set(
+					center.x,
+					center.y + maxDim * 0.2,
+					center.z + maxDim * 1.2
+				);
+				camera.lookAt(
+					new THREE.Vector3(center.x, center.y + maxDim * 0.1, center.z)
+				);
 
-        // Adjust camera position for a better view
-        const box = new THREE.Box3().setFromObject(model);
-        const center = box.getCenter(new THREE.Vector3());
-        const size = box.getSize(new THREE.Vector3());
-        const maxDim = Math.max(size.x, size.y, size.z);
-        camera.position.set(
-          center.x,
-          center.y + maxDim * 0.2, // Reduced vertical offset from 0.4 to 0.2
-          center.z + maxDim * 1.2  // Increased distance from 0.8 to 1.2 for a more level view
-        );
-        camera.lookAt(new THREE.Vector3(center.x, center.y + maxDim * 0.1, center.z)); // Adjust lookAt to be slightly above center
+				controlsRef.current!.target.set(
+					center.x,
+					center.y + maxDim * 0.1,
+					center.z
+				);
+				controlsRef.current!.update();
 
-        // Update controls target to match new lookAt point
-        controlsRef.current!.target.set(center.x, center.y + maxDim * 0.1, center.z);
-        controlsRef.current!.update();
+				const rotateOnce = () => {
+					if (!mountedRef.current) return;
 
-        // Rotate the model once before starting the animation loop
-        const rotateOnce = () => {
-          if (!mountedRef.current) return;
-          
-          const duration = 2;
-          const startTime = clock.getElapsedTime();
-          const initialRotation = model.rotation.y;
-          const targetRotation = initialRotation + Math.PI * 2;
+					const duration = 2;
+					const startTime = clock.getElapsedTime();
+					const initialRotation = model.rotation.y;
+					const targetRotation = initialRotation + Math.PI * 2;
 
-          const rotate = () => {
-            if (!mountedRef.current) return;
-            
-            const elapsedTime = clock.getElapsedTime() - startTime;
-            const progress = Math.min(elapsedTime / duration, 1);
-            model.rotation.y = initialRotation + progress * (targetRotation - initialRotation);
+					const rotate = () => {
+						if (!mountedRef.current) return;
 
-            if (progress < 1) {
-              frameIdRef.current = requestAnimationFrame(rotate);
-            } else {
-              setTimeout(() => {
-                if (mountedRef.current) {
-                  animate();
-                }
-              }, 2000);
-            }
-          };
+						const elapsedTime = clock.getElapsedTime() - startTime;
+						const progress = Math.min(elapsedTime / duration, 1);
+						model.rotation.y =
+							initialRotation + progress * (targetRotation - initialRotation);
 
-          rotate();
-        };
+						if (progress < 1) {
+							frameIdRef.current = requestAnimationFrame(rotate);
+						} else {
+							setTimeout(() => {
+								if (mountedRef.current) {
+									setIsLoading(false);
+									animate();
+								}
+							}, 2000);
+						}
+					};
 
-        rotateOnce();
-      },
-      undefined,
-      (error) => {
-        if (mountedRef.current) {
-          console.error("An error occurred while loading the model:", error);
-        }
-      }
-    );
+					rotate();
+				};
 
-    // Initial camera position (fallback before model loads)
-    camera.position.set(0, 2, 8); // Adjusted y up and z further back
-    camera.lookAt(0, 2, 0); // Look at a point at the same height as camera
+				rotateOnce();
+			},
+			undefined,
+			(error) => {
+				if (mountedRef.current) {
+					console.error("An error occurred while loading the model:", error);
+					setIsLoading(false);
+				}
+			}
+		);
 
-    // Adjust OrbitControls settings
-    controlsRef.current = new OrbitControls(camera, renderer.domElement);
-    controlsRef.current.enableDamping = true;
-    controlsRef.current.dampingFactor = 0.05;
-    controlsRef.current.minDistance = 2; // Reduced from 3
-    controlsRef.current.maxDistance = 10; // Reduced from 20
-    controlsRef.current.maxPolarAngle = Math.PI * 0.75; // Allow more downward rotation
-    controlsRef.current.minPolarAngle = 0;
+		camera.position.set(0, 2, 8);
+		camera.lookAt(0, 2, 0);
 
-    // Update animation loop
-    const animate = () => {
-      if (!mountedRef.current) return;
-      
-      frameIdRef.current = requestAnimationFrame(animate);
+		controlsRef.current = new OrbitControls(camera, renderer.domElement);
+		controlsRef.current.enableDamping = true;
+		controlsRef.current.dampingFactor = 0.05;
+		controlsRef.current.minDistance = 2;
+		controlsRef.current.maxDistance = 10;
+		controlsRef.current.maxPolarAngle = Math.PI * 0.75;
+		controlsRef.current.minPolarAngle = 0;
 
-      controlsRef.current?.update();
+		const animate = () => {
+			if (!mountedRef.current) return;
 
-      if (mixerRef.current) {
-        mixerRef.current.update(clock.getDelta());
-      }
+			frameIdRef.current = requestAnimationFrame(animate);
 
-      renderer.render(scene, camera);
-    };
+			controlsRef.current?.update();
 
-    animate();
+			if (mixerRef.current) {
+				mixerRef.current.update(clock.getDelta());
+			}
 
-    // Enhanced cleanup
-    return () => {
-      // Immediately stop all rendering operations
-      mountedRef.current = false;
-      cancelAnimationFrame(frameIdRef.current);
-      
-      // Remove event listeners
-      window.removeEventListener("resize", updateSize);
+			renderer.render(scene, camera);
+		};
 
-      // Stop all animations
-      if (mixerRef.current) {
-        mixerRef.current.stopAllAction();
-        mixerRef.current = null;
-      }
+		return () => {
+			mountedRef.current = false;
+			cancelAnimationFrame(frameIdRef.current);
+			window.removeEventListener("resize", updateSize);
 
-      // Disable controls
-      if (controlsRef.current) {
-        controlsRef.current.enabled = false;
-        controlsRef.current = null;
-      }
+			if (mixerRef.current) {
+				mixerRef.current.stopAllAction();
+				mixerRef.current = null;
+			}
 
-      // Remove model from scene first
-      if (modelRef.current) {
-        sceneObjRef.current?.remove(modelRef.current);
-        modelRef.current = null;
-      }
+			if (controlsRef.current) {
+				controlsRef.current.enabled = false;
+				controlsRef.current = null;
+			}
 
-      // Clear scene
-      if (sceneObjRef.current) {
-        while(sceneObjRef.current.children.length > 0) { 
-          sceneObjRef.current.remove(sceneObjRef.current.children[0]);
-        }
-        sceneObjRef.current = null;
-      }
+			if (modelRef.current) {
+				sceneObjRef.current?.remove(modelRef.current);
+				modelRef.current = null;
+			}
 
-      // Handle renderer cleanup
-      if (rendererRef.current) {
-        // Remove from DOM first
-        if (rendererRef.current.domElement.parentNode) {
-          rendererRef.current.domElement.parentNode.removeChild(rendererRef.current.domElement);
-        }
-        
-        // Set size to 1x1 to minimize resources
-        rendererRef.current.setSize(1, 1);
-        rendererRef.current.dispose();
-        rendererRef.current = null;
-      }
+			if (sceneObjRef.current) {
+				while (sceneObjRef.current.children.length > 0) {
+					sceneObjRef.current.remove(sceneObjRef.current.children[0]);
+				}
+				sceneObjRef.current = null;
+			}
 
-      // Clear Three.js cache
-      THREE.Cache.clear();
-    };
-  }, []);
+			if (rendererRef.current) {
+				if (rendererRef.current.domElement.parentNode) {
+					rendererRef.current.domElement.parentNode.removeChild(
+						rendererRef.current.domElement
+					);
+				}
 
-  return <div 
-    className="w-full h-[100%] lg:w-[80%] lg:h-[80%] z-50 absolute" 
-    ref={sceneRef} 
-  />;
+				rendererRef.current.setSize(1, 1);
+				rendererRef.current.dispose();
+				rendererRef.current = null;
+			}
+
+			THREE.Cache.clear();
+		};
+	}, []);
+
+	return (
+		<Suspense fallback={<Loader />}>
+			<div
+				className={`w-full h-[100%] lg:w-[80%] lg:h-[80%] z-50 absolute transition-opacity duration-200 ${
+					isLoading ? "opacity-0" : "opacity-100"
+				}`}
+				ref={sceneRef}
+			/>
+		</Suspense>
+	);
 };
 
 export default TrioeScene;

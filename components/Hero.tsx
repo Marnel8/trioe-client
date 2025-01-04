@@ -1,11 +1,17 @@
+"use client";
 import Image from "next/image";
 import React, { Suspense } from "react";
 import { RainbowButton } from "./ui/rainbow-button";
 import { cn } from "@/lib/utils";
 
-import TrioeScene from "./TrioeScene";
+const TrioeScene = dynamic(() => import("../components/TrioeScene"), {
+	ssr: false,
+	loading: () => <Loader />,
+});
 import Link from "next/link";
 import Socials from "./socials";
+import dynamic from "next/dynamic";
+import Loader from "./loader/Loader";
 
 const Hero = () => {
 	return (
@@ -75,9 +81,7 @@ const Hero = () => {
 					</div>
 				</div>
 				<div className="hidden lg:flex-1 relative h-[200px] md:h-[300px] lg:h-[400px] w-[200px] md:w-[300px] lg:w-[400px] xl:h-[500px] xl:-top-5 lg:block">
-					<Suspense fallback={<div>Loading...</div>}>
-						<TrioeScene />
-					</Suspense>
+					<TrioeScene />
 				</div>
 			</div>
 		</section>
