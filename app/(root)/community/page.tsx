@@ -20,9 +20,11 @@ const CommunityPage = () => {
 					together.{" "}
 				</p>
 				<div className="flex justify-center items-center mt-4">
-					<PulsatingButton className="tracking-wide">
-						Join the Community
-					</PulsatingButton>
+					<a href="/sign-in">
+						<PulsatingButton className="tracking-wide">
+							Join the Community
+						</PulsatingButton>
+					</a>
 				</div>
 			</div>
 			<div className="container mx-auto p-4">

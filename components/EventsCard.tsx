@@ -24,88 +24,54 @@ export function EventCard({
 	thumbnail,
 }: EventCardProps) {
 	return (
-		<Card className="w-full rounded-none">
-			<div className="flex flex-col sm:flex-row">
-				<div className="flex flex-row sm:flex-col justify-between sm:justify-start items-center sm:items-start gap-3 p-10 sm:max-w-[15%] w-full sm:w-auto border-b  sm:border-b-0 sm:border-r border-gray-200">
-					<div className="flex flex-row sm:flex-col w-full justify-between items-center gap-3 sm:gap-1 ">
-						<p className="text-sm sm:text-base">Sun</p>
-						<p className="font-roboto-bold text-4xl sm:text-5xl md:text-6xl">
-							08
-						</p>
-						<p className="text-sm sm:text-base">Dec 2024</p>
+		<Card className="w-full rounded-none overflow-hidden">
+			<div className="flex flex-col lg:flex-row">
+				<div className="flex flex-col justify-start items-center lg:items-start gap-4 p-4 sm:p-6 lg:p-8 w-full lg:w-auto lg:min-w-[250px] border-b lg:border-b-0 lg:border-r border-gray-200">
+					<div className="flex flex-row  justify-between w-full items-center gap-4 lg:gap-6">
+						<div className="flex flex-col items-center  w-full">
+							<p className="text-xs sm:text-sm">Monday</p>
+							<p className="font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
+								06
+							</p>
+							<p className="text-xs sm:text-sm">Jan 2025</p>
+						</div>
+						<Separator className="w-3 h-3 lg:w-5 lg:h-3" />
+						<div className="flex flex-col items-center  w-full">
+							<p className="text-xs sm:text-sm">Thursday</p>
+							<p className="font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
+								09
+							</p>
+							<p className="text-xs sm:text-sm">Jan 2025</p>
+						</div>
 					</div>
-					<Separator className="hidden sm:block my-3" />
-					<div className="text-center ">
+					<Separator className="w-full h-0.5" />
+					<div className="text-center  w-full">
 						<p className="text-xs sm:text-sm tracking-wide">
-							SMX Convention Center
+							The Venetian Resort Hotel Las Vegas
 						</p>
 					</div>
-					<Separator className="hidden sm:block my-3" />
-					<div>
-						<p className="text-xs sm:text-sm text-center">
-							08:00 AM - 05:00 PM
-						</p>
+					<Separator className="w-full h-0.5" />
+					<div className="w-full text-center ">
+						<p className="text-xs sm:text-sm">08:00 AM - 05:00 PM</p>
 					</div>
-					<Separator className="hidden sm:block my-3" />
-					<div>
-						<h1 className="text-center">Consumer Electronics Show</h1>
-					</div>
-					<div className="flex-1">
-						<div className="bg-gradient-to-r primary-gradient h-full"> </div>
+					<Separator className="w-full h-0.5" />
+					<div className="w-full">
+						<h1 className="text-center  text-sm sm:text-base lg:text-lg xl:text-xl font-semibold">
+							Consumer Electronics Show
+						</h1>
 					</div>
 				</div>
-				<div className="flex-1 relative h-[700px] w-full">
-					<Image
-						src={`/images/event1.png`}
-						alt={`event1`}
-						fill
-						className="object-cover "
-					/>
+				<div className="flex-1 w-full">
+					<div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
+						<Image
+							src="/images/event1.png"
+							alt="Consumer Electronics Show"
+							fill
+							className="object-cover"
+						/>
+					</div>
 				</div>
 			</div>
 		</Card>
 	);
 }
-
-// <Card className="flex flex-col overflow-hidden transition-all hover:shadow-lg">
-//   <div className="relative h-48 w-full">
-//     <Image
-//       src={thumbnail}
-//       alt={`${title} thumbnail`}
-//       fill
-//       className="object-cover"
-//     />
-//     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-//       <Badge variant="secondary" className="bg-white/20 text-white">
-//         {category}
-//       </Badge>
-//     </div>
-//   </div>
-//   <CardHeader className="bg-gradient-to-r primary-gradient p-4 text-white">
-//     <CardTitle className="text-xl font-bold">{title}</CardTitle>
-//   </CardHeader>
-//   <CardContent className="flex-grow p-4">
-//     <p className="mb-4 text-sm text-gray-600">{description}</p>
-//     <div className="space-y-2 text-sm text-gray-500">
-//       <div className="flex items-center">
-//         <CalendarIcon className="mr-2 h-4 w-4" />
-//         <time dateTime={date}>
-//           {new Date(date).toLocaleDateString("en-US", {
-//             weekday: "long",
-//             year: "numeric",
-//             month: "long",
-//             day: "numeric",
-//           })}
-//         </time>
-//       </div>
-//       <div className="flex items-center">
-//         <ClockIcon className="mr-2 h-4 w-4" />
-//         <span>{time}</span>
-//       </div>
-//       <div className="flex items-center">
-//         <MapPinIcon className="mr-2 h-4 w-4" />
-//         <span>{location}</span>
-//       </div>
-//     </div>
-//   </CardContent>
-// </Card>

@@ -44,20 +44,24 @@ const Hero = () => {
 						tool for understanding and building IoE systems.
 					</p>
 					<div className="flex flex-col sm:flex-row gap-4 py-5 justify-center items-center lg:justify-start font-mono">
-						<RainbowButton
-							className={cn(
-								"bg-primary-gradient text-sm rounded-full px-10 w-[260px]"
-							)}
-						>
-							<Link href="#courses">Start Learning</Link>
-						</RainbowButton>
-						<RainbowButton
-							className={cn(
-								"bg-primary-gradient text-sm rounded-full px-10 w-[260px]"
-							)}
-						>
-							<Link href="#kits">Explore Kits</Link>
-						</RainbowButton>
+						<Link href="#courses">
+							<RainbowButton
+								className={cn(
+									"bg-primary-gradient text-sm rounded-full px-10 w-[260px]"
+								)}
+							>
+								Start Learning
+							</RainbowButton>
+						</Link>
+						<Link href="#kits">
+							<RainbowButton
+								className={cn(
+									"bg-primary-gradient text-sm rounded-full px-10 w-[260px]"
+								)}
+							>
+								Explore Kits
+							</RainbowButton>
+						</Link>
 						{/* <RainbowButton
               className={cn(
                 "bg-primary-gradient text-sm rounded-full px-10 w-full sm:w-auto"
