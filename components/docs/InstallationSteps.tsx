@@ -83,10 +83,10 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 					</div>
 					<div className="relative aspect-video w-full rounded-lg overflow-hidden">
 						<Image
-							src="/docs/arduino-download.png"
+							src="/images/doc_images/step1.png"
 							alt="Arduino IDE Download Page"
 							fill
-							className="object-cover"
+							className="object-contain"
 						/>
 					</div>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -150,9 +150,14 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 											Latest version: 3.5
 										</div>
 									</div>
-									<button className="ml-auto px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+									<a 
+										href="https://www.arduined.eu/files/windows10/CH341SER.zip" 
+										target="_blank" 
+										rel="noopener noreferrer" 
+										className="ml-auto px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 inline-block"
+									>
 										Download
-									</button>
+									</a>
 								</div>
 								<div className="text-sm text-gray-500">SHA256: 7a8b...f23d</div>
 							</div>
@@ -234,10 +239,10 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 							<div className="space-y-4">
 								<div className="relative aspect-video w-full rounded-lg overflow-hidden">
 									<Image
-										src="/docs/board-manager.png"
+										src="/images/doc_images/step2.png"
 										alt="Arduino Board Manager"
 										fill
-										className="object-cover"
+										className="object-contain"
 									/>
 								</div>
 								<div className="p-4 bg-white rounded-lg shadow-sm">
@@ -268,7 +273,7 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 										<div className="flex justify-between text-sm">
 											<span>Upload Speed</span>
 											<span className="font-mono bg-gray-100 px-2 py-1 rounded">
-												115200
+												921600
 											</span>
 										</div>
 										<div className="flex justify-between text-sm">
@@ -278,15 +283,15 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 											</span>
 										</div>
 										<div className="flex justify-between text-sm">
-											<span>Flash Frequency</span>
+											<span>Flash Mode</span>
 											<span className="font-mono bg-gray-100 px-2 py-1 rounded">
-												80MHz
+												QIO 80MHz
 											</span>
 										</div>
 										<div className="flex justify-between text-sm">
-											<span>Flash Mode</span>
+											<span>USB CDC On Boot</span>
 											<span className="font-mono bg-gray-100 px-2 py-1 rounded">
-												QIO
+												Enabled
 											</span>
 										</div>
 									</div>
@@ -298,10 +303,10 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
 									</p>
 									<div className="relative aspect-video w-full rounded-lg overflow-hidden">
 										<Image
-											src="/docs/port-selection.png"
+											src="/images/doc_images/step3.png"
 											alt="COM Port Selection"
 											fill
-											className="object-cover"
+											className="object-contain"
 										/>
 									</div>
 								</div>
