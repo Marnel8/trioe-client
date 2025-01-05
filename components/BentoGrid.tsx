@@ -21,7 +21,7 @@ const features = [
   },
   {
     Icon: Book,
-    name: "DOCUMENTATION",
+    name: "GETTING STARTED",
     description: "Quickly get started with TRIOE documentation and tutorials.",
     href: "/docs",
     cta: "Learn more",

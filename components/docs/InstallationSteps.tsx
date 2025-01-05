@@ -354,28 +354,17 @@ const InstallationStepContent: FC<InstallationStepContentProps> = ({
                 <div className="p-4 bg-white rounded-lg shadow-sm">
                   <pre className="text-sm bg-gray-50 p-4 rounded-lg overflow-x-auto">
                     {`void setup() {
-  // Initialize the built-in LED pin as an output
-  pinMode(LED_BUILTIN, OUTPUT);
-  
-  // Initialize serial communication at 9600 baud
-  Serial.begin(9600);
-  Serial.println("Setup completed. Starting the loop...");
+  pinMode(LED_BUILTIN, OUTPUT); // Set built-in LED as output
+  Serial.begin(9600);          // Start serial communication
 }
 
 void loop() {
-  // Turn the LED on and print a message
-  digitalWrite(LED_BUILTIN, HIGH);
-  Serial.println("LED is ON");
-  
-  // Wait for 1 second
-  delay(1000);
-  
-  // Turn the LED off and print a message
-  digitalWrite(LED_BUILTIN, LOW);
-  Serial.println("LED is OFF");
-  
-  // Wait for 1 second
-  delay(1000);
+  digitalWrite(LED_BUILTIN, HIGH); // Turn LED on
+  Serial.println("Trioe is working"); // Print message
+  delay(1000); // Wait 1 second
+
+  digitalWrite(LED_BUILTIN, LOW);  // Turn LED off
+  delay(1000); // Wait 1 second
 }`}
                   </pre>
                 </div>
