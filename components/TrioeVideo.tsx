@@ -54,7 +54,7 @@ const carourselItems = [
 const TrioeVideo = () => {
 	const [selectedVideo, setSelectedVideo] = useState(carourselItems[0]);
 	return (
-		<div className="flex flex-col items-center justify-center rounded-xl px-7 md:px-0">
+		<div className="flex flex-col items-center justify-center rounded-xl ">
 			<PageHeader title="MEDIA HIGHLIGHTS" />
 			<div className="space-y-5 flex flex-col items-center justify-center w-full">
 				<div className="relative mt-5 w-full max-w-[1200px]">
@@ -77,7 +77,7 @@ const TrioeVideo = () => {
 					opts={{
 						align: "start",
 					}}
-					className="w-full max-w-[1200px]"
+					className="w-full max-w-[1200px] px-8 md:px-0"
 				>
 					<CarouselContent>
 						{carourselItems.map((item, index) => (

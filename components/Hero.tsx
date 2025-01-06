@@ -68,13 +68,6 @@ const Hero = () => {
 								Explore Kits
 							</RainbowButton>
 						</Link>
-						{/* <RainbowButton
-              className={cn(
-                "bg-primary-gradient text-sm rounded-full px-10 w-full sm:w-auto"
-              )}
-            >
-              <Link href="#footer">Follow us on our Socials!</Link>
-            </RainbowButton> */}
 					</div>
 					<div className="flex justify-center lg:justify-start items-center gap-4">
 						<Socials color="text-primary border-primary" size={20} />
