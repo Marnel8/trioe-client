@@ -55,6 +55,55 @@ const quizQuestions = [
     correctAnswer: "To provide a reference point for voltage measurement",
     explanation: "Ground serves as a common reference point for voltage measurements in circuits.",
   },
+  {
+    id: 6,
+    question: "What happens to the total resistance in a series circuit when you add more resistors?",
+    options: ["Decreases", "Stays the same", "Increases", "Becomes zero"],
+    correctAnswer: "Increases",
+    explanation: "In a series circuit, total resistance is the sum of all individual resistances. Adding more resistors increases the total resistance.",
+  },
+  {
+    id: 7,
+    question: "What component is used to store electrical charge?",
+    options: ["Resistor", "Inductor", "Capacitor", "Diode"],
+    correctAnswer: "Capacitor",
+    explanation: "Capacitors store electrical energy in an electric field between two conductive plates separated by an insulator.",
+  },
+  {
+    id: 8,
+    question: "Which component allows current to flow in only one direction?",
+    options: ["Resistor", "Capacitor", "Transistor", "Diode"],
+    correctAnswer: "Diode",
+    explanation: "Diodes are semiconductor devices that allow current to flow in one direction while blocking it in the opposite direction.",
+  },
+  {
+    id: 9,
+    question: "What is the unit of electrical resistance?",
+    options: ["Volt", "Ampere", "Watt", "Ohm"],
+    correctAnswer: "Ohm",
+    explanation: "Resistance is measured in Ohms (Ω), which represents how much a material opposes the flow of electric current.",
+  },
+  {
+    id: 10,
+    question: "In a parallel circuit, what happens to the voltage across each branch?",
+    options: ["Increases", "Decreases", "Remains the same", "Becomes zero"],
+    correctAnswer: "Remains the same",
+    explanation: "In a parallel circuit, the voltage across each parallel branch is equal to the source voltage.",
+  },
+  {
+    id: 11,
+    question: "What does LED stand for?",
+    options: ["Light Emitting Device", "Light Enabling Diode", "Light Emitting Diode", "Light Energy Device"],
+    correctAnswer: "Light Emitting Diode",
+    explanation: "LED (Light Emitting Diode) is a semiconductor device that emits light when current flows through it.",
+  },
+  {
+    id: 12,
+    question: "Which law states that the sum of all currents entering a node equals the sum of currents leaving it?",
+    options: ["Ohm's Law", "Faraday's Law", "Kirchhoff's Current Law", "Newton's Law"],
+    correctAnswer: "Kirchhoff's Current Law",
+    explanation: "Kirchhoff's Current Law (KCL) states that the algebraic sum of currents entering and leaving a node must equal zero.",
+  }
 ];
 
 export default function QuizPage() {
@@ -117,7 +166,7 @@ export default function QuizPage() {
             </Button>
           </CardContent>
           <CardFooter>
-            <Link href="/steam-learn/basic-electronics" className="w-full">
+            <Link href="/learn/steam-learn/basic-electronics" className="w-full">
               <Button variant="outline" className="w-full">
                 <ArrowLeft className="mr-2 h-4 w-4" /> Back to Lessons
               </Button>
@@ -175,7 +224,7 @@ export default function QuizPage() {
           )}
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Link href="/steam-learn/basic-electronics">
+          <Link href="/learn/steam-learn/basic-electronics">
             <Button variant="outline">
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Lessons
             </Button>

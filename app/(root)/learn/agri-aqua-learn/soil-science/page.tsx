@@ -9,25 +9,25 @@ const lessons = [
   {
     title: "Soil Composition",
     description: "Learn about the different components that make up soil",
-    href: "/agri-aqua-learn/soil-science/composition",
+    href: "/learn/agri-aqua-learn/soil-science/composition",
     duration: "30-45 minutes",
   },
   {
     title: "pH and Nutrients",
     description: "Understanding soil pH and essential plant nutrients",
-    href: "/agri-aqua-learn/soil-science/ph-nutrients",
+    href: "/learn/agri-aqua-learn/soil-science/ph-nutrients",
     duration: "30-45 minutes",
   },
   {
     title: "Soil Testing",
     description: "Methods and techniques for testing soil properties",
-    href: "/agri-aqua-learn/soil-science/testing",
+    href: "/learn/agri-aqua-learn/soil-science/testing",
     duration: "30-45 minutes",
   },
   {
     title: "Soil Conservation",
     description: "Practices for maintaining soil health and preventing erosion",
-    href: "/agri-aqua-learn/soil-science/conservation",
+    href: "/learn/agri-aqua-learn/soil-science/conservation",
     duration: "30-45 minutes",
   },
 ];

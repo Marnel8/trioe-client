@@ -9,25 +9,25 @@ const lessons = [
   {
     title: "Understanding Disasters",
     description: "Learn about different types of disasters and their characteristics",
-    href: "/drm-learn/disaster-preparedness/understanding",
+    href: "/learn/drm-learn/disaster-preparedness/understanding-disasters",
     duration: "30-45 minutes",
   },
   {
     title: "Emergency Planning",
     description: "Create effective emergency response plans",
-    href: "/drm-learn/disaster-preparedness/planning",
+    href: "/learn/drm-learn/disaster-preparedness/emergency-planning",
     duration: "30-45 minutes",
   },
   {
     title: "Survival Kits",
     description: "Essential items and supplies for emergency situations",
-    href: "/drm-learn/disaster-preparedness/survival-kits",
+    href: "/learn/drm-learn/disaster-preparedness/survival-kits",
     duration: "30-45 minutes",
   },
   {
     title: "Early Warning Systems",
     description: "Understanding and implementing early warning systems",
-    href: "/drm-learn/disaster-preparedness/warning-systems",
+    href: "/learn/drm-learn/disaster-preparedness/early-warning",
     duration: "30-45 minutes",
   },
 ];

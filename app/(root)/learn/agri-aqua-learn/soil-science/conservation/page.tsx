@@ -16,28 +16,33 @@ import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const lesson = {
-  title: "Soil Composition",
+  title: "Soil Conservation",
   sections: [
     {
-      id: "introduction",
-      title: "Introduction to Soil Composition",
+      id: "erosion",
+      title: "Soil Erosion and Its Impact",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            Soil is a complex mixture of minerals, organic matter, water, and air. Understanding these components
-            is crucial for successful agriculture and plant growth.
+            Soil erosion is a major threat to agricultural sustainability and food security.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>What is Soil Made Of?</CardTitle>
+                <CardTitle>Types and Causes of Erosion</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Minerals (45-49%)</strong> - The inorganic component including sand, silt, and clay</li>
-                  <li><strong>Water (20-30%)</strong> - Essential for nutrient transport and plant growth</li>
-                  <li><strong>Air (20-30%)</strong> - Necessary for root respiration and soil organisms</li>
-                  <li><strong>Organic Matter (1-5%)</strong> - Decomposed plant and animal materials</li>
+                  <li><strong>Water Erosion</strong> - Caused by rainfall and runoff</li>
+                  <li><strong>Wind Erosion</strong> - Common in dry, exposed areas</li>
+                  <li><strong>Tillage Erosion</strong> - From farming practices</li>
+                  <li><strong>Impact</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Loss of topsoil and nutrients</li>
+                      <li>Reduced soil fertility</li>
+                      <li>Decreased crop yields</li>
+                    </ul>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -46,23 +51,25 @@ const lesson = {
       ),
     },
     {
-      id: "soil-particles",
-      title: "Soil Particles and Texture",
+      id: "conservation-practices",
+      title: "Conservation Practices",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            The mineral portion of soil consists of particles of different sizes, which determine soil texture.
+            Various practices can be implemented to protect and conserve soil.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Types of Soil Particles</CardTitle>
+                <CardTitle>Soil Conservation Methods</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Sand (0.05 to 2mm)</strong> - Largest particles, good drainage but poor nutrient retention</li>
-                  <li><strong>Silt (0.002 to 0.05mm)</strong> - Medium-sized particles, balanced properties</li>
-                  <li><strong>Clay (smaller than 0.002mm)</strong> - Smallest particles, high nutrient retention but poor drainage</li>
+                  <li><strong>Cover Cropping</strong> - Planting crops to protect soil</li>
+                  <li><strong>Contour Farming</strong> - Following land contours</li>
+                  <li><strong>Terracing</strong> - Creating level platforms</li>
+                  <li><strong>No-Till Farming</strong> - Minimal soil disturbance</li>
+                  <li><strong>Crop Rotation</strong> - Alternating different crops</li>
                 </ul>
               </CardContent>
             </Card>
@@ -71,25 +78,34 @@ const lesson = {
       ),
     },
     {
-      id: "soil-structure",
-      title: "Soil Structure",
+      id: "sustainable-management",
+      title: "Sustainable Soil Management",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            Soil structure refers to how soil particles group together to form aggregates.
+            Long-term approaches to maintain soil health and productivity.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Importance of Soil Structure</CardTitle>
+                <CardTitle>Management Strategies</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Determines pore space for air and water movement</li>
-                  <li>Affects root growth and development</li>
-                  <li>Influences soil's ability to store nutrients</li>
-                  <li>Impacts soil's resistance to erosion</li>
-                  <li>Affects water infiltration and drainage</li>
+                  <li><strong>Organic Matter Management</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Adding compost and manure</li>
+                      <li>Incorporating crop residues</li>
+                      <li>Using green manures</li>
+                    </ul>
+                  </li>
+                  <li><strong>Water Management</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Efficient irrigation systems</li>
+                      <li>Water harvesting techniques</li>
+                      <li>Drainage management</li>
+                    </ul>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -146,8 +162,8 @@ export default function LessonPage() {
         </div>
         {currentSection === lesson.sections.length - 1 ? (
           <Button asChild>
-            <Link href="/learn/agri-aqua-learn/soil-science/ph-nutrients">
-              Next Lesson
+            <Link href="/learn/agri-aqua-learn/soil-science/quiz">
+              Take the Quiz
               <ArrowRight className="h-4 w-4 ml-2" />
             </Link>
           </Button>

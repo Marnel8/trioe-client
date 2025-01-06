@@ -17,7 +17,7 @@ const LearningModules = () => {
           title="Agri-Aqua"
           description="This module covers the basics of IoT technology, including sensors, actuators, and communication protocols."
           imageSrc="/images/Learning_module/LearningModulePicts (4).png"
-          route="/learn/agriaqua-learn"
+          route="/learn/agri-aqua-learn"
         />
         <ModuleCard
           title="DRM"

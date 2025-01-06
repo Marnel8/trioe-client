@@ -16,28 +16,28 @@ import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const lesson = {
-  title: "Soil Composition",
+  title: "Understanding Disasters",
   sections: [
     {
       id: "introduction",
-      title: "Introduction to Soil Composition",
+      title: "Introduction to Disasters",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            Soil is a complex mixture of minerals, organic matter, water, and air. Understanding these components
-            is crucial for successful agriculture and plant growth.
+            Disasters are events that seriously disrupt the functioning of a community and cause widespread losses.
+            Understanding their nature is crucial for effective preparation and response.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>What is Soil Made Of?</CardTitle>
+                <CardTitle>Types of Disasters</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Minerals (45-49%)</strong> - The inorganic component including sand, silt, and clay</li>
-                  <li><strong>Water (20-30%)</strong> - Essential for nutrient transport and plant growth</li>
-                  <li><strong>Air (20-30%)</strong> - Necessary for root respiration and soil organisms</li>
-                  <li><strong>Organic Matter (1-5%)</strong> - Decomposed plant and animal materials</li>
+                  <li><strong>Natural Disasters</strong> - Events caused by natural processes (earthquakes, typhoons)</li>
+                  <li><strong>Human-Made Disasters</strong> - Events caused by human activities (industrial accidents)</li>
+                  <li><strong>Complex Emergencies</strong> - Combination of natural and human-made factors</li>
+                  <li><strong>Technological Disasters</strong> - Failures of technological systems</li>
                 </ul>
               </CardContent>
             </Card>
@@ -46,23 +46,25 @@ const lesson = {
       ),
     },
     {
-      id: "soil-particles",
-      title: "Soil Particles and Texture",
+      id: "disaster-cycle",
+      title: "The Disaster Management Cycle",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            The mineral portion of soil consists of particles of different sizes, which determine soil texture.
+            The disaster management cycle is a continuous process through which communities prepare for and reduce the impact of disasters.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Types of Soil Particles</CardTitle>
+                <CardTitle>Phases of Disaster Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Sand (0.05 to 2mm)</strong> - Largest particles, good drainage but poor nutrient retention</li>
-                  <li><strong>Silt (0.002 to 0.05mm)</strong> - Medium-sized particles, balanced properties</li>
-                  <li><strong>Clay (smaller than 0.002mm)</strong> - Smallest particles, high nutrient retention but poor drainage</li>
+                  <li><strong>Prevention</strong> - Actions to prevent disasters or reduce their severity</li>
+                  <li><strong>Preparedness</strong> - Planning and organizing before a disaster</li>
+                  <li><strong>Response</strong> - Immediate actions during and after a disaster</li>
+                  <li><strong>Recovery</strong> - Rebuilding and restoration after a disaster</li>
+                  <li><strong>Mitigation</strong> - Long-term measures to reduce disaster risks</li>
                 </ul>
               </CardContent>
             </Card>
@@ -71,25 +73,41 @@ const lesson = {
       ),
     },
     {
-      id: "soil-structure",
-      title: "Soil Structure",
+      id: "impact-assessment",
+      title: "Understanding Disaster Impact",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            Soil structure refers to how soil particles group together to form aggregates.
+            Disasters can have various impacts on communities, affecting different aspects of society.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Importance of Soil Structure</CardTitle>
+                <CardTitle>Types of Impact</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Determines pore space for air and water movement</li>
-                  <li>Affects root growth and development</li>
-                  <li>Influences soil's ability to store nutrients</li>
-                  <li>Impacts soil's resistance to erosion</li>
-                  <li>Affects water infiltration and drainage</li>
+                  <li><strong>Physical Impact</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Damage to infrastructure</li>
+                      <li>Loss of life and injuries</li>
+                      <li>Environmental damage</li>
+                    </ul>
+                  </li>
+                  <li><strong>Social Impact</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Displacement of communities</li>
+                      <li>Disruption of services</li>
+                      <li>Psychological effects</li>
+                    </ul>
+                  </li>
+                  <li><strong>Economic Impact</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Loss of livelihoods</li>
+                      <li>Business interruption</li>
+                      <li>Recovery costs</li>
+                    </ul>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -107,9 +125,9 @@ export default function LessonPage() {
     <div className="container mx-auto py-8 space-y-8">
       <div className="flex items-center justify-between">
         <Button variant="ghost" asChild>
-          <Link href="/learn/agri-aqua-learn/soil-science">
+          <Link href="/learn/drm-learn/disaster-preparedness">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Soil Science
+            Back to Disaster Preparedness
           </Link>
         </Button>
         <div className="text-sm text-muted-foreground">
@@ -146,7 +164,7 @@ export default function LessonPage() {
         </div>
         {currentSection === lesson.sections.length - 1 ? (
           <Button asChild>
-            <Link href="/learn/agri-aqua-learn/soil-science/ph-nutrients">
+            <Link href="/learn/drm-learn/disaster-preparedness/emergency-planning">
               Next Lesson
               <ArrowRight className="h-4 w-4 ml-2" />
             </Link>

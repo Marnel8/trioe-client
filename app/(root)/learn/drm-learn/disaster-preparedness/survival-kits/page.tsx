@@ -16,28 +16,30 @@ import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const lesson = {
-  title: "Soil Composition",
+  title: "Survival Kits",
   sections: [
     {
-      id: "introduction",
-      title: "Introduction to Soil Composition",
+      id: "basics",
+      title: "Essential Survival Kit Components",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            Soil is a complex mixture of minerals, organic matter, water, and air. Understanding these components
-            is crucial for successful agriculture and plant growth.
+            A well-prepared survival kit is crucial for sustaining yourself and your family during the first 72 hours of a disaster.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>What is Soil Made Of?</CardTitle>
+                <CardTitle>Basic Survival Kit Items</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Minerals (45-49%)</strong> - The inorganic component including sand, silt, and clay</li>
-                  <li><strong>Water (20-30%)</strong> - Essential for nutrient transport and plant growth</li>
-                  <li><strong>Air (20-30%)</strong> - Necessary for root respiration and soil organisms</li>
-                  <li><strong>Organic Matter (1-5%)</strong> - Decomposed plant and animal materials</li>
+                  <li><strong>Water</strong> - One gallon per person per day</li>
+                  <li><strong>Food</strong> - Non-perishable items for 3 days</li>
+                  <li><strong>First Aid Kit</strong> - Basic medical supplies</li>
+                  <li><strong>Flashlight</strong> - With extra batteries</li>
+                  <li><strong>Radio</strong> - Battery-powered or hand-crank</li>
+                  <li><strong>Basic Tools</strong> - Multi-tool, manual can opener</li>
+                  <li><strong>Sanitation Items</strong> - Personal hygiene supplies</li>
                 </ul>
               </CardContent>
             </Card>
@@ -46,23 +48,41 @@ const lesson = {
       ),
     },
     {
-      id: "soil-particles",
-      title: "Soil Particles and Texture",
+      id: "specialized",
+      title: "Specialized Kit Components",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            The mineral portion of soil consists of particles of different sizes, which determine soil texture.
+            Different situations and family needs may require additional specialized items in your survival kit.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Types of Soil Particles</CardTitle>
+                <CardTitle>Special Considerations</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Sand (0.05 to 2mm)</strong> - Largest particles, good drainage but poor nutrient retention</li>
-                  <li><strong>Silt (0.002 to 0.05mm)</strong> - Medium-sized particles, balanced properties</li>
-                  <li><strong>Clay (smaller than 0.002mm)</strong> - Smallest particles, high nutrient retention but poor drainage</li>
+                  <li><strong>Medical Needs</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Prescription medications</li>
+                      <li>Medical devices and supplies</li>
+                      <li>Spare glasses or contact lenses</li>
+                    </ul>
+                  </li>
+                  <li><strong>Infant Care</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Formula and baby food</li>
+                      <li>Diapers and wipes</li>
+                      <li>Baby medications</li>
+                    </ul>
+                  </li>
+                  <li><strong>Pet Supplies</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Pet food and water</li>
+                      <li>Medications</li>
+                      <li>Leash and carrier</li>
+                    </ul>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -71,25 +91,41 @@ const lesson = {
       ),
     },
     {
-      id: "soil-structure",
-      title: "Soil Structure",
+      id: "maintenance",
+      title: "Kit Maintenance and Storage",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            Soil structure refers to how soil particles group together to form aggregates.
+            Regular maintenance and proper storage of your survival kit ensures it will be ready when needed.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Importance of Soil Structure</CardTitle>
+                <CardTitle>Maintenance Guidelines</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Determines pore space for air and water movement</li>
-                  <li>Affects root growth and development</li>
-                  <li>Influences soil's ability to store nutrients</li>
-                  <li>Impacts soil's resistance to erosion</li>
-                  <li>Affects water infiltration and drainage</li>
+                  <li><strong>Regular Checks</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Check expiration dates monthly</li>
+                      <li>Replace expired items</li>
+                      <li>Test batteries and equipment</li>
+                    </ul>
+                  </li>
+                  <li><strong>Storage Location</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Cool, dry place</li>
+                      <li>Easily accessible</li>
+                      <li>Protected from pests</li>
+                    </ul>
+                  </li>
+                  <li><strong>Multiple Kits</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Home kit</li>
+                      <li>Vehicle kit</li>
+                      <li>Work/school kit</li>
+                    </ul>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -107,9 +143,9 @@ export default function LessonPage() {
     <div className="container mx-auto py-8 space-y-8">
       <div className="flex items-center justify-between">
         <Button variant="ghost" asChild>
-          <Link href="/learn/agri-aqua-learn/soil-science">
+          <Link href="/learn/drm-learn/disaster-preparedness">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Soil Science
+            Back to Disaster Preparedness
           </Link>
         </Button>
         <div className="text-sm text-muted-foreground">
@@ -146,7 +182,7 @@ export default function LessonPage() {
         </div>
         {currentSection === lesson.sections.length - 1 ? (
           <Button asChild>
-            <Link href="/learn/agri-aqua-learn/soil-science/ph-nutrients">
+            <Link href="/learn/drm-learn/disaster-preparedness/early-warning">
               Next Lesson
               <ArrowRight className="h-4 w-4 ml-2" />
             </Link>

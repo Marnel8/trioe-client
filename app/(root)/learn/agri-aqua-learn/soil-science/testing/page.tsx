@@ -16,28 +16,28 @@ import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const lesson = {
-  title: "Soil Composition",
+  title: "Soil Testing",
   sections: [
     {
-      id: "introduction",
-      title: "Introduction to Soil Composition",
+      id: "importance",
+      title: "Importance of Soil Testing",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            Soil is a complex mixture of minerals, organic matter, water, and air. Understanding these components
-            is crucial for successful agriculture and plant growth.
+            Soil testing is crucial for understanding soil health and making informed decisions about soil management.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>What is Soil Made Of?</CardTitle>
+                <CardTitle>Why Test Your Soil?</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Minerals (45-49%)</strong> - The inorganic component including sand, silt, and clay</li>
-                  <li><strong>Water (20-30%)</strong> - Essential for nutrient transport and plant growth</li>
-                  <li><strong>Air (20-30%)</strong> - Necessary for root respiration and soil organisms</li>
-                  <li><strong>Organic Matter (1-5%)</strong> - Decomposed plant and animal materials</li>
+                  <li>Determine nutrient levels and deficiencies</li>
+                  <li>Measure soil pH and need for amendments</li>
+                  <li>Assess organic matter content</li>
+                  <li>Guide fertilizer application rates</li>
+                  <li>Monitor soil health over time</li>
                 </ul>
               </CardContent>
             </Card>
@@ -46,23 +46,25 @@ const lesson = {
       ),
     },
     {
-      id: "soil-particles",
-      title: "Soil Particles and Texture",
+      id: "testing-methods",
+      title: "Soil Testing Methods",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            The mineral portion of soil consists of particles of different sizes, which determine soil texture.
+            Various methods are used to test different soil properties and characteristics.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Types of Soil Particles</CardTitle>
+                <CardTitle>Common Testing Methods</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Sand (0.05 to 2mm)</strong> - Largest particles, good drainage but poor nutrient retention</li>
-                  <li><strong>Silt (0.002 to 0.05mm)</strong> - Medium-sized particles, balanced properties</li>
-                  <li><strong>Clay (smaller than 0.002mm)</strong> - Smallest particles, high nutrient retention but poor drainage</li>
+                  <li><strong>pH Testing</strong> - Using pH meters or test strips</li>
+                  <li><strong>Nutrient Analysis</strong> - Laboratory chemical tests</li>
+                  <li><strong>Texture Analysis</strong> - Jar test or feel method</li>
+                  <li><strong>Organic Matter</strong> - Loss on ignition test</li>
+                  <li><strong>Compaction</strong> - Penetrometer measurements</li>
                 </ul>
               </CardContent>
             </Card>
@@ -71,25 +73,34 @@ const lesson = {
       ),
     },
     {
-      id: "soil-structure",
-      title: "Soil Structure",
+      id: "interpretation",
+      title: "Interpreting Test Results",
       content: (
         <div className="space-y-4">
           <p className="text-lg">
-            Soil structure refers to how soil particles group together to form aggregates.
+            Understanding soil test results is crucial for making appropriate management decisions.
           </p>
           <div className="grid gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Importance of Soil Structure</CardTitle>
+                <CardTitle>Reading Test Results</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Determines pore space for air and water movement</li>
-                  <li>Affects root growth and development</li>
-                  <li>Influences soil's ability to store nutrients</li>
-                  <li>Impacts soil's resistance to erosion</li>
-                  <li>Affects water infiltration and drainage</li>
+                  <li><strong>Nutrient Levels</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Low - Below optimal range</li>
+                      <li>Medium - Adequate range</li>
+                      <li>High - Above optimal range</li>
+                    </ul>
+                  </li>
+                  <li><strong>Making Recommendations</strong>
+                    <ul className="list-disc pl-6 mt-2">
+                      <li>Fertilizer requirements</li>
+                      <li>Lime or sulfur needs</li>
+                      <li>Organic matter amendments</li>
+                    </ul>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -146,7 +157,7 @@ export default function LessonPage() {
         </div>
         {currentSection === lesson.sections.length - 1 ? (
           <Button asChild>
-            <Link href="/learn/agri-aqua-learn/soil-science/ph-nutrients">
+            <Link href="/learn/agri-aqua-learn/soil-science/conservation">
               Next Lesson
               <ArrowRight className="h-4 w-4 ml-2" />
             </Link>
