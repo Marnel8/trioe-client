@@ -20,6 +20,11 @@ const carourselItems = [
 		thumbnailAlt: "Hero Video",
 	},
 	{
+		videoSrc: "https://www.youtube.com/embed/44EAy6Vq2uc?si=eZNkaubczM_S0r-s",
+		thumbnailSrc: "/tutorials/intro.png",
+		thumbnailAlt: "Hero Video",
+	},
+	{
 		videoSrc: "https://www.youtube.com/embed/qTVZSD4MLCY?si=MWPvRgIBN1ySSlVM",
 		thumbnailSrc: "/tutorials/install_arduino.png",
 		thumbnailAlt: "Hero Video",
@@ -39,6 +44,11 @@ const carourselItems = [
 		thumbnailSrc: "/tutorials/hello_world.png",
 		thumbnailAlt: "Hero Video",
 	},
+	{
+		videoSrc: "https://www.youtube.com/embed/mKqg2fUm9VE?si=gKT935R8MhjFV3Em",
+		thumbnailSrc: "/tutorials/blinking.png",
+		thumbnailAlt: "Hero Video",
+	},
 ];
 
 const TrioeVideo = () => {
@@ -49,14 +59,14 @@ const TrioeVideo = () => {
 			<div className="space-y-5 flex flex-col items-center ustify-center">
 				<div className="relative mt-5 max-w-[1200px]">
 					<HeroVideoDialog
-						className="dark:hidden block transition-transform duration-300 md:basis-1/3   lg:basis-1/4 w-full"
+						className="dark:hidden block transition-transform duration-300 "
 						animationStyle="from-center"
 						videoSrc={selectedVideo.videoSrc}
 						thumbnailSrc={selectedVideo.thumbnailSrc}
 						thumbnailAlt={selectedVideo.thumbnailAlt}
 					/>
 					<HeroVideoDialog
-						className="hidden dark:block transition-transform duration-300 md:basis-1/3 lg:basis-1/4 w-full"
+						className="hidden dark:block transition-transform duration-300 "
 						animationStyle="from-center"
 						videoSrc={selectedVideo.videoSrc}
 						thumbnailSrc={selectedVideo.thumbnailSrc}

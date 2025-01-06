@@ -29,7 +29,7 @@ const ElectronicsKits = () => {
 								<Image
 									src={kit.thumbnail}
 									alt={kit.name}
-									layout="fill"
+									fill
 									className="object-contain rounded-xl"
 								/>
 							</div>
