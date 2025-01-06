@@ -77,7 +77,7 @@ const TrioeVideo = () => {
 					opts={{
 						align: "start",
 					}}
-					className="w-full max-w-[1200px] px-7 md:px-0"
+					className="w-full max-w-[1200px] px-8 md:px-0"
 				>
 					<CarouselContent>
 						{carourselItems.map((item, index) => (
