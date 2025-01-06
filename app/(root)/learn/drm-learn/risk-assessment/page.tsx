@@ -9,25 +9,25 @@ const lessons = [
   {
     title: "Hazard Identification",
     description: "Learn to identify and classify potential hazards",
-    href: "/drm-learn/risk-assessment/hazards",
+    href: "/learn/drm-learn/risk-assessment/hazard-identification",
     duration: "30-45 minutes",
   },
   {
     title: "Vulnerability Analysis",
     description: "Assess community and infrastructure vulnerabilities",
-    href: "/drm-learn/risk-assessment/vulnerability",
+    href: "/learn/drm-learn/risk-assessment/vulnerability-analysis",
     duration: "30-45 minutes",
   },
   {
     title: "Risk Mapping",
     description: "Create and interpret risk maps",
-    href: "/drm-learn/risk-assessment/mapping",
+    href: "/learn/drm-learn/risk-assessment/risk-mapping",
     duration: "30-45 minutes",
   },
   {
     title: "Impact Assessment",
     description: "Evaluate potential impacts of disasters",
-    href: "/drm-learn/risk-assessment/impact",
+    href: "/learn/drm-learn/risk-assessment/impact-assessment",
     duration: "30-45 minutes",
   },
 ];
