@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LearningModules from "@/components/LearningModules";
 import Loader from "@/components/loader/Loader";
+import PromotionDialog from "@/components/PromotionDialog";
 import { Testimonials } from "@/components/Testimonials";
 import TheTeam from "@/components/TheTeam";
 import TrioeVideo from "@/components/TrioeVideo";
@@ -81,6 +82,7 @@ const Home = () => {
 			<div id="footer">
 				<Footer />
 			</div>
+			<PromotionDialog />
 		</div>
 	);
 };
