@@ -54,19 +54,19 @@ const carourselItems = [
 const TrioeVideo = () => {
 	const [selectedVideo, setSelectedVideo] = useState(carourselItems[0]);
 	return (
-		<div className="flex flex-col items-center justify-center rounded-xl">
+		<div className="flex flex-col items-center justify-center rounded-xl px-7 md:px-0">
 			<PageHeader title="MEDIA HIGHLIGHTS" />
-			<div className="space-y-5 flex flex-col items-center ustify-center">
-				<div className="relative mt-5 max-w-[1200px]">
+			<div className="space-y-5 flex flex-col items-center justify-center w-full">
+				<div className="relative mt-5 w-full max-w-[1200px]">
 					<HeroVideoDialog
-						className="dark:hidden block transition-transform duration-300 "
+						className="dark:hidden block transition-transform duration-300"
 						animationStyle="from-center"
 						videoSrc={selectedVideo.videoSrc}
 						thumbnailSrc={selectedVideo.thumbnailSrc}
 						thumbnailAlt={selectedVideo.thumbnailAlt}
 					/>
 					<HeroVideoDialog
-						className="hidden dark:block transition-transform duration-300 "
+						className="hidden dark:block transition-transform duration-300"
 						animationStyle="from-center"
 						videoSrc={selectedVideo.videoSrc}
 						thumbnailSrc={selectedVideo.thumbnailSrc}
@@ -77,33 +77,36 @@ const TrioeVideo = () => {
 					opts={{
 						align: "start",
 					}}
-					className="w-full "
+					className="w-full max-w-[1200px]"
 				>
 					<CarouselContent>
-						{carourselItems.map((_, index) => (
-							<CarouselItem key={index} className="basis-1/3 md:basis-1/4">
+						{carourselItems.map((item, index) => (
+							<CarouselItem
+								key={index}
+								className="basis-1/2 sm:basis-1/3 md:basis-1/4"
+							>
 								<div className="p-1">
 									<Card
 										className={`relative ${
-											selectedVideo === carourselItems[index] &&
+											selectedVideo === item &&
 											"ring-2 ring-offset-2 ring-offset-background"
 										} transition-all duration-200`}
 									>
 										<Button
-											onClick={() => setSelectedVideo(carourselItems[index])}
+											onClick={() => setSelectedVideo(item)}
 											asChild
 											variant="ghost"
-											className={
-												"p-6 w-full h-full flex aspect-square items-center justify-center cursor-pointer"
-											}
+											className="p-2 w-full h-full flex aspect-square items-center justify-center cursor-pointer"
 										>
-											<CardContent>
-												<Image
-													src={carourselItems[index].thumbnailSrc}
-													alt={carourselItems[index].thumbnailAlt}
-													fill
-													className="object-contain"
-												/>
+											<CardContent className="p-0">
+												<div className="relative w-full h-full">
+													<Image
+														src={item.thumbnailSrc}
+														alt={item.thumbnailAlt}
+														fill
+														className="object-contain"
+													/>
+												</div>
 											</CardContent>
 										</Button>
 									</Card>
