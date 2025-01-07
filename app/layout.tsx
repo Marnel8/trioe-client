@@ -45,11 +45,11 @@ export default function RootLayout({
 				className={`${robotoMonoBold.variable} ${robotoMonoMedium.variable} ${robotoMonoRegular.variable} antialiased max-w-[1900px] mx-auto scroll-smooth`}
 			>
 				<Providers>
-					<div>
-						<MobileNav />
-					</div>
 					<main>{children}</main>
 					<Toaster />
+					<nav className="mt-20">
+						<MobileNav />
+					</nav>
 				</Providers>
 			</body>
 		</html>
