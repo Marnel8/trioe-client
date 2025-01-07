@@ -18,11 +18,7 @@ const geist = localFont({
 			weight: "500",
 			style: "normal",
 		},
-		{
-			path: "./fonts/Geist-Semibold.ttf",
-			weight: "600",
-			style: "normal",
-		},
+
 		{
 			path: "./fonts/Geist-Bold.ttf",
 			weight: "700",
