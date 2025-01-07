@@ -4,29 +4,58 @@ import "./globals.css";
 import { MobileNav } from "@/components/MobileNav";
 import Providers from "@/hoc/Providers";
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/Footer";
 
-const robotoMonoRegular = localFont({
-	src: "./fonts/RobotoMono-Regular.ttf",
-	variable: "--font-roboto-regular",
-	weight: "400", // Regular typically corresponds to 400
+const geist = localFont({
+	src: [
+		{
+			path: "./fonts/Geist-Regular.ttf",
+			weight: "400",
+			style: "normal",
+		},
+		{
+			path: "./fonts/Geist-Medium.ttf",
+			weight: "500",
+			style: "normal",
+		},
+		{
+			path: "./fonts/Geist-Semibold.ttf",
+			weight: "600",
+			style: "normal",
+		},
+		{
+			path: "./fonts/Geist-Bold.ttf",
+			weight: "700",
+			style: "normal",
+		},
+		{
+			path: "./fonts/Geist-Black.ttf",
+			weight: "900",
+			style: "normal",
+		},
+	],
+	variable: "--geist-font",
 });
 
-const robotoMonoMedium = localFont({
-	src: "./fonts/RobotoMono-Medium.ttf",
-	variable: "--font-roboto-medium",
-	weight: "500", // Medium typically corresponds to 500
-});
-
-const robotoMonoBold = localFont({
-	src: "./fonts/RobotoMono-Bold.ttf",
-	variable: "--font-roboto-bold",
-	weight: "700", //
-});
-
-const robotoMonoBlack = localFont({
-	src: "./fonts/RobotoMono-Bold.ttf",
-	variable: "--font-roboto-black",
-	weight: "900", //
+const geistMono = localFont({
+	src: [
+		{
+			path: "./fonts/geist-mono/GeistMono-Regular.ttf",
+			weight: "400",
+			style: "normal",
+		},
+		{
+			path: "./fonts/geist-mono/GeistMono-Medium.ttf",
+			weight: "500",
+			style: "normal",
+		},
+		{
+			path: "./fonts/geist-mono/GeistMono-Bold.ttf",
+			weight: "700",
+			style: "normal",
+		},
+	],
+	variable: "--geist-mono-font",
 });
 
 export const metadata: Metadata = {
@@ -40,10 +69,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body
-				className={`${robotoMonoBold.variable} ${robotoMonoMedium.variable} ${robotoMonoRegular.variable} antialiased max-w-[1900px] mx-auto scroll-smooth`}
-			>
+		<html lang="en" className={`${geist.variable} ${geistMono.variable} `}>
+			<body className={`antialiased max-w-[1400px] mx-auto scroll-smooth`}>
 				<Providers>
 					<main>{children}</main>
 					<Toaster />

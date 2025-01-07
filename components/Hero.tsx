@@ -12,57 +12,52 @@ import Link from "next/link";
 import Socials from "./socials";
 import dynamic from "next/dynamic";
 import Loader from "./loader/Loader";
+import AnimatedGridPattern from "./ui/animated-grid-pattern";
+import TypingAnimation from "./ui/typing-animation";
 
 const Hero = () => {
 	return (
-		<section className="bg-hero-image bg-cover bg-center bg-no-repeat py-4 lg:px-[40px] overflow-hidden">
-			{/* <div className="md:absolute top-0 right-[-400px] w-full md:h-full">
-				<Image
-					src="/images/HERO_ACCENT.svg"
-					alt="logo"
-					fill
-					priority
-					className="object-contain"
-				/>
-			</div> */}
-			{/* <HeaderNav /> */}
-			<div className="flex items-center justify-between ">
+		<section className="py-4 lg:px-[40px] overflow-hidden min-h-screen flex items-center justify-center">
+			<div className="flex items-center justify-center">
 				<div className="hero-content text-white flex-1">
-					<p className="lg:text-[35px] 2xl:text-[45.58px] 3xl:text-[55px] text-[25px] md:text-[25px] tracking-wider text-black text-center lg:text-left font-black">
-						Tinkering Resources for Internet of Everything <br />
-						<span className="inline-flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-start md:gap-2 max-w-[200px]">
-							with{" "}
-							<Image
-								src="/images/LOGO_WITH_TEXT.png"
-								alt="logo"
-								width={190}
-								height={100}
-								priority
-								className="object-contain"
-							/>
-						</span>
-					</p>
-					<p className="text-[10px] text-gray-500 xl:subtext text-center lg:text-left tracking-wider font-mono">
-						It's an online platform that teaches Internet of Things (IoT)
-						technology. It encourages hands-on learning, where users actively
-						use technology to explore and innovate, especially within the
-						Internet of Everything (IoE) field. Essentially, it's a practical
-						tool for understanding and building IoE systems.
-					</p>
-					<div className="flex flex-col sm:flex-row gap-4 py-5 justify-center items-center lg:justify-start font-mono">
+					<TypingAnimation
+						duration={100}
+						delay={1000}
+						className="text-[14px] md:max-w-[600px] text-gray-500 xl:text-lg text-center lg:text-left tracking-wider font-geist font-medium"
+					>
+						Introducing
+					</TypingAnimation>
+					<TypingAnimation
+						duration={200}
+						delay={2000}
+						className="text-6xl md:text-8xl tracking-wider text-black text-center lg:text-left font-geist font-bold "
+					>
+						TRIOE
+					</TypingAnimation>
+					<TypingAnimation
+						duration={100}
+						delay={3000}
+						className="text-[14px] md:max-w-[600px] text-gray-500 xl:text-lg text-center lg:text-left tracking-wider font-geist font-medium"
+					>
+						Tinkering Resources for Internet of Everything.
+					</TypingAnimation>
+					{/* <div className="relative h-[300px] w-[300px] flex items-center justify-center">
+						<TrioeScene />
+					</div> */}
+					<div className="flex flex-col sm:flex-row gap-4 py-3 justify-center items-center lg:justify-start">
 						<Link href="#courses">
 							<RainbowButton
 								className={cn(
-									"bg-primary-gradient text-sm rounded-full px-10 w-[260px]"
+									"bg-primary-gradient text-sm rounded-full px-5 w-[200px] tracking-wide"
 								)}
 							>
 								Start Learning
 							</RainbowButton>
 						</Link>
-						<Link href="#kits">
+						<Link href="#kits" className="bg-white border rounded-full">
 							<RainbowButton
 								className={cn(
-									"bg-primary-gradient text-sm rounded-full px-10 w-[260px]"
+									"bg-none text-black border text-sm rounded-full px-5 w-[200px] tracking-wide"
 								)}
 							>
 								Explore Kits
@@ -70,11 +65,8 @@ const Hero = () => {
 						</Link>
 					</div>
 					<div className="flex justify-center lg:justify-start items-center gap-4">
-						<Socials color="text-primary border-primary" size={20} />
+						<Socials color="" size={20} />
 					</div>
-				</div>
-				<div className="hidden lg:flex-1 relative h-[200px] md:h-[300px] lg:h-[400px] w-[200px] md:w-[300px] lg:w-[400px] xl:h-[500px] xl:-top-5 lg:block">
-					<TrioeScene />
 				</div>
 			</div>
 		</section>

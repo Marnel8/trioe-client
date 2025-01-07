@@ -35,12 +35,13 @@ import {
 } from "@/components/ui/popover";
 import { useLogout } from "@/hooks/auth/useLogout";
 import { getImageUrl } from "@/utils/imageUtils";
+import { Dock } from "./ui/dock";
 
 // Map icons to link IDs
 const ICON_MAP: { [key: string]: React.ElementType } = {
 	home: HomeIcon,
 	kits: PackageIcon,
-	courses: BookOpenIcon,
+	docs: BookOpenIcon,
 	events: CalendarIcon,
 	community: UsersIcon,
 };
@@ -72,7 +73,11 @@ export function MobileNav() {
 	}, []);
 
 	const handleNavigation = (href: string, title: string) => {
-		if (href.includes("events") || href.includes("community")) {
+		if (
+			href.includes("events") ||
+			href.includes("community") ||
+			href.includes("docs")
+		) {
 			setPendingNavigation(href);
 			setModalOpen(true);
 		} else {
@@ -118,8 +123,7 @@ export function MobileNav() {
 		<>
 			<div
 				className={cn(
-					"fixed bottom-4 left-4 right-4 z-50  mx-auto max-w-[400px] flex flex-col items-center gap-2 border-red-500",
-					!isHomePage(pathname) && "max-w-[300px]"
+					"fixed bottom-4 left-4 right-4 z-50  mx-auto max-w-[300px] flex flex-col items-center gap-2 border-red-500"
 				)}
 			>
 				{/* Page Indicator - Updated with darker background */}
@@ -140,7 +144,10 @@ export function MobileNav() {
 					)}
 				>
 					<TooltipProvider>
-						<div className="flex items-center justify-center gap-2 px-4 h-16 bg-background/90 backdrop-blur-md border rounded-full shadow-lg">
+						<Dock
+							direction="middle"
+							className="flex items-center justify-center gap-2 px-4 h-14 bg-background/90 backdrop-blur-md border rounded-2xl shadow-lg"
+						>
 							<Tooltip>
 								<TooltipTrigger asChild>
 									<Link
@@ -148,7 +155,7 @@ export function MobileNav() {
 										aria-label="Home"
 										className={cn(
 											buttonVariants({ variant: "ghost", size: "icon" }),
-											"size-10 rounded-full hover:bg-accent/50",
+											"size-10 rounded-full hover:bg-accent/50 ",
 											pathname === "/" && "bg-accent"
 										)}
 									>
@@ -302,7 +309,7 @@ export function MobileNav() {
 									<p>Toggle theme</p>
 								</TooltipContent>
 							</Tooltip>
-						</div>
+						</Dock>
 					</TooltipProvider>
 				</div>
 			</div>

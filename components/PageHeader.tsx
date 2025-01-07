@@ -1,12 +1,20 @@
-import Image from "next/image";
 import React from "react";
 
-const PageHeader = ({ title }: { title: string }) => {
+const PageHeader = ({
+	title,
+	description,
+}: {
+	title: string;
+	description: string;
+}) => {
 	return (
-		<div className="relative">
-			<h1 className="text-2xl text-center  sm:text-2xl md:text-3xl xl:text-4xl font-roboto-bold relative">
+		<div className="relative space-y-5 py-8 flex flex-col items-center justify-center">
+			<h1 className="text-2xl text-center  sm:text-3xl md:text-4xl xl:text-5xl font-geist font-bold  relative">
 				{title}
 			</h1>
+			<p className="text-center max-w-[400px] lg:max-w-[600px]">
+				{description}
+			</p>
 		</div>
 	);
 };

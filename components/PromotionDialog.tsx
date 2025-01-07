@@ -16,9 +16,10 @@ import { motion } from "framer-motion";
 
 const PromotionDialog = () => {
 	const [open, setOpen] = useState(true);
+
 	return (
 		<Dialog open={open} onOpenChange={setOpen}>
-			<DialogContent className="max-w-[340px] sm:max-w-md md:max-w-lg font-roboto-regular">
+			<DialogContent className="max-w-[340px] sm:max-w-md md:max-w-lg font-geistMono">
 				<motion.div
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
