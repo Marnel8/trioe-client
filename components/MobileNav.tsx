@@ -80,6 +80,10 @@ export function MobileNav() {
 		}
 	};
 
+	const isHomePage = (path: string) => {
+		return path === "/" || path === "";
+	};
+
 	const handleLogout = async () => {
 		try {
 			await logout();
@@ -112,7 +116,12 @@ export function MobileNav() {
 
 	return (
 		<>
-			<div className="fixed bottom-4 left-4 right-4 z-50 max-w-[400px] mx-auto flex flex-col items-center gap-2">
+			<div
+				className={cn(
+					"fixed bottom-4 left-4 right-4 z-50  mx-auto max-w-[400px] flex flex-col items-center gap-2 border-red-500",
+					!isHomePage(pathname) && "max-w-[300px]"
+				)}
+			>
 				{/* Page Indicator - Updated with darker background */}
 				<div
 					className={cn(
@@ -126,7 +135,7 @@ export function MobileNav() {
 				{/* Navigation Bar - Updated with darker background */}
 				<div
 					className={cn(
-						"max-w-[400px] w-full transition-transform duration-200",
+						" w-full transition-transform duration-200",
 						isScrolled ? "-translate-y-3" : "translate-y-0"
 					)}
 				>
@@ -152,29 +161,37 @@ export function MobileNav() {
 							</Tooltip>
 							<Separator orientation="vertical" className="h-8" />
 
-							{navLinks.map((item) => (
-								<Tooltip key={item.id}>
-									<TooltipTrigger asChild>
-										<button
-											onClick={() => handleNavigation(item.href, item.title)}
-											aria-label={item.title}
-											className={cn(
-												buttonVariants({ variant: "ghost", size: "icon" }),
-												"size-10 rounded-full hover:bg-accent/50",
-												pathname === item.href && "bg-accent"
-											)}
-										>
-											{ICON_MAP[item.id] &&
-												React.createElement(ICON_MAP[item.id], {
-													className: "size-5",
-												})}
-										</button>
-									</TooltipTrigger>
-									<TooltipContent>
-										<p>{item.title}</p>
-									</TooltipContent>
-								</Tooltip>
-							))}
+							{navLinks.map((item) => {
+								if (
+									(item.id === "kits" || item.id === "courses") &&
+									!isHomePage(pathname)
+								) {
+									return null;
+								}
+								return (
+									<Tooltip key={item.id}>
+										<TooltipTrigger asChild>
+											<button
+												onClick={() => handleNavigation(item.href, item.title)}
+												aria-label={item.title}
+												className={cn(
+													buttonVariants({ variant: "ghost", size: "icon" }),
+													"size-10 rounded-full hover:bg-accent/50",
+													pathname === item.href && "bg-accent"
+												)}
+											>
+												{ICON_MAP[item.id] &&
+													React.createElement(ICON_MAP[item.id], {
+														className: "size-5",
+													})}
+											</button>
+										</TooltipTrigger>
+										<TooltipContent>
+											<p>{item.title}</p>
+										</TooltipContent>
+									</Tooltip>
+								);
+							})}
 
 							<Separator orientation="vertical" className="h-8" />
 

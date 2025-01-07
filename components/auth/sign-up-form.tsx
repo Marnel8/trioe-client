@@ -150,7 +150,7 @@ const SignUpForm = () => {
 
 	return (
 		<>
-			<div className="flex justify-center items-center min-h-screen bg-hero-image bg-cover bg-center bg-no-repeat p-4">
+			<div className="flex justify-center items-center h-screen  p-4">
 				<Card className="w-full max-w-4xl shadow-2xl overflow-hidden">
 					<div className="md:flex">
 						<div className="md:w-1/2 bg-sign-in-bg p-8 flex flex-col justify-center items-center relative overflow-hidden rounded-l-lg">
