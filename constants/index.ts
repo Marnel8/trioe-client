@@ -49,7 +49,7 @@ export const kits = [
     id: 1,
     name: "AGRI-AQUA KIT",
     description:
-      "This kit is designed for agricultural enthusiasts, featuring an Arduino board and essential components for smart farming.",
+      "This kit is designed for agricultural enthusiasts, featuring a TRIOE board and essential components for smart farming.",
     thumbnail: "/samples/KITS_new (1).png",
     difficulty: "Beginner",
     quantity: 1000,
@@ -598,12 +598,12 @@ export const actuators = [
     },
     crashCourse: {
       objective:
-        "Teach learners how to use a servo motor to control angles and positions precisely with an Arduino microcontroller.",
+        "Teach learners how to use a servo motor to control angles and positions precisely with a TRIOE microcontroller.",
       materialsRequired: [
         "Servo Motor (e.g., SG90 Micro Servo)",
-        "Arduino Uno (or any compatible microcontroller)",
+        "TRIOE Board",
         "Breadboard and jumper wires",
-        "USB cable for programming the Arduino",
+        "USB cable for programming the TRIOE",
         "External power supply (if controlling multiple or large servo motors)",
       ],
       steps: [
@@ -618,8 +618,8 @@ export const actuators = [
         {
           title: "Circuit Setup",
           content: [
-            "Connect VCC to Arduino 5V",
-            "Connect GND to Arduino GND",
+            "Connect VCC to TRIOE 5V",
+            "Connect GND to TRIOE GND",
             "Connect Signal to Digital Pin 9",
           ],
         },
@@ -648,7 +648,7 @@ export const actuators = [
     tags: [
       "LED",
       "Light Control",
-      "Arduino",
+      "TRIOE",
       "IoT",
       "Embedded Systems",
       "Indicators",
@@ -675,13 +675,13 @@ export const actuators = [
     },
     crashCourse: {
       objective:
-        "Teach learners how to control an LED using an Arduino microcontroller.",
+        "Teach learners how to control an LED using an TRIOE microcontroller.",
       materialsRequired: [
         "LED (Light Emitting Diode)",
-        "Arduino Uno (or any compatible microcontroller)",
+        "TRIOE ",
         "Breadboard and jumper wires",
         "220Ω resistor (to limit current)",
-        "USB cable for programming the Arduino",
+        "USB cable for programming the TRIOE",
       ],
       steps: [
         {
@@ -697,8 +697,8 @@ export const actuators = [
           title: "Circuit Setup",
           content: [
             "Insert the LED into the breadboard",
-            "Connect Anode to Arduino pin 13 through 220Ω resistor",
-            "Connect Cathode to Arduino GND",
+            "Connect Anode to TRIOE pin 13 through 220Ω resistor",
+            "Connect Cathode to TRIOE GND",
           ],
         },
         {
@@ -726,7 +726,7 @@ export const actuators = [
     tags: [
       "Relay Module",
       "Switch",
-      "Arduino",
+      "TRIOE",
       "IoT",
       "Embedded Systems",
       "Automation",
@@ -767,7 +767,7 @@ export const actuators = [
         "Teach learners how to use a relay module to control high-power devices with a low-power microcontroller signal.",
       materialsRequired: [
         "5V Relay Module",
-        "Arduino Uno (or any compatible microcontroller)",
+        "TRIOE ",
         "Breadboard and jumper wires",
         "Light bulb or other load",
         "Lamp holder",
@@ -788,9 +788,9 @@ export const actuators = [
         {
           title: "Circuit Setup",
           content: [
-            "Connect VCC to Arduino 5V",
-            "Connect GND to Arduino GND",
-            "Connect IN to Arduino digital pin 8",
+            "Connect VCC to TRIOE 5V",
+            "Connect GND to TRIOE GND",
+            "Connect IN to TRIOE digital pin 8",
             "Connect load between power source and COM/NO pins",
           ],
         },
@@ -821,7 +821,7 @@ export const actuators = [
       "DHT11",
       "Temperature",
       "Humidity",
-      "Arduino",
+      "TRIOE",
       "IoT",
       "Embedded Systems",
     ],
@@ -872,12 +872,12 @@ void loop() {
     },
     crashCourse: {
       objective:
-        "Teach learners how to use the DHT11 sensor module to measure temperature and humidity, and integrate its readings with an Arduino microcontroller.",
+        "Teach learners how to use the DHT11 sensor module to measure temperature and humidity, and integrate its readings with a TRIOE microcontroller.",
       materialsRequired: [
         "DHT11 Temperature and Humidity Sensor Module",
-        "Arduino Uno (or any compatible microcontroller)",
+        "TRIOE",
         "Breadboard and jumper wires",
-        "USB cable for programming the Arduino",
+        "USB cable for programming the TRIOE",
         "Computer with Arduino IDE installed",
       ],
       steps: [
@@ -891,9 +891,9 @@ void loop() {
         {
           title: "Set Up the Circuit",
           content: [
-            "Connect the VCC pin to the Arduino's 3.3V (or 5V, if supported) pin.",
-            "Connect the GND pin to the Arduino's GND.",
-            "Connect the DATA pin to the Arduino's digital pin 2.",
+            "Connect the VCC pin to the TRIOE's 3.3V (or 5V, if supported) pin.",
+            "Connect the GND pin to the TRIOE's GND.",
+            "Connect the DATA pin to the TRIOE's digital pin 2.",
           ],
         },
         {
@@ -928,7 +928,7 @@ export const sensors = [
       "Temperature",
       "Humidity",
       "Pressure",
-      "Arduino",
+      "TRIOE",
       "IoT",
       "Embedded Systems",
     ],
@@ -982,12 +982,12 @@ void loop() {
     },
     crashCourse: {
       objective:
-        "Teach learners how to use the BME280 sensor module to measure temperature, humidity, and atmospheric pressure, and integrate its readings with an Arduino microcontroller.",
+        "Teach learners how to use the BME280 sensor module to measure temperature, humidity, and atmospheric pressure, and integrate its readings with a TRIOE microcontroller.",
       materialsRequired: [
         "BME280 Sensor Module",
-        "Arduino Uno (or any compatible microcontroller)",
+        "TRIOE",
         "Breadboard and jumper wires",
-        "USB cable for programming the Arduino",
+        "USB cable for programming the TRIOE",
         "Computer with Arduino IDE installed",
       ],
       steps: [
@@ -1001,10 +1001,10 @@ void loop() {
         {
           title: "Set Up the Circuit",
           content: [
-            "Connect the VCC pin to the Arduino's 3.3V (or 5V, if supported) pin.",
-            "Connect the GND pin to the Arduino's GND.",
-            "Connect the SDA pin to the Arduino's A4 pin (for most Arduino boards).",
-            "Connect the SCL pin to the Arduino's A5 pin.",
+            "Connect the VCC pin to the TRIOE's 5V.",
+            "Connect the GND pin to the TRIOE's GND.",
+            "Connect the SDA pin to the TRIOE's A4 pin.",
+            "Connect the SCL pin to the TRIOE's A5 pin.",
           ],
         },
         {
@@ -1033,7 +1033,7 @@ void loop() {
     tags: [
       "Ultrasonic Sensor",
       "HC-SR04",
-      "Arduino",
+      "TRIOE",
       "IoT",
       "Distance Measurement",
       "Robotics",
@@ -1092,12 +1092,12 @@ void loop() {
     },
     crashCourse: {
       objective:
-        "Teach learners how to use the HC-SR04 ultrasonic sensor module to measure distances and integrate it with an Arduino microcontroller.",
+        "Teach learners how to use the HC-SR04 ultrasonic sensor module to measure distances and integrate it with a TRIOE microcontroller.",
       materialsRequired: [
         "HC-SR04 Ultrasonic Sensor Module",
-        "Arduino Uno (or any compatible microcontroller)",
+        "TRIOE",
         "Breadboard and jumper wires",
-        "USB cable for programming the Arduino",
+        "USB cable for programming the TRIOE",
         "Ruler or tape measure (for calibration and testing)",
       ],
       steps: [
@@ -1111,9 +1111,9 @@ void loop() {
         {
           title: "Set Up the Circuit",
           content: [
-            "Connect the VCC pin to the Arduino's 5V pin.",
-            "Connect the GND pin to the Arduino's GND.",
-            "Connect the TRIG pin to Digital Pin 9 on the Arduino.",
+            "Connect the VCC pin to the TRIOE's 5V pin.",
+            "Connect the GND pin to the TRIOE's GND.",
+            "Connect the TRIG pin to Digital Pin 9 on the TRIOE.",
             "Connect the ECHO pin to Digital Pin 10.",
           ],
         },
@@ -1121,9 +1121,9 @@ void loop() {
           title: "Write and Upload the Code",
           content: [
             "Write the code provided in the sample code section.",
-            "Connect the Arduino to your computer via USB.",
+            "Connect the TRIOE to your computer via USB.",
             "Select the correct board and COM port in the Arduino IDE.",
-            "Click Upload to send the code to the Arduino.",
+            "Click Upload to send the code to the TRIOE.",
           ],
         },
       ],
@@ -1144,7 +1144,7 @@ void loop() {
       "DHT11",
       "Temperature",
       "Humidity",
-      "Arduino",
+      "TRIOE",
       "IoT",
       "Embedded Systems",
     ],
@@ -1208,12 +1208,12 @@ void loop() {
     },
     crashCourse: {
       objective:
-        "Teach learners how to use the DHT11 sensor module to measure temperature and humidity, and integrate its readings with an Arduino microcontroller.",
+        "Teach learners how to use the DHT11 sensor module to measure temperature and humidity, and integrate its readings with a TRIOE microcontroller.",
       materialsRequired: [
         "DHT11 Temperature and Humidity Sensor Module",
-        "Arduino Uno (or any compatible microcontroller)",
+        "TRIOE",
         "Breadboard and jumper wires",
-        "USB cable for programming the Arduino",
+        "USB cable for programming the TRIOE",
         "Computer with Arduino IDE installed",
       ],
       steps: [
@@ -1227,9 +1227,9 @@ void loop() {
         {
           title: "Set Up the Circuit",
           content: [
-            "Connect the VCC pin to the Arduino's 3.3V (or 5V, if supported) pin.",
-            "Connect the GND pin to the Arduino's GND.",
-            "Connect the DATA pin to the Arduino's digital pin 2.",
+            "Connect the VCC pin to the TRIOE's 5V.",
+            "Connect the GND pin to the TRIOE's GND.",
+            "Connect the DATA pin to the TRIOE's digital pin 2.",
           ],
         },
         {
@@ -1255,7 +1255,7 @@ void loop() {
       "The soil moisture sensor is used to measure the moisture content of soil. It is commonly used in gardening, agriculture, and environmental monitoring systems.",
     uploadedDate: "December 27, 2024",
     category: "Sensors - Environmental Monitoring",
-    tags: ["Soil Moisture Sensor", "Arduino", "IoT", "Embedded Systems"],
+    tags: ["Soil Moisture Sensor", "TRIOE", "IoT", "Embedded Systems"],
     pinDescription: [
       {
         pin: "VCC",
@@ -1293,12 +1293,12 @@ void loop() {
     },
     crashCourse: {
       objective:
-        "Teach learners how to use the soil moisture sensor to measure soil moisture, and integrate its readings with an Arduino microcontroller.",
+        "Teach learners how to use the soil moisture sensor to measure soil moisture, and integrate its readings with a TRIOE microcontroller.",
       materialsRequired: [
         "Soil Moisture Sensor Module",
-        "Arduino Uno (or any compatible microcontroller)",
+        "TRIOE",
         "Breadboard and jumper wires",
-        "USB cable for programming the Arduino",
+        "USB cable for programming the TRIOE",
         "Computer with Arduino IDE installed",
       ],
       steps: [
@@ -1312,9 +1312,9 @@ void loop() {
         {
           title: "Set Up the Circuit",
           content: [
-            "Connect the VCC pin to the Arduino's 3.3V (or 5V, if supported) pin.",
-            "Connect the GND pin to the Arduino's GND.",
-            "Connect the AO pin to the Arduino's analog pin A0.",
+            "Connect the VCC pin to the TRIOE's 5V.",
+            "Connect the GND pin to the TRIOE's GND.",
+            "Connect the AO pin to the TRIOE's analog pin A0.",
           ],
         },
         {
