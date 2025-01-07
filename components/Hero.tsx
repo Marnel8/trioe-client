@@ -12,7 +12,6 @@ import Link from "next/link";
 import Socials from "./socials";
 import dynamic from "next/dynamic";
 import Loader from "./loader/Loader";
-import AnimatedGridPattern from "./ui/animated-grid-pattern";
 import TypingAnimation from "./ui/typing-animation";
 
 const Hero = () => {
@@ -22,7 +21,6 @@ const Hero = () => {
 				<div className="hero-content text-white flex-1">
 					<TypingAnimation
 						duration={100}
-						delay={1000}
 						className="text-[14px] md:max-w-[600px] text-gray-500 xl:text-lg text-center lg:text-left tracking-wider font-geist font-medium"
 					>
 						Introducing

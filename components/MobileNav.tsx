@@ -123,7 +123,7 @@ export function MobileNav() {
 		<>
 			<div
 				className={cn(
-					"fixed bottom-4 left-4 right-4 z-50  mx-auto max-w-[300px] flex flex-col items-center gap-2 border-red-500"
+					"fixed bottom-4 left-4 right-4 z-50  mx-auto max-w-[400px] flex flex-col items-center gap-2 border-red-500"
 				)}
 			>
 				{/* Page Indicator - Updated with darker background */}
