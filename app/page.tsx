@@ -16,7 +16,7 @@ import React, { Suspense } from "react";
 
 const Home = () => {
 	return (
-		<div className="scroll-smooth font-geistMono ">
+		<div className="scroll-smooth font-geistMono flex flex-col justify-center">
 			<div id="hero" className="mb-10">
 				<AnimatedGridPattern
 					numSquares={300}
@@ -60,22 +60,22 @@ const Home = () => {
 					)}
 				/>
 			</div>
-			<div id="team" className="p-5">
+			<div id="team" className="p-5 max-w-[1400px] mx-auto">
 				<Suspense fallback={<Loader />}>
 					<TheTeam />
 				</Suspense>
 			</div>
-			<div id="testimonials" className="p-5">
+			<div id="testimonials" className="p-5 ">
 				<Suspense fallback={<Loader />}>
 					<Testimonials />
 				</Suspense>
 			</div>
-			<footer>
+			<footer className="p-5 max-w-[1400px] mx-auto">
 				<div id="footer">
 					<Footer />
 				</div>
 			</footer>
-			<PromotionDialog />
+			{/* <PromotionDialog /> */}
 		</div>
 	);
 };

@@ -12,10 +12,12 @@ const TrioeScene = () => {
 	const controlsRef = useRef<OrbitControls | null>(null);
 	const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
 	const sceneObjRef = useRef<THREE.Scene | null>(null);
+	const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
 	const modelRef = useRef<THREE.Group | null>(null);
 	const frameIdRef = useRef<number>(0);
 	const mountedRef = useRef<boolean>(true);
 	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
 		if (!sceneRef.current) return;
@@ -25,7 +27,8 @@ const TrioeScene = () => {
 		const scene = new THREE.Scene();
 		sceneObjRef.current = scene;
 		const clock = new THREE.Clock();
-		const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 500);
+		const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+		cameraRef.current = camera;
 
 		const renderer = new THREE.WebGLRenderer({
 			alpha: true,
@@ -38,7 +41,7 @@ const TrioeScene = () => {
 		sceneRef.current.appendChild(renderer.domElement);
 
 		const updateSize = () => {
-			if (!sceneRef.current || !renderer) return;
+			if (!sceneRef.current || !renderer || !camera) return;
 
 			const width = sceneRef.current.clientWidth;
 			const height = sceneRef.current.clientHeight;
@@ -75,10 +78,11 @@ const TrioeScene = () => {
 				modelRef.current = model;
 				scene.add(model);
 
-				const smallerScale = window.innerWidth < 1024 ? 0.02 : 0.03;
-				model.position.set(-1, 10, 0);
+				const scale = 0.16;
+
+				model.scale.set(scale, scale, scale);
+				model.position.set(0, 0, 0);
 				model.rotation.set(0, Math.PI, 0);
-				model.scale.set(smallerScale, smallerScale, smallerScale);
 
 				mixerRef.current = new THREE.AnimationMixer(model);
 
@@ -96,21 +100,16 @@ const TrioeScene = () => {
 				const center = box.getCenter(new THREE.Vector3());
 				const size = box.getSize(new THREE.Vector3());
 				const maxDim = Math.max(size.x, size.y, size.z);
+
 				camera.position.set(
 					center.x,
-					center.y + maxDim * 0.2,
-					center.z + maxDim * 1.2
+					center.y + maxDim * 0.5,
+					center.z + maxDim * 2
 				);
-				camera.lookAt(
-					new THREE.Vector3(center.x, center.y + maxDim * 0.1, center.z)
-				);
+				camera.lookAt(center);
 
 				if (controlsRef.current) {
-					controlsRef.current.target.set(
-						center.x,
-						center.y + maxDim * 0.1,
-						center.z
-					);
+					controlsRef.current.target.copy(center);
 					controlsRef.current.update();
 				}
 
@@ -120,6 +119,7 @@ const TrioeScene = () => {
 			(error) => {
 				if (mountedRef.current) {
 					console.error("An error occurred while loading the model:", error);
+					setError("Failed to load the 3D model. Please try again later.");
 					setIsLoading(false);
 				}
 			}
@@ -132,6 +132,28 @@ const TrioeScene = () => {
 		controlsRef.current.maxDistance = 10;
 		controlsRef.current.maxPolarAngle = Math.PI * 0.75;
 		controlsRef.current.minPolarAngle = 0;
+
+		const animate = () => {
+			if (!mountedRef.current) return;
+
+			frameIdRef.current = requestAnimationFrame(animate);
+
+			const delta = clock.getDelta();
+
+			if (mixerRef.current) {
+				mixerRef.current.update(delta);
+			}
+
+			if (controlsRef.current) {
+				controlsRef.current.update();
+			}
+
+			if (rendererRef.current && sceneObjRef.current && cameraRef.current) {
+				rendererRef.current.render(sceneObjRef.current, cameraRef.current);
+			}
+		};
+
+		animate();
 
 		return () => {
 			mountedRef.current = false;
@@ -164,12 +186,16 @@ const TrioeScene = () => {
 
 	return (
 		<Suspense fallback={<Loader />}>
-			<div
-				className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[90vw] h-full max-h-[90vh] z-50 transition-opacity duration-400 ${
-					isLoading ? "opacity-0" : "opacity-100"
-				}`}
-				ref={sceneRef}
-			/>
+			{error ? (
+				<div className="text-red-500">{error}</div>
+			) : (
+				<div
+					className={` transition-opacity absolute  duration-400 ${
+						isLoading ? "opacity-0" : "opacity-100"
+					}`}
+					ref={sceneRef}
+				/>
+			)}
 		</Suspense>
 	);
 };

@@ -51,7 +51,7 @@ export default function Footer() {
 
 					{/* Middle Column - Navigation */}
 					<div className="w-full flex justify-center md:justify-start">
-						<nav className="space-y-4 w-full flex flex-col ">
+						<nav className="space-y-4 w-full flex flex-col items-center md:items-start">
 							<Link
 								href="#"
 								className="text-sm text-muted-foreground hover:text-foreground"

@@ -66,7 +66,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className={`${geist.variable} ${geistMono.variable} `}>
-			<body className={`antialiased max-w-[1400px] mx-auto scroll-smooth`}>
+			<body className={`antialiased scroll-smooth`}>
 				<Providers>
 					<main>{children}</main>
 					<Toaster />

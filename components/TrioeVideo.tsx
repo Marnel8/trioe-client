@@ -90,13 +90,13 @@ const TrioeVideo = () => {
 					opts={{
 						align: "start",
 					}}
-					className="w-full max-w-[1200px] px-8 md:px-0"
+					className="w-full max-w-[1200px] px-8 lg:px-0"
 				>
 					<CarouselContent>
 						{carourselItems.map((item, index) => (
 							<CarouselItem
 								key={index}
-								className="basis-1/2 sm:basis-1/3 md:basis-1/4"
+								className="basis-1/2 sm:basis-1/3 lg:basis-1/4"
 							>
 								<div className="p-1">
 									<Card

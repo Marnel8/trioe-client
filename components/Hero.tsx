@@ -20,26 +20,26 @@ const Hero = () => {
 			<div className="flex items-center justify-center">
 				<div className="hero-content text-white flex-1">
 					<TypingAnimation
-						duration={100}
+						duration={50}
 						className="text-[14px] md:max-w-[600px] text-gray-500 xl:text-lg text-center lg:text-left tracking-wider font-geist font-medium"
 					>
 						Introducing
 					</TypingAnimation>
 					<TypingAnimation
-						duration={200}
-						delay={2000}
+						duration={100}
+						delay={1000}
 						className="text-6xl md:text-8xl tracking-wider text-black text-center lg:text-left font-geist font-bold "
 					>
 						TRIOE
 					</TypingAnimation>
 					<TypingAnimation
-						duration={100}
-						delay={3000}
-						className="text-[14px] md:max-w-[600px] text-gray-500 xl:text-lg text-center lg:text-left tracking-wider font-geist font-medium"
+						duration={50}
+						delay={1700}
+						className="text-[14px] md:max-w-[600px] text-gray-500 xl:text-lg text-center tracking-wider font-geist font-medium"
 					>
 						Tinkering Resources for Internet of Everything.
 					</TypingAnimation>
-					{/* <div className="relative h-[300px] w-[300px] flex items-center justify-center">
+					{/* <div className="relative w-full aspect-square sm:aspect-video md:aspect-[4/3] lg:aspect-[16/9] border border-gray-300 rounded-lg overflow-hidden">
 						<TrioeScene />
 					</div> */}
 					<div className="flex flex-col sm:flex-row gap-4 py-3 justify-center items-center lg:justify-start">
