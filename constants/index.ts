@@ -558,7 +558,7 @@ export const displays = [
   {
     id: "ssd1306",
     name: "OLED Display (SSD1306)",
-    image: "/displays/ssd1306.jpg",
+    image: "/electronics/electronics (2).png",
     detail: "The SSD1306 is a single-chip CMOS OLED/PLED driver with controller for organic/polymer light emitting diode dot-matrix graphic display system. It consists of 128 segments and 64 commons.",
     uploadedDate: "January 8, 2025",
     category: "Displays - OLED",
@@ -685,7 +685,7 @@ void loop() {
   {
       id: "led",
       name: "Light Emitting Diode (LED)",
-      image: "/displays/led.jpg",
+      image: "/electronics/electronics (3).png",
       detail: "A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. LEDs are energy-efficient, long-lasting, and available in various colors, making them ideal for indicators and displays.",
       uploadedDate: "January 8, 2025",
       category: "Displays - LED",
