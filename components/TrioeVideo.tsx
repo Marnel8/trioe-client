@@ -58,7 +58,7 @@ const TrioeVideo = () => {
 		<div className="flex flex-col items-center justify-center rounded-xl ">
 			<PageHeader
 				title="MEDIA HIGHLIGHTS"
-				description="Showcasing TRIOE’s features and milestones through news and media coverage"
+				description="Showcasing TRIOE’s features and tutorials to quickly get started."
 			/>
 			<div className="space-y-5 flex flex-col items-center justify-center w-full">
 				{/* <div className="relative">

@@ -75,7 +75,7 @@ const Home = () => {
 					<Footer />
 				</div>
 			</footer>
-			{/* <PromotionDialog /> */}
+			<PromotionDialog />
 		</div>
 	);
 };
