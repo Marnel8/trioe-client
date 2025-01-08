@@ -150,9 +150,8 @@ export default {
 				},
 			},
 			fontFamily: {
-				"roboto-regular": ["var(--font-roboto-regular)"],
-				"roboto-medium": ["var(--font-roboto-medium)"],
-				"roboto-bold": ["var(--font-roboto-bold)"],
+				geist: ["var(--geist-font)"],
+				geistMono: ["var(--geist-mono-font)"],
 			},
 			screens: {
 				sm: "640px",

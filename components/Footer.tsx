@@ -7,7 +7,7 @@ import Socials from "./socials";
 import NewsLetter from "./NewsLetter";
 export default function Footer() {
 	return (
-		<footer className="bg-gray-100 px-[40px]">
+		<footer className=" px-[40px]">
 			<div className="container mx-auto px-4 py-8">
 				<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 					{/* Left Column - Logo and Contact Info */}
@@ -51,7 +51,7 @@ export default function Footer() {
 
 					{/* Middle Column - Navigation */}
 					<div className="w-full flex justify-center md:justify-start">
-						<nav className="space-y-4 w-full flex flex-col items-center">
+						<nav className="space-y-4 w-full flex flex-col ">
 							<Link
 								href="#"
 								className="text-sm text-muted-foreground hover:text-foreground"
@@ -84,7 +84,7 @@ export default function Footer() {
 				</div>
 
 				{/* Copyright */}
-				<div className="mt-8 border-t text-center text-sm text-muted-foreground">
+				<div className="mt-8 border-t text-center text-sm text-muted-foreground py-3">
 					© 2024 TRIOE. All Rights Reserved.
 				</div>
 			</div>

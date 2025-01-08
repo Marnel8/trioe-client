@@ -80,19 +80,6 @@ const TrioeScene = () => {
 				model.rotation.set(0, Math.PI, 0);
 				model.scale.set(smallerScale, smallerScale, smallerScale);
 
-				model.traverse((child) => {
-					if ((child as THREE.Mesh).isMesh) {
-						const mesh = child as THREE.Mesh;
-						if (mesh.geometry) {
-							mesh.geometry.computeBoundingSphere();
-							mesh.geometry.computeBoundingBox();
-						}
-						if (mesh.material) {
-							(mesh.material as THREE.Material).dispose();
-						}
-					}
-				});
-
 				mixerRef.current = new THREE.AnimationMixer(model);
 
 				if (gltf.animations.length) {
@@ -118,45 +105,16 @@ const TrioeScene = () => {
 					new THREE.Vector3(center.x, center.y + maxDim * 0.1, center.z)
 				);
 
-				controlsRef.current!.target.set(
-					center.x,
-					center.y + maxDim * 0.1,
-					center.z
-				);
-				controlsRef.current!.update();
+				if (controlsRef.current) {
+					controlsRef.current.target.set(
+						center.x,
+						center.y + maxDim * 0.1,
+						center.z
+					);
+					controlsRef.current.update();
+				}
 
-				const rotateOnce = () => {
-					if (!mountedRef.current) return;
-
-					const duration = 2;
-					const startTime = clock.getElapsedTime();
-					const initialRotation = model.rotation.y;
-					const targetRotation = initialRotation + Math.PI * 2;
-
-					const rotate = () => {
-						if (!mountedRef.current) return;
-
-						const elapsedTime = clock.getElapsedTime() - startTime;
-						const progress = Math.min(elapsedTime / duration, 1);
-						model.rotation.y =
-							initialRotation + progress * (targetRotation - initialRotation);
-
-						if (progress < 1) {
-							frameIdRef.current = requestAnimationFrame(rotate);
-						} else {
-							setTimeout(() => {
-								if (mountedRef.current) {
-									setIsLoading(false);
-									animate();
-								}
-							}, 2000);
-						}
-					};
-
-					rotate();
-				};
-
-				rotateOnce();
+				setIsLoading(false);
 			},
 			undefined,
 			(error) => {
@@ -167,9 +125,6 @@ const TrioeScene = () => {
 			}
 		);
 
-		camera.position.set(0, 2, 8);
-		camera.lookAt(0, 2, 0);
-
 		controlsRef.current = new OrbitControls(camera, renderer.domElement);
 		controlsRef.current.enableDamping = true;
 		controlsRef.current.dampingFactor = 0.05;
@@ -177,20 +132,6 @@ const TrioeScene = () => {
 		controlsRef.current.maxDistance = 10;
 		controlsRef.current.maxPolarAngle = Math.PI * 0.75;
 		controlsRef.current.minPolarAngle = 0;
-
-		const animate = () => {
-			if (!mountedRef.current) return;
-
-			frameIdRef.current = requestAnimationFrame(animate);
-
-			controlsRef.current?.update();
-
-			if (mixerRef.current) {
-				mixerRef.current.update(clock.getDelta());
-			}
-
-			renderer.render(scene, camera);
-		};
 
 		return () => {
 			mountedRef.current = false;
@@ -203,20 +144,8 @@ const TrioeScene = () => {
 			}
 
 			if (controlsRef.current) {
-				controlsRef.current.enabled = false;
+				controlsRef.current.dispose();
 				controlsRef.current = null;
-			}
-
-			if (modelRef.current) {
-				sceneObjRef.current?.remove(modelRef.current);
-				modelRef.current = null;
-			}
-
-			if (sceneObjRef.current) {
-				while (sceneObjRef.current.children.length > 0) {
-					sceneObjRef.current.remove(sceneObjRef.current.children[0]);
-				}
-				sceneObjRef.current = null;
 			}
 
 			if (rendererRef.current) {
@@ -225,8 +154,6 @@ const TrioeScene = () => {
 						rendererRef.current.domElement
 					);
 				}
-
-				rendererRef.current.setSize(1, 1);
 				rendererRef.current.dispose();
 				rendererRef.current = null;
 			}
@@ -238,7 +165,7 @@ const TrioeScene = () => {
 	return (
 		<Suspense fallback={<Loader />}>
 			<div
-				className={`w-full h-[100%] lg:w-[80%] lg:h-[80%] z-50 absolute transition-opacity duration-200 ${
+				className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[90vw] h-full max-h-[90vh] z-50 transition-opacity duration-400 ${
 					isLoading ? "opacity-0" : "opacity-100"
 				}`}
 				ref={sceneRef}

@@ -8,6 +8,7 @@ import PromotionDialog from "@/components/PromotionDialog";
 import { Testimonials } from "@/components/Testimonials";
 import TheTeam from "@/components/TheTeam";
 import TrioeVideo from "@/components/TrioeVideo";
+import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import DotPattern from "@/components/ui/dot-pattern";
 import { cn } from "@/lib/utils";
 
@@ -15,44 +16,34 @@ import React, { Suspense } from "react";
 
 const Home = () => {
 	return (
-		<div className="scroll-smooth font-roboto-regular">
-			<div id="hero" className="">
+		<div className="scroll-smooth font-geistMono ">
+			<div id="hero" className="mb-10">
+				<AnimatedGridPattern
+					numSquares={300}
+					maxOpacity={0.1}
+					duration={3}
+					repeatDelay={1}
+					className={cn(
+						"[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+						"inset-x-0 inset-y-[-50%] h-[200%] z-[-1] absolute pointer-events-none"
+					)}
+				/>
 				<Hero />
 			</div>
-			<div className="p-5">
+			{/* <div className="p-5">
 				<Suspense fallback={<Loader />}>
 					<BentoGridComponent />
 				</Suspense>
-			</div>
+			</div> */}
 			<div id="video" className="relative p-5">
 				<Suspense fallback={<Loader />}>
 					<TrioeVideo />
 				</Suspense>
-				<DotPattern
-					width={20}
-					height={20}
-					cx={1}
-					cy={1}
-					cr={1}
-					className={cn(
-						"[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
-					)}
-				/>
 			</div>
 			<div id="courses" className="p-5 relative">
 				<Suspense fallback={<Loader />}>
 					<LearningModules />
 				</Suspense>
-				<DotPattern
-					width={20}
-					height={20}
-					cx={16}
-					cy={1}
-					cr={1}
-					className={cn(
-						"[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
-					)}
-				/>
 			</div>
 			<div id="kits" className="p-5 relative">
 				<Suspense fallback={<Loader />}>
@@ -61,11 +52,11 @@ const Home = () => {
 				<DotPattern
 					width={20}
 					height={20}
-					cx={16}
+					cx={1}
 					cy={1}
 					cr={1}
 					className={cn(
-						"[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
+						"[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] z-[-1] absolute pointer-events-none"
 					)}
 				/>
 			</div>
@@ -79,9 +70,11 @@ const Home = () => {
 					<Testimonials />
 				</Suspense>
 			</div>
-			<div id="footer">
-				<Footer />
-			</div>
+			<footer>
+				<div id="footer">
+					<Footer />
+				</div>
+			</footer>
 			<PromotionDialog />
 		</div>
 	);
