@@ -11,6 +11,7 @@ import { ChevronDown } from "lucide-react";
 import { ProjectCard } from "@/components/ProjectCard";
 import { AddProjectDialog } from "@/components/community/add-project-dialog";
 import { useGetProjects } from "@/hooks/community/useGetProjects";
+import { useFetchUser } from "@/hooks/auth/useFetchuser";
 
 interface Project {
 	id: string;
@@ -39,6 +40,7 @@ const projects: Project[] = [
 
 export default function ProjectGallery() {
 	const { data: projectsData } = useGetProjects();
+	const { data: user } = useFetchUser();
 
 	return (
 		<div className="container mx-auto p-8">
@@ -69,7 +71,10 @@ export default function ProjectGallery() {
 					</DropdownMenu>
 					<AddProjectDialog
 						trigger={
-							<Button className="bg-[#4285f4] hover:bg-[#3367d6] text-white disabled:cursor-not-allowed">
+							<Button
+								// disabled={!user}
+								className="bg-[#4285f4] hover:bg-[#3367d6] text-white disabled:opacity-50 disabled:pointer-events-none"
+							>
 								Add Yours
 							</Button>
 						}

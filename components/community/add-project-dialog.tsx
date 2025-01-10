@@ -112,8 +112,6 @@ export function AddProjectDialog({
 	const { mutateAsync: updateProject, isPending: isUpdating } =
 		useUpdateProjectMutation();
 
-	const { data: user } = useFetchUser();
-
 	async function onSubmit(values: z.infer<typeof formSchema>) {
 		const {
 			title,
@@ -187,9 +185,7 @@ export function AddProjectDialog({
 
 	return (
 		<Dialog>
-			<DialogTrigger disabled={isCreating || isUpdating || !user} asChild>
-				{trigger}
-			</DialogTrigger>
+			<DialogTrigger asChild>{trigger}</DialogTrigger>
 			<DialogContent className="w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl overflow-y-auto max-h-screen">
 				<DialogHeader>
 					<DialogTitle className="text-xl sm:text-2xl font-bold">
