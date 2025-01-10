@@ -174,7 +174,7 @@ export const kits = [
       },
       {
         key: "Bluetooth",
-        value: "Yes - Classic & BLE",
+        value: "Classic & BLE",
       },
       {
         key: "Architecture",
@@ -350,7 +350,7 @@ export const kits = [
       },
       {
         key: "Bluetooth",
-        value: "Yes - Classic & BLE",
+        value: "Classic & BLE",
       },
       {
         key: "Architecture",
@@ -526,7 +526,7 @@ export const kits = [
       },
       {
         key: "Bluetooth",
-        value: "Yes - Classic & BLE",
+        value: "Classic & BLE",
       },
       {
         key: "Architecture",

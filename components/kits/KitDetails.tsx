@@ -260,23 +260,11 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                     LX7 microprocessor (with single precision FPU), up to 240
                     MHz
                   </li>
-                  <li>• 384 KB ROM</li>
-                  <li>• 512 KB SRAM</li>
-                  <li>• 16 KB SRAM in RTC</li>
-                  <li>• Up to 16 MB PSRAM</li>
+                  
                 </ul>
               </div>
 
-              <div className="p-4 rounded-lg transition-colors">
-                <p className="font-semibold text-gray-700">Wi-Fi</p>
-                <ul className="text-gray-600 space-y-2 mt-2">
-                  <li>• 802.11b/g/n</li>
-                  <li>• Bit rate: 802.11n up to 150 Mbps</li>
-                  <li>• A-MPDU and A-MSDU aggregation</li>
-                  <li>• 0.4 µs guard interval support</li>
-                  <li>• Center frequency range: 2412 ~ 2484 MHz</li>
-                </ul>
-              </div>
+              
 
               {/* Bluetooth Specs */}
               <div className="p-4 rounded-lg transition-colors">
@@ -284,9 +272,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                 <ul className="text-gray-600 space-y-2 mt-2">
                   <li>• Bluetooth LE: Bluetooth 5, Bluetooth mesh</li>
                   <li>• Speed: 125 Kbps, 500 Kbps, 1 Mbps, 2 Mbps</li>
-                  <li>• Advertising extensions</li>
-                  <li>• Multiple advertisement sets</li>
-                  <li>• Channel selection algorithm #2</li>
+             
                   <li>
                     • Internal co-existence mechanism for Wi-Fi and Bluetooth
                     antenna sharing
@@ -302,12 +288,11 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                   <li>
                     • SPI, LCD interface, Camera interface, UART, I2C, I2S
                   </li>
-                  <li>• Remote control, pulse counter, LED PWM</li>
+         
                   <li>• Full-speed USB 2.0 OTG, USB Serial/JTAG controller</li>
-                  <li>• MCPWM, SDIO host controller, GDMA</li>
-                  <li>• TWAI® controller (ISO 11898-1 compatible)</li>
+          
                   <li>• ADC, touch sensor, temperature sensor</li>
-                  <li>• Timers and watchdogs</li>
+      
                 </ul>
               </div>
 
@@ -318,29 +303,11 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                 </p>
                 <ul className="text-gray-600 space-y-2 mt-2">
                   <li>• Operating voltage/Power supply: 3.0 ~ 3.6 V</li>
-                  <li>• Operating ambient temperature:</li>
-                  <li>&nbsp;&nbsp;– 65 °C version: –40 ~ 65 °C</li>
-                  <li>&nbsp;&nbsp;– 85 °C version: –40 ~ 85 °C</li>
-                  <li>&nbsp;&nbsp;– 105 °C version: –40 ~ 105 °C</li>
+               
                 </ul>
               </div>
 
-              {/* Integrated Components */}
-              <div className="p-4 rounded-lg transition-colors">
-                <p className="font-semibold text-gray-700">
-                  Integrated Components
-                </p>
-                <ul className="text-gray-600 space-y-2 mt-2">
-                  <li>• 40 MHz crystal oscillator</li>
-                  <li>• Up to 16 MB Quad SPI flash</li>
-                  <li>• Antenna Options:</li>
-                  <li>&nbsp;&nbsp;– ESP32-S3-WROOM-1: On-board PCB antenna</li>
-                  <li>
-                    &nbsp;&nbsp;– ESP32-S3-WROOM-1U: External antenna via
-                    connector
-                  </li>
-                </ul>
-              </div>
+              
             </div>
           </Card>
 
