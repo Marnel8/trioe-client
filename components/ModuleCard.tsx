@@ -31,9 +31,19 @@ const ModuleCard = ({
 		return "group-hover:text-yellow-500";
 	};
 
+	const getGradientBackground = () => {
+		if (title.includes("STEAM")) {
+			return "bg-gradient-to-br from-red-400/30 to-red-600/30";
+		}
+		if (title.includes("Agri-Aqua")) {
+			return "bg-gradient-to-br from-green-400/30 to-green-600/30";
+		}
+		return "bg-gradient-to-br from-yellow-300/30 to-yellow-500/30";
+	};
+
 	return (
 		<div className={`rounded-xl p-6 z-10 w-full max-w-[350px] max-h-[480px] lg:max-h-[600px] bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] overflow-hidden transition-all duration-500 ease-in-out hover:-translate-y-2 group ${getGlowColor()}`}>
-			<div className="w-full h-[200px] sm:h-[240px] md:h-[170px] rounded-xl relative bg-module-image bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.02]">
+			<div className={`w-full h-[200px] sm:h-[240px] md:h-[170px] rounded-xl relative transition-transform duration-500 group-hover:scale-[1.02] ${getGradientBackground()}`}>
 				<div className="absolute bg-white w-full h-[220px] sm:h-[260px] md:h-[200px] rounded-xl max-w-[93%] left-1/2 top-3 sm:top-5 -translate-x-1/2 shadow-md transition-transform duration-500 group-hover:scale-[1.01]">
 					<Image
 						src={imageSrc}
