@@ -1,4 +1,3 @@
-import { BentoGridComponent } from "@/components/BentoGrid";
 import ElectronicsKits from "@/components/ElectronicsKits";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -12,7 +11,7 @@ import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import DotPattern from "@/components/ui/dot-pattern";
 import { cn } from "@/lib/utils";
 
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 
 const Home = () => {
 	return (
@@ -75,7 +74,7 @@ const Home = () => {
 					<Footer />
 				</div>
 			</footer>
-			<PromotionDialog />
+			{/* <div><PromotionDialog /></div> */}
 		</div>
 	);
 };

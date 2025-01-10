@@ -34,7 +34,7 @@ const CommunityPage = () => {
 						<TypingAnimation
 							duration={100}
 							delay={1000}
-							className="text-4xl md:text-8xl tracking-wider text-black text-center lg:text-left font-geist font-bold "
+							className="text-4xl md:text-8xl tracking-wider text-black text-center  font-geist font-bold "
 						>
 							TRIOE COMMUNITY
 						</TypingAnimation>
