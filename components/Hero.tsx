@@ -1,17 +1,10 @@
 "use client";
-import Image from "next/image";
-import React, { Suspense } from "react";
+import React from "react";
 import { RainbowButton } from "./ui/rainbow-button";
 import { cn } from "@/lib/utils";
 
-const TrioeScene = dynamic(() => import("../components/TrioeScene"), {
-	ssr: false,
-	loading: () => <Loader />,
-});
 import Link from "next/link";
 import Socials from "./socials";
-import dynamic from "next/dynamic";
-import Loader from "./loader/Loader";
 import TypingAnimation from "./ui/typing-animation";
 
 const Hero = () => {
