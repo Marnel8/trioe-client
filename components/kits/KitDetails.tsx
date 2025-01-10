@@ -11,6 +11,8 @@ import {
   PenToolIcon as Tool,
   Star,
   Quote,
+  CheckCircle2,
+  ChevronLeft,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -72,6 +74,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(kit?.thumbnail || "");
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   const price = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -104,73 +107,142 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
     <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-12 space-y-12">
         {/* Product Section */}
-        <Card className="p-8 shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <Card className="overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Product Image Section */}
-            <div className="space-y-6">
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-blue-100">
+            <div className=" p-8">
+              {/* Main Image */}
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white">
                 <Image
                   src={selectedImage}
                   alt={kit?.name || "Kit"}
                   fill
-                  className="object-contain transition-transform duration-300 hover:scale-105"
+                  className="object-contain p-4 transition-transform duration-300 hover:scale-105"
                 />
               </div>
-              <div className="grid-cols-5 gap-4 hidden ">
-                {kit?.images.map((thumb, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setSelectedImage(thumb)}
-                    className={`relative aspect-square rounded-xl overflow-hidden bg-gray-50/50 hover:bg-gray-100/50 transition-all duration-200 ${
-                      selectedImage === thumb ? "ring-2 ring-blue-400" : ""
-                    }`}
-                  >
-                    <Image
-                      src={thumb}
-                      alt={`${kit.name} thumbnail ${index + 1}`}
-                      fill
-                      className="object-contain p-2"
-                    />
-                  </button>
-                ))}
+
+              {/* Thumbnail Navigation */}
+              <div className="relative flex items-center mt-6 px-8">
+                <button
+                  onClick={() => {
+                    const currentIndex = kit?.images.indexOf(selectedImage) || 0;
+                    const newIndex = currentIndex > 0 ? currentIndex - 1 : (kit?.images?.length ?? 1) - 1;
+                    setSelectedImage(kit?.images[newIndex] || '');
+                  }}
+                  className="absolute left-0 z-10 p-2 rounded-full text-black shadow-lg transform -translate-x-1/2"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+
+                <div className="mx-8 w-full overflow-hidden">
+                  <div className="flex gap-3 items-center justify-center">
+                    {kit?.images.map((thumb, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setSelectedImage(thumb)}
+                        className={`relative w-16 h-16 rounded-lg overflow-hidden bg-white border-2 transition-all duration-200 ${
+                          selectedImage === thumb ? 'border-black-400 scale-110 shadow-md' : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <Image
+                          src={thumb}
+                          alt={`${kit.name} thumbnail ${index + 1}`}
+                          fill
+                          className="object-contain p-1"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => {
+                    const currentIndex = kit?.images.indexOf(selectedImage) || 0;
+                    const newIndex = currentIndex < (kit?.images?.length ?? 0) - 1 ? currentIndex + 1 : 0;
+                    setSelectedImage(kit?.images[newIndex] || '');
+                  }}
+                  className="absolute right-0 z-10 p-2 rounded-full text-black shadow-lg transform translate-x-1/2"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
               </div>
             </div>
 
             {/* Product Details Section */}
-            <div className="space-y-8">
-              <div className="space-y-4">
+            <div className="p-8 space-y-8">
+              <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <h1 className="text-4xl font-bold text-gray-800">
+                  <h1 className="text-4xl font-extrabold text-gray-900 font-display">
                     {kit?.name}
                   </h1>
                   <Badge
                     variant="secondary"
-                    className="bg-blue-50 text-blue-600"
+                    className="bg-blue-100 text-blue-600 font-medium"
                   >
-                    New
+                    NEW
                   </Badge>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-600">
-                  <Tool className="h-4 w-4" />
-                  <span>{kit?.category} Learning Kit</span>
-                </div>
-                <div className="flex items-center space-x-1 text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-current" />
-                  ))}
-                  <span className="ml-2 text-sm text-gray-600">
-                    (50 reviews)
-                  </span>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  {kit?.description}
-                </p>
-              </div>
 
-              <div className="space-y-6">
-                <div className="flex items-center justify-between bg-gray-50/50 p-6 rounded-lg">
-                  <span className="text-4xl font-bold text-gray-800">
-                    {price}
+                {/* Product Description */}
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-2 text-sm text-gray-600 font-medium">
+                    <Tool className="h-4 w-4" />
+                    <span>{kit?.category} Learning Kit</span>
+                  </div>
+                  <div className="flex items-center space-x-1 text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-current" />
+                    ))}
+                    <span className="ml-2 text-sm text-gray-600 font-medium">
+                      (50 reviews)
+                    </span>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed font-body">
+                    {kit?.description}
+                  </p>
+                </div>
+
+                {/* Pricing Options */}
+                <div className="space-y-4">
+                  <div className="bg-gray-50 p-6 rounded-lg flex items-center justify-between">
+                    <div>
+                      <p className="font-display font-bold text-gray-900">
+                        Single Kit Purchase
+                      </p>
+                      <p className="text-sm text-gray-500 font-medium">One-time purchase</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-display font-bold text-3xl text-gray-900">
+                        {price}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* <div className="bg-blue-50 p-6 rounded-lg flex items-center justify-between border-2 border-blue-200">
+                    <div>
+                      <p className="font-medium text-gray-900">
+                        Educational Bundle
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Perfect for schools and institutions
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-bold text-2xl text-gray-900">
+                        ${(kit?.price * 0.8).toFixed(2)}
+                        <span className="text-sm text-gray-500">/unit</span>
+                      </p>
+                      <p className="text-sm text-blue-600">
+                        Save 20% on bulk orders
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Quantity Selector */}
+                <div className="flex items-center justify-between bg-gray-50 p-6 rounded-lg">
+                  <span className="text-lg font-medium text-gray-900">
+                    Quantity
                   </span>
                   <div className="flex items-center space-x-3">
                     <Button
@@ -181,7 +253,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                     >
                       <Minus className="h-4 w-4" />
                     </Button>
-                    <span className="text-xl font-medium w-12 text-center">
+                    <span className="text-xl font-medium w-12 text-center text-gray-900">
                       {quantity}
                     </span>
                     <Button
@@ -194,12 +266,62 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                     </Button>
                   </div>
                 </div>
-                <QuoteRequestModal
-                  quantity={quantity}
-                  price={kit?.price || 0}
-                  kitName={kit?.name || ""}
-                />
+
+                {/* Features */}
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-display font-bold text-gray-900">
+                    What's Included
+                  </h2>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle2 className="h-5 w-5 text-green-500" />
+                      <span className="text-gray-700 font-medium">
+                        Complete learning kit with all necessary components
+                      </span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle2 className="h-5 w-5 text-green-500" />
+                      <span className="text-gray-700 font-medium">
+                        Detailed documentation and learning materials
+                      </span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle2 className="h-5 w-5 text-green-500" />
+                      <span className="text-gray-700 font-medium">
+                        Access to online support and resources
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="space-y-4">
+                  <Button
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-6 text-lg font-display font-bold"
+                    onClick={() => setIsQuoteModalOpen(true)}
+                  >
+                    Request Quote
+                  </Button>
+                  <div className="flex items-center justify-between text-sm text-gray-500 font-medium">
+                    <div className="flex items-center space-x-2">
+                      <Download className="h-4 w-4" />
+                      <span>shipping available</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Book className="h-4 w-4" />
+                      <span>Technical support included</span>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              {/* <QuoteRequestModal
+                quantity={quantity}
+                price={kit?.price || 0}
+                kitName={kit?.name || ""}
+                isOpen={isQuoteModalOpen}
+                onClose={() => setIsQuoteModalOpen(false)}
+              /> */}
             </div>
           </div>
         </Card>
@@ -207,7 +329,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
         <div className="space-y-8">
           {/* Package Inclusions Card */}
           <Card className="p-8 shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            <h2 className="text-2xl font-display font-bold text-gray-800 mb-4">
               Package Inclusions
             </h2>
             <div className="rounded-lg overflow-hidden border border-gray-200">
@@ -236,87 +358,83 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 
           {/* Technical Specifications Card */}
           <Card className="p-8 shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Technical Specifications
+            <h2 className="text-3xl font-display font-bold text-gray-800 mb-6 flex items-center gap-2">
+              <span>Technical Specifications</span>
+              
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {/* Main Specs Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {kit?.technicalSpecs.map((spec, index) => (
                 <div
                   key={index}
-                  className="p-4 rounded-lg transition-colors"
+                  className="p-4 rounded-lg bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-all duration-300"
                 >
-                  <p className="font-semibold text-gray-700">{spec.key}</p>
-                  <p className="text-gray-600">{spec.value}</p>
+                  <p className="font-display font-bold text-gray-800 mb-2">{spec.key}</p>
+                  <p className="text-gray-600 font-body">{spec.value}</p>
                 </div>
               ))}
-              {/* CPU and Memory Specs */}
-              <div className="p-4 rounded-lg transition-colors">
-                <p className="font-semibold text-gray-700">
-                  CPU and On-Chip Memory
-                </p>
-                <ul className="text-gray-600 space-y-2 mt-2">
-                  <li>
-                    • ESP32-S3 series of SoCs embedded, Xtensa® dual-core 32-bit
-                    LX7 microprocessor (with single precision FPU), up to 240
-                    MHz
+            </div>
+
+            {/* Features List */}
+            <div className="space-y-6">
+              <div className="p-4 rounded-lg bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+                <p className="font-display font-bold text-gray-800 mb-3">Key Features</p>
+                <ul className="space-y-2 text-gray-600 font-body">
+                  <li className="flex items-center gap-2">
+                    <ChevronRight className="h-4 w-4 text-blue-500" />
+                    LX7 microprocessor with single precision FPU, up to 240 MHz
                   </li>
-                  
+                  <li className="flex items-center gap-2">
+                    <ChevronRight className="h-4 w-4 text-blue-500" />
+                    Full-speed USB 2.0 OTG, USB Serial/JTAG controller
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <ChevronRight className="h-4 w-4 text-blue-500" />
+                    ADC, touch sensor, temperature sensor
+                  </li>
                 </ul>
               </div>
 
-              
-
-              {/* Bluetooth Specs */}
-              <div className="p-4 rounded-lg transition-colors">
-                <p className="font-semibold text-gray-700">Bluetooth</p>
-                <ul className="text-gray-600 space-y-2 mt-2">
-                  <li>• Bluetooth LE: Bluetooth 5, Bluetooth mesh</li>
-                  <li>• Speed: 125 Kbps, 500 Kbps, 1 Mbps, 2 Mbps</li>
-             
-                  <li>
-                    • Internal co-existence mechanism for Wi-Fi and Bluetooth
+              <div className="p-4 rounded-lg bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+                <p className="font-display font-bold text-gray-800 mb-3">Bluetooth</p>
+                <ul className="space-y-2 text-gray-600 font-body">
+                  <li className="flex items-center gap-2">
+                    <ChevronRight className="h-4 w-4 text-blue-500" />
+                    Bluetooth LE: Bluetooth 5, Bluetooth mesh
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <ChevronRight className="h-4 w-4 text-blue-500" />
+                    Speed: 125 Kbps, 500 Kbps, 1 Mbps, 2 Mbps
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <ChevronRight className="h-4 w-4 text-blue-500" />
+                    Internal co-existence mechanism for Wi-Fi and Bluetooth
                     antenna sharing
                   </li>
                 </ul>
               </div>
 
-              {/* Peripherals */}
-              <div className="p-4 rounded-lg transition-colors">
-                <p className="font-semibold text-gray-700">Peripherals</p>
-                <ul className="text-gray-600 space-y-2 mt-2">
-                  <li>• 36 GPIOs (4 strapping GPIOs)</li>
-                  <li>
-                    • SPI, LCD interface, Camera interface, UART, I2C, I2S
+              <div className="p-4 rounded-lg bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+                <p className="font-display font-bold text-gray-800 mb-3">Power</p>
+                <ul className="space-y-2 text-gray-600 font-body">
+                  <li className="flex items-center gap-2">
+                    <ChevronRight className="h-4 w-4 text-blue-500" />
+                    Operating voltage/Power supply: 3.0 ~ 3.6 V
                   </li>
-         
-                  <li>• Full-speed USB 2.0 OTG, USB Serial/JTAG controller</li>
-          
-                  <li>• ADC, touch sensor, temperature sensor</li>
-      
                 </ul>
               </div>
-
-              {/* Operating Conditions */}
-              <div className="p-4 rounded-lg transition-colors">
-                <p className="font-semibold text-gray-700">
-                  Operating Conditions
-                </p>
-                <ul className="text-gray-600 space-y-2 mt-2">
-                  <li>• Operating voltage/Power supply: 3.0 ~ 3.6 V</li>
-               
-                </ul>
-              </div>
-
-              
             </div>
           </Card>
 
           {/* Kit Components Card */}
           <Card className="p-8 shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Kit Components</h2>
+            <h2 className="text-3xl font-display font-bold text-gray-800 mb-4">
+              Kit Components and Sample codes
+            </h2>
             <div className="space-y-6">
               <div className="rounded-lg shadow-[0_1px_2px_rgba(0,0,0,0.03)] p-6">
-                <h3 className="text-xl font-semibold text-gray-700 mb-4">
+                <h3 className="text-2xl font-display font-bold text-gray-700 mb-4">
                   Sensors
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -341,10 +459,10 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                               />
                             </div>
                             <div>
-                              <p className="font-semibold text-gray-700">
+                              <p className="font-display font-bold text-gray-700">
                                 {component.name}
                               </p>
-                              <p className="text-sm text-gray-600">
+                              <p className="text-sm text-gray-600 font-medium">
                                 {component.category}
                               </p>
                             </div>
@@ -356,7 +474,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                 </div>
               </div>
               <div className=" rounded-lg shadow-[0_1px_2px_rgba(0,0,0,0.03)] p-6">
-                <h3 className="text-xl font-semibold text-gray-700 mb-4">
+                <h3 className="text-2xl font-display font-bold text-gray-700 mb-4">
                   Actuators
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -381,10 +499,10 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                               />
                             </div>
                             <div>
-                              <p className="font-semibold text-gray-700">
+                              <p className="font-display font-bold text-gray-700">
                                 {component.name}
                               </p>
-                              <p className="text-sm text-gray-600">
+                              <p className="text-sm text-gray-600 font-medium">
                                 {component.category}
                               </p>
                             </div>
@@ -396,7 +514,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                 </div>
               </div>
               <div className="rounded-lg shadow-[0_1px_2px_rgba(0,0,0,0.03)] p-6">
-                <h3 className="text-xl font-semibold text-gray-700 mb-4">
+                <h3 className="text-2xl font-display font-bold text-gray-700 mb-4">
                   Displays
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -416,10 +534,10 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                         />
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-700">
+                        <p className="font-display font-bold text-gray-700">
                           {display.name}
                         </p>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-gray-600 font-medium">
                           {display.category}
                         </p>
                       </div>
@@ -432,7 +550,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 
           {/* Technical Details */}
           <Card className="p-8 shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">
               Technical Details
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -443,7 +561,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                   className="flex items-center space-x-4 cursor-pointer"
                 >
                   <Download className="h-6 w-6 text-blue-400" />
-                  <span className="font-medium text-gray-700">
+                  <span className="font-display font-medium text-gray-700">
                     Schematic Diagram
                   </span>
                 </a>
@@ -455,7 +573,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
               >
                 <div className="flex items-center space-x-4">
                   <Book className="h-6 w-6 text-blue-400" />
-                  <span className="font-medium text-gray-700">Dimensions</span>
+                  <span className="font-display font-medium text-gray-700">Dimensions</span>
                 </div>
                 <ChevronRight className="h-5 w-5 text-blue-400 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -463,7 +581,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
           </Card>
           {/* Related Courses */}
           <Card className="p-8 shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">
               Related Courses
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -481,10 +599,10 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                     />
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="font-semibold text-lg mb-2 text-gray-800">
+                    <h3 className="font-display font-bold text-lg mb-2 text-gray-800">
                       {course.name}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-4">
+                    <p className="text-gray-600 text-sm mb-4 font-body">
                       {course.description}
                     </p>
                     <Link
