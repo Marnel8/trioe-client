@@ -56,7 +56,7 @@ export function MobileNav() {
 	>(null);
 	const [isScrolled, setIsScrolled] = React.useState(false);
 
-	const { data: user } = useFetchUser();
+	const { data: user, isPending: isUserPending } = useFetchUser();
 	const { mutateAsync: logout, isPending: logoutPending } = useLogout();
 
 	// Modify the scroll handling logic

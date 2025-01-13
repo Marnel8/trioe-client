@@ -21,15 +21,16 @@ instance.interceptors.response.use(
 				);
 
 				if (response.status === 200) {
+					// Retry the original request with a refreshed token
 					return instance(originalRequest);
 				}
 			} catch (err) {
-				console.log("Token refresh failed:", err);
+				console.error("Token refresh failed. Redirecting to login...");
+				// Optionally redirect to login
+				window.location.href = "/login";
 				return Promise.reject(err);
 			}
 		}
-
-		return Promise.reject(error);
 	}
 );
 
