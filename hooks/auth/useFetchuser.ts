@@ -32,8 +32,8 @@ export const useFetchUser = () => {
 	return useQuery({
 		queryKey: ["user"],
 		queryFn: fetchUser,
-		staleTime: 1000 * 60 * 5,
-		retry: 2,
+		staleTime: Infinity,
+		retry: false,
 	});
 };
 
