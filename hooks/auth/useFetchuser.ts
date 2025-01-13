@@ -1,9 +1,5 @@
 import api from "@/utils/api";
-import {
-	useQuery,
-	useQueryClient,
-	UseQueryResult,
-} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 interface User {
 	id: string;
@@ -35,22 +31,4 @@ export const useFetchUser = () => {
 		staleTime: Infinity,
 		retry: false,
 	});
-};
-
-// Utility function to prefetch user data
-export const prefetchUserData = async (queryClient: any) => {
-	await queryClient.prefetchQuery({
-		queryKey: ["user"],
-		queryFn: fetchUser,
-	});
-};
-
-// Function to invalidate user cache when needed
-export const invalidateUserCache = (queryClient: any) => {
-	queryClient.invalidateQueries({ queryKey: ["user"] });
-};
-
-// Function to update user cache directly
-export const updateUserCache = (queryClient: any, userData: User) => {
-	queryClient.setQueryData(["user"], userData);
 };
