@@ -25,7 +25,7 @@ instance.interceptors.response.use(
 					return instance(originalRequest);
 				}
 			} catch (err) {
-				console.error("Token refresh failed. Redirecting to login...");
+				console.log("Token refresh failed. Redirecting to login...");
 				// Optionally redirect to login
 				return Promise.reject(err);
 			}
