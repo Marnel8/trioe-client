@@ -22,5 +22,6 @@ export const useFetchUser = () => {
 		queryFn: fetchUser,
 		staleTime: Infinity,
 		retry: false,
+		enabled: true,
 	});
 };
