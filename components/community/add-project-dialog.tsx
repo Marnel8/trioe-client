@@ -186,7 +186,7 @@ export function AddProjectDialog({
 	return (
 		<Dialog>
 			<DialogTrigger asChild>{trigger}</DialogTrigger>
-			<DialogContent className="w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl overflow-y-auto max-h-screen">
+			<DialogContent className="w-full p-5 font-geistMono max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl overflow-y-auto max-h-screen">
 				<DialogHeader>
 					<DialogTitle className="text-xl sm:text-2xl font-bold">
 						Add Your Project

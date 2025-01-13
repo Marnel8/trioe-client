@@ -43,9 +43,9 @@ export default function ProjectGallery() {
 	const { data: user } = useFetchUser();
 
 	return (
-		<div className="container mx-auto p-8">
-			<div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-				<Tabs defaultValue="all" className="w-full sm:w-auto">
+		<div className="container mx-auto p-8 flex flex-col gap-8 ">
+			<div className="mb-8 flex flex-wrap gap-4  items-center justify-center md:justify-between">
+				<Tabs defaultValue="all" className="">
 					<TabsList>
 						<TabsTrigger value="all" className="text-sm">
 							All Projects
@@ -55,7 +55,7 @@ export default function ProjectGallery() {
 						</TabsTrigger>
 					</TabsList>
 				</Tabs>
-				<div className="flex items-center gap-2">
+				<div className="flex  items-center gap-2">
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
 							<Button variant="outline" className="w-[100px]">
@@ -73,7 +73,7 @@ export default function ProjectGallery() {
 						trigger={
 							<Button
 								// disabled={!user}
-								className="bg-[#4285f4] hover:bg-[#3367d6] text-white disabled:opacity-50 disabled:pointer-events-none"
+								className=" text-white disabled:opacity-50 disabled:pointer-events-none"
 							>
 								Add Yours
 							</Button>
