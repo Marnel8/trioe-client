@@ -147,97 +147,99 @@ const modules = [
 ];
 
 const programmingGuides = [
-   {
-     title: "BME280 Environmental Sensing",
-     description: "Learn to measure temperature, humidity, and pressure with BME280",
-     difficulty: "Beginner",
-     duration: "2-3 hours",
-     icon: Code,
-     color: "text-blue-500",
-     topics: [
-       "Setting up BME280 sensor",
-       "Reading temperature data",
-       "Measuring humidity levels",
-       "Monitoring atmospheric pressure"
-     ],
-     href: "/learn/steam-learn/bme280-basics",
-   },
-   {
-     title: "Distance Measurement with Ultrasonic",
-     description: "Master distance sensing with ultrasonic sensors",
-     difficulty: "Intermediate",
-     duration: "2-3 hours",
-     icon: Waves,
-     color: "text-green-500",
-     topics: [
-       "Ultrasonic sensor setup",
-       "Distance calculation",
-       "Obstacle detection",
-       "Error handling and calibration"
-     ],
-     href: "/learn/steam-learn/ultrasonic-guide",
-   },
-   {
-     title: "Relay Control Systems",
-     description: "Learn to control high-power devices with relays",
-     difficulty: "Intermediate",
-     duration: "2-3 hours",
-     icon: Database,
-     color: "text-purple-500",
-     topics: [
-       "Relay basics and safety",
-       "Controlling AC/DC devices",
-       "Timer-based automation",
-       "Multiple relay management"
-     ],
-     href: "/learn/steam-learn/relay-control",
-   },
-     {
-       title: "Servo Motor Control",
-       description: "Learn precise motion control with servo motors",
-       difficulty: "Beginner",
-       duration: "2-3 hours",
-       icon: Code,
-       color: "text-yellow-500",
-       topics: [
-         "Servo motor basics",
-         "Position control",
-         "Speed and acceleration",
-         "Multi-servo projects"
-       ],
-       href: "/learn/steam-learn/servo-control",
-     },
-     {
-       title: "OLED Display Programming",
-       description: "Create visual interfaces with OLED displays",
-       difficulty: "Intermediate",
-       duration: "2-3 hours",
-       icon: Waves,
-       color: "text-indigo-500",
-       topics: [
-         "OLED display setup",
-         "Drawing shapes and text",
-         "Creating animations",
-         "Building user interfaces"
-       ],
-       href: "/learn/steam-learn/oled-guide",
-     },
-     {
-       title: "LED Programming",
-       description: "Master LED control and lighting effects",
-       difficulty: "Beginner",
-       duration: "2-3 hours",
-       icon: Database,
-       color: "text-red-500",
-       topics: [
-         "Basic LED control",
-         "PWM and brightness",
-         "RGB LED programming",
-         "Creating light patterns"
-       ],
-       href: "/learn/steam-learn/led-basics",
-     }
-
+  {
+    title: "BME280 Environmental Sensing",
+    description: "Learn to measure temperature, humidity, and pressure with BME280",
+    difficulty: "Beginner",
+    duration: "1-2 hours",
+    icon: Waves,
+    color: "text-teal-500",
+    lessons: [
+      "Setting up BME280",
+      "Reading Temperature",
+      "Measuring Humidity",
+      "Pressure Monitoring",
+      "Data Logging",
+    ],
+    href: "/learn/steam-learn/bme280",
+  },
+  {
+    title: "Ultrasonic Distance Sensing",
+    description: "Master distance measurement using ultrasonic sensors",
+    difficulty: "Beginner",
+    duration: "1-2 hours",
+    icon: Waves,
+    color: "text-purple-500",
+    lessons: [
+      "Ultrasonic Sensor Basics",
+      "Distance Calculation",
+      "Object Detection",
+      "Range Finding Projects",
+    ],
+    href: "/learn/steam-learn/ultrasonic",
+  },
+  {
+    title: "Relay Control",
+    description: "Control high-power devices with relays",
+    difficulty: "Beginner",
+    duration: "1-2 hours",
+    icon: CircuitBoard,
+    color: "text-orange-500",
+    lessons: [
+      "Relay Fundamentals",
+      "Switching Circuits",
+      "Safety Considerations",
+      "Home Automation Projects",
+    ],
+    href: "/learn/steam-learn/relay",
+  },
+  {
+    title: "Servo Motor Control",
+    description: "Learn precise motion control with servo motors",
+    difficulty: "Beginner",
+    duration: "1-2 hours",
+    icon: CircuitBoard,
+    color: "text-blue-500",
+    lessons: [
+      "Servo Basics",
+      "Position Control",
+      "Speed Control",
+      "Robotic Applications",
+    ],
+    href: "/learn/steam-learn/servo",
+  },
+  {
+    title: "OLED Display Programming",
+    description: "Create visual interfaces with OLED displays",
+    difficulty: "Intermediate",
+    duration: "2-3 hours",
+    icon: Code,
+    color: "text-indigo-500",
+    lessons: [
+      "OLED Display Setup",
+      "Drawing Shapes",
+      "Displaying Text",
+      "Creating Animations",
+      "Building User Interfaces",
+    ],
+    href: "/learn/steam-learn/oled",
+  },
+  {
+    title: "LED Programming",
+    description: "Master LED control and lighting effects",
+    difficulty: "Beginner",
+    duration: "1-2 hours",
+    icon: Lightbulb,
+    color: "text-yellow-500",
+    lessons: [
+      "LED Basics",
+      "Digital Control",
+      "PWM Dimming",
+      "RGB LED Control",
+      "Light Patterns",
+    ],
+    href: "/learn/steam-learn/led",
+  },
 ];
 
 export default function SteamLearnPage() {
@@ -324,8 +326,8 @@ export default function SteamLearnPage() {
                 Duration: {guide.duration}
               </div>
               <ul className="list-disc list-inside space-y-1 text-sm">
-                {guide.topics.map((topic) => (
-                  <li key={topic}>{topic}</li>
+                {guide.lessons.map((lesson) => (
+                  <li key={lesson}>{lesson}</li>
                 ))}
               </ul>
             </CardContent>
