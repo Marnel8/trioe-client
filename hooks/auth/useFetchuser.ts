@@ -1,14 +1,6 @@
 import api from "@/utils/api";
 import { useQuery } from "@tanstack/react-query";
 
-interface User {
-	id: string;
-	firstName: string;
-	lastName: string;
-	email: string;
-	avatar: string;
-}
-
 const fetchUser = async () => {
 	try {
 		const response = await api.get("/user/me");
