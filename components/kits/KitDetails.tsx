@@ -296,12 +296,12 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 
                 {/* Action Buttons */}
                 <div className="space-y-4">
-                  <Button
+                  {/* <Button
                     className="w-full bg-red-600 hover:bg-red-700 text-white py-6 text-lg font-display font-bold"
                     onClick={() => setIsQuoteModalOpen(true)}
                   >
                     Request Quote
-                  </Button>
+                  </Button> */}
                   <div className="flex items-center justify-between text-sm text-gray-500 font-medium">
                     <div className="flex items-center space-x-2">
                       <Download className="h-4 w-4" />
@@ -315,13 +315,13 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
                 </div>
               </div>
 
-              {/* <QuoteRequestModal
+              <QuoteRequestModal
                 quantity={quantity}
                 price={kit?.price || 0}
                 kitName={kit?.name || ""}
                 isOpen={isQuoteModalOpen}
                 onClose={() => setIsQuoteModalOpen(false)}
-              /> */}
+              />
             </div>
           </div>
         </Card>
