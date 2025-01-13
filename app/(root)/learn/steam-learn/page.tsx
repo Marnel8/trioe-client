@@ -147,51 +147,97 @@ const modules = [
 ];
 
 const programmingGuides = [
-  {
-    title: "Getting Started with TRIOE",
-    description: "Learn the basics of programming with TRIOE",
-    difficulty: "Beginner",
-    duration: "2-3 hours",
-    icon: Code,
-    color: "text-blue-500",
-    topics: [
-      "Setting up your environment",
-      "Basic syntax and data types",
-      "Control structures",
-      "Functions and modules"
-    ],
-    href: "/learn/steam-learn/trioe-basics",
-  },
-  {
-    title: "Stream Programming Fundamentals",
-    description: "Master stream-based programming concepts",
-    difficulty: "Intermediate",
-    duration: "3-4 hours",
-    icon: Waves,
-    color: "text-green-500",
-    topics: [
-      "Understanding streams",
-      "Data flow programming",
-      "Stream operators",
-      "Error handling"
-    ],
-    href: "/learn/steam-learn/stream-fundamentals",
-  },
-  {
-    title: "Advanced Stream Patterns",
-    description: "Learn advanced stream programming patterns",
-    difficulty: "Advanced",
-    duration: "4-5 hours",
-    icon: Database,
-    color: "text-purple-500",
-    topics: [
-      "Stream composition",
-      "Backpressure handling",
-      "Concurrent streams",
-      "Testing streams"
-    ],
-    href: "/learn/steam-learn/advanced-streams",
-  }
+   {
+     title: "BME280 Environmental Sensing",
+     description: "Learn to measure temperature, humidity, and pressure with BME280",
+     difficulty: "Beginner",
+     duration: "2-3 hours",
+     icon: Code,
+     color: "text-blue-500",
+     topics: [
+       "Setting up BME280 sensor",
+       "Reading temperature data",
+       "Measuring humidity levels",
+       "Monitoring atmospheric pressure"
+     ],
+     href: "/learn/steam-learn/bme280-basics",
+   },
+   {
+     title: "Distance Measurement with Ultrasonic",
+     description: "Master distance sensing with ultrasonic sensors",
+     difficulty: "Intermediate",
+     duration: "2-3 hours",
+     icon: Waves,
+     color: "text-green-500",
+     topics: [
+       "Ultrasonic sensor setup",
+       "Distance calculation",
+       "Obstacle detection",
+       "Error handling and calibration"
+     ],
+     href: "/learn/steam-learn/ultrasonic-guide",
+   },
+   {
+     title: "Relay Control Systems",
+     description: "Learn to control high-power devices with relays",
+     difficulty: "Intermediate",
+     duration: "2-3 hours",
+     icon: Database,
+     color: "text-purple-500",
+     topics: [
+       "Relay basics and safety",
+       "Controlling AC/DC devices",
+       "Timer-based automation",
+       "Multiple relay management"
+     ],
+     href: "/learn/steam-learn/relay-control",
+   },
+     {
+       title: "Servo Motor Control",
+       description: "Learn precise motion control with servo motors",
+       difficulty: "Beginner",
+       duration: "2-3 hours",
+       icon: Code,
+       color: "text-yellow-500",
+       topics: [
+         "Servo motor basics",
+         "Position control",
+         "Speed and acceleration",
+         "Multi-servo projects"
+       ],
+       href: "/learn/steam-learn/servo-control",
+     },
+     {
+       title: "OLED Display Programming",
+       description: "Create visual interfaces with OLED displays",
+       difficulty: "Intermediate",
+       duration: "2-3 hours",
+       icon: Waves,
+       color: "text-indigo-500",
+       topics: [
+         "OLED display setup",
+         "Drawing shapes and text",
+         "Creating animations",
+         "Building user interfaces"
+       ],
+       href: "/learn/steam-learn/oled-guide",
+     },
+     {
+       title: "LED Programming",
+       description: "Master LED control and lighting effects",
+       difficulty: "Beginner",
+       duration: "2-3 hours",
+       icon: Database,
+       color: "text-red-500",
+       topics: [
+         "Basic LED control",
+         "PWM and brightness",
+         "RGB LED programming",
+         "Creating light patterns"
+       ],
+       href: "/learn/steam-learn/led-basics",
+     }
+
 ];
 
 export default function SteamLearnPage() {
@@ -246,7 +292,7 @@ export default function SteamLearnPage() {
       </div>
 
       <div className="mb-8 mt-8">
-        <h1 className="text-4xl font-bold mb-4">STEAM Programming Guides</h1>
+        <h1 className="text-4xl font-bold mb-4">STEAM Programming Walkthroughs</h1>
         <p className="text-muted-foreground text-lg">
           Learn how to program microcontrollers using TRIOE.
         </p>
