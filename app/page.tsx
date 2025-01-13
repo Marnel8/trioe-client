@@ -31,9 +31,7 @@ const Home = () => {
 				<Hero />
 			</div>
 			<div className="p-5">
-				<Suspense fallback={<Loader />}>
-					<BentoGridComponent />
-				</Suspense>
+				<BentoGridComponent />
 			</div>
 			<div id="video" className="relative p-5">
 				<Suspense fallback={<Loader />}>
