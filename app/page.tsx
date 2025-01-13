@@ -1,3 +1,4 @@
+import { BentoGridComponent } from "@/components/BentoGrid";
 import ElectronicsKits from "@/components/ElectronicsKits";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -29,11 +30,11 @@ const Home = () => {
 				/>
 				<Hero />
 			</div>
-			{/* <div className="p-5">
+			<div className="p-5">
 				<Suspense fallback={<Loader />}>
 					<BentoGridComponent />
 				</Suspense>
-			</div> */}
+			</div>
 			<div id="video" className="relative p-5">
 				<Suspense fallback={<Loader />}>
 					<TrioeVideo />

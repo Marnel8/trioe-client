@@ -36,6 +36,7 @@ import {
 import { useLogout } from "@/hooks/auth/useLogout";
 import { getImageUrl } from "@/utils/imageUtils";
 import { Dock } from "./ui/dock";
+import { toast } from "@/hooks/use-toast";
 
 // Map icons to link IDs
 const ICON_MAP: { [key: string]: React.ElementType } = {
@@ -92,7 +93,11 @@ export function MobileNav() {
 	const handleLogout = async () => {
 		try {
 			await logout();
-		} catch (error) {}
+		} catch (error: any) {
+			toast({
+				description: "Failed to log out. Please try again.",
+			});
+		}
 	};
 
 	const handleConfirmNavigation = () => {
