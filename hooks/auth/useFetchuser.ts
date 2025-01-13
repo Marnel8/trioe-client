@@ -34,7 +34,7 @@ export const useFetchUser = () => {
 		queryKey: ["user"],
 		queryFn: fetchUser,
 		staleTime: 1000 * 60 * 5, // Data stays fresh for 5 minutes
-		retry: 1,
+		retry: 3,
 		// retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
 		initialData: () => {
 			return queryClient.getQueryData<User>(["user"]);
