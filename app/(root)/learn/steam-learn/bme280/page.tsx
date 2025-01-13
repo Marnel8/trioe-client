@@ -20,7 +20,7 @@ const hardwareSetup = [
     description: "Gather all the necessary components:",
     items: [
       "BME280 sensor module",
-      "Arduino board (Uno/Nano/etc.)",
+      "TRIOE board",
       "4 jumper wires",
       "Breadboard",
       "USB cable"
@@ -30,7 +30,7 @@ const hardwareSetup = [
   },
   {
     title: "Wiring Connections",
-    description: "Connect the BME280 to Arduino:",
+    description: "Connect the BME280 to TRIOE board:",
     items: [
       "VCC → 3.3V",
       "GND → GND",
