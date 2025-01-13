@@ -58,14 +58,14 @@ const Home = () => {
 					)}
 				/>
 			</div>
-			<div id="team" className="p-5 max-w-[1400px] mx-auto">
-				<Suspense fallback={<Loader />}>
-					<TheTeam />
-				</Suspense>
-			</div>
 			<div id="testimonials" className="p-5 ">
 				<Suspense fallback={<Loader />}>
 					<Testimonials />
+				</Suspense>
+			</div>
+			<div id="team" className="p-5 max-w-[1400px] mx-auto">
+				<Suspense fallback={<Loader />}>
+					<TheTeam />
 				</Suspense>
 			</div>
 			<footer className="p-5 max-w-[1400px] mx-auto">

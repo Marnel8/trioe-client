@@ -210,10 +210,12 @@ export function MobileNav() {
 							{user ? (
 								<Popover>
 									<PopoverTrigger asChild>
-										<Avatar className="size-10 cursor-pointer hover:opacity-80 transition-opacity">
+										<Avatar className="size-7 cursor-pointer hover:opacity-80 transition-opacity">
 											<AvatarImage
 												src={getImageUrl(user?.avatar)}
 												alt={user?.firstName || "User avatar"}
+												width={28}
+												height={28}
 												className="object-cover"
 											/>
 											<AvatarFallback className="bg-primary/10 text-primary">

@@ -6,7 +6,7 @@ export default function MainLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<main className="font-geist-mono">
+		<main className="font-geistMono">
 			{/* <BreadCrumbs /> */}
 			{children}
 		</main>

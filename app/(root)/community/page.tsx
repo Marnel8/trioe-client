@@ -12,7 +12,7 @@ import Link from "next/link";
 const CommunityPage = () => {
 	return (
 		<section className="container mx-auto">
-			<div className="min-h-screen">
+			<div className="min-h-screen flex items-center justify-center">
 				<AnimatedGridPattern
 					numSquares={300}
 					maxOpacity={0.1}
@@ -46,17 +46,17 @@ const CommunityPage = () => {
 							Join a vibrant community advancing STEM education through
 							collaboration, innovation, and shared knowledge.
 						</TypingAnimation>
-					</div>
-					<div className="font-geistMono flex flex-col sm:flex-row gap-4 justify-center items-center lg:justify-start">
-						<Link href="#courses">
-							<RainbowButton
-								className={cn(
-									"bg-primary-gradient text-sm rounded-full px-5 w-[200px] tracking-wide"
-								)}
-							>
-								Join Community
-							</RainbowButton>
-						</Link>
+						<div className="font-geistMono ">
+							<Link href="#courses">
+								<RainbowButton
+									className={cn(
+										"bg-primary-gradient text-sm rounded-full px-5 w-[200px] tracking-wide mt-5"
+									)}
+								>
+									Join Community
+								</RainbowButton>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
