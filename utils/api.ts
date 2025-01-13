@@ -27,7 +27,6 @@ instance.interceptors.response.use(
 			} catch (err) {
 				console.error("Token refresh failed. Redirecting to login...");
 				// Optionally redirect to login
-				window.location.href = "/login";
 				return Promise.reject(err);
 			}
 		}
