@@ -207,7 +207,7 @@ export function MobileNav() {
 
 							<Separator orientation="vertical" className="h-8" />
 
-							{user ? (
+							{!isUserPending && user ? (
 								<Popover>
 									<PopoverTrigger asChild>
 										<Avatar className="size-7 cursor-pointer hover:opacity-80 transition-opacity">

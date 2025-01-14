@@ -2,6 +2,9 @@ import axios from "axios";
 const instance = axios.create({
 	baseURL: `${process.env.NEXT_PUBLIC_API_URL}/api/v1`,
 	withCredentials: true,
+	headers: {
+		"Content-Type": "application/json",
+	},
 });
 
 instance.interceptors.response.use(
@@ -21,15 +24,15 @@ instance.interceptors.response.use(
 				);
 
 				if (response.status === 200) {
-					// Retry the original request with a refreshed token
 					return instance(originalRequest);
 				}
 			} catch (err) {
-				console.log("Token refresh failed. Redirecting to login...");
-				// Optionally redirect to login
+				console.log("Token refresh failed:", err);
 				return Promise.reject(err);
 			}
 		}
+
+		return Promise.reject(error);
 	}
 );
 

@@ -8,7 +8,7 @@ export default function Providers({ children }: { children: ReactNode }) {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			{/* <ReactQueryDevtools initialIsOpen /> */}
+			<ReactQueryDevtools initialIsOpen={false} />
 			{children}
 		</QueryClientProvider>
 	);
