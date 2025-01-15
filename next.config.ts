@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
 			},
 			{
 				protocol: "https",
+				hostname: "trioe-server.onrender.com",
+				port: "",
+				pathname: "/uploads/**",
+			},
+			{
+				protocol: "https",
 				hostname: "www.youtube.com",
 				port: "",
 				pathname: "/**",

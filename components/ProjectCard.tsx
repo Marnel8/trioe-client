@@ -52,6 +52,8 @@ export function ProjectCard({ project }: any) {
 		(like: any) => like.userId === user?.id
 	);
 
+	console.log(project);
+
 	return (
 		<Card className="overflow-hidden group relative">
 			<CardContent className="p-0">
