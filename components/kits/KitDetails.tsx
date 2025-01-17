@@ -112,7 +112,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 						{/* Product Image Section */}
 						<div className=" p-8">
 							{/* Main Image */}
-							<div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white">
+							<div className="relative border w-full aspect-square rounded-xl overflow-hidden bg-white">
 								<Image
 									src={selectedImage}
 									alt={kit?.name || "Kit"}
@@ -122,32 +122,17 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 							</div>
 
 							{/* Thumbnail Navigation */}
-							<div className="relative flex items-center mt-6 px-8">
-								<button
-									onClick={() => {
-										const currentIndex =
-											kit?.images.indexOf(selectedImage) || 0;
-										const newIndex =
-											currentIndex > 0
-												? currentIndex - 1
-												: (kit?.images?.length ?? 1) - 1;
-										setSelectedImage(kit?.images[newIndex] || "");
-									}}
-									className="absolute left-0 z-10 p-2 rounded-full text-black shadow-lg transform -translate-x-1/2"
-								>
-									<ChevronLeft className="h-5 w-5" />
-								</button>
-
-								<div className="mx-8 w-full overflow-hidden">
+							<div className="relative flex items-center mt-6 ">
+								<div className="w-full">
 									<div className="flex gap-3 items-center justify-center">
 										{kit?.images.map((thumb, index) => (
 											<button
 												key={index}
 												onClick={() => setSelectedImage(thumb)}
-												className={`relative w-16 h-16 rounded-lg overflow-hidden bg-white border-2 transition-all duration-200 ${
+												className={`relative w-[100px] h-[100px] rounded-lg bg-white border-2 transition-all duration-200 ${
 													selectedImage === thumb
-														? "border-black-400 scale-110 shadow-md"
-														: "border-gray-200 hover:border-gray-300"
+														? "ring-2 ring-blue-200"
+														: "border-gray-200"
 												}`}
 											>
 												<Image
@@ -160,21 +145,6 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 										))}
 									</div>
 								</div>
-
-								<button
-									onClick={() => {
-										const currentIndex =
-											kit?.images.indexOf(selectedImage) || 0;
-										const newIndex =
-											currentIndex < (kit?.images?.length ?? 0) - 1
-												? currentIndex + 1
-												: 0;
-										setSelectedImage(kit?.images[newIndex] || "");
-									}}
-									className="absolute right-0 z-10 p-2 rounded-full text-black shadow-lg transform translate-x-1/2"
-								>
-									<ChevronRight className="h-5 w-5" />
-								</button>
 							</div>
 						</div>
 

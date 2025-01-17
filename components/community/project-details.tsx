@@ -35,10 +35,6 @@ export default function ProjectDetails({ projectId }: { projectId: string }) {
 	const { data: projectData, isPending: isProjectDetailsPending } =
 		useGetProjectById(projectId);
 
-	// const handleLike = () => {
-	// 	// In a real application, you would call an API to update the likes
-	// };
-
 	return (
 		<div className="container mx-auto px-4 py-8">
 			<Card className="w-full max-w-4xl mx-auto">
@@ -135,7 +131,7 @@ export default function ProjectDetails({ projectId }: { projectId: string }) {
 								className="dark:hidden block"
 								animationStyle="from-center"
 								videoSrc={getImageUrl(projectData?.project?.demoVideo)}
-								thumbnailSrc="/images/video_thumbnail.png"
+								thumbnailSrc="/images/placeholder-image.jpg"
 								thumbnailAlt="Hero Video"
 							/>
 							{/* <HeroVideoDialog    

@@ -112,6 +112,8 @@ export function AddProjectDialog({
 	const { mutateAsync: updateProject, isPending: isUpdating } =
 		useUpdateProjectMutation();
 
+	const [openDialog, setOpenDialog] = React.useState(false);
+
 	async function onSubmit(values: z.infer<typeof formSchema>) {
 		const {
 			title,
@@ -140,6 +142,8 @@ export function AddProjectDialog({
 						demoVideo: video,
 					},
 				});
+
+				setOpenDialog(false);
 			} else {
 				// Handle create logic here
 				await createProject({
@@ -154,6 +158,7 @@ export function AddProjectDialog({
 					demoVideo: video,
 				});
 				form.reset();
+				setOpenDialog(false);
 			}
 
 			toast({
@@ -184,7 +189,7 @@ export function AddProjectDialog({
 	}
 
 	return (
-		<Dialog>
+		<Dialog open={openDialog} onOpenChange={setOpenDialog}>
 			<DialogTrigger asChild>{trigger}</DialogTrigger>
 			<DialogContent className="w-full p-5 font-geistMono max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl overflow-y-auto max-h-screen">
 				<DialogHeader>
@@ -447,6 +452,7 @@ export function AddProjectDialog({
 							<Button
 								type="submit"
 								className="w-full sm:w-auto bg-primary tracking-wider"
+								disabled={isCreating || isUpdating}
 							>
 								{projectData ? "Update Project" : "	Submit Project "}
 							</Button>

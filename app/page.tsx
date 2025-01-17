@@ -63,11 +63,11 @@ const Home = () => {
 					<Testimonials />
 				</Suspense>
 			</div>
-			<div id="team" className="p-5 max-w-[1400px] mx-auto">
+			{/* <div id="team" className="p-5 max-w-[1400px] mx-auto">
 				<Suspense fallback={<Loader />}>
 					<TheTeam />
 				</Suspense>
-			</div>
+			</div> */}
 			<footer className="p-5 max-w-[1400px] mx-auto">
 				<div id="footer">
 					<Footer />

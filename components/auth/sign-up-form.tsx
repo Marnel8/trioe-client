@@ -47,6 +47,7 @@ import {
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
 import { useActivateUser, useRegister } from "@/hooks/auth/useRegister";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
 	firstName: z.string().min(1, { message: "First name is required." }),
@@ -73,6 +74,8 @@ const SignUpForm = () => {
 	const { mutateAsync: register, isPending: isRegisterLoading } = useRegister();
 	const { mutateAsync: verifyOtp, isPending: isVerifyOtpPending } =
 		useActivateUser();
+
+	const router = useRouter();
 
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -111,8 +114,10 @@ const SignUpForm = () => {
 				className: "success-toast",
 			});
 
-			setIsOtpDialogOpen(true);
 			form.reset();
+			setIsOtpDialogOpen(true);
+
+			router.push("/sign-in");
 		} catch (error: any) {
 			const message =
 				error.response?.data?.message || "Something went wrong during sign up";

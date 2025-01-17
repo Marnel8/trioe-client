@@ -52,14 +52,15 @@ export function ProjectCard({ project }: any) {
 		(like: any) => like.userId === user?.id
 	);
 
-	console.log(project);
-
 	return (
 		<Card className="overflow-hidden group relative">
 			<CardContent className="p-0">
 				<div className="relative aspect-[4/3]">
 					<Image
-						src={getImageUrl(project?.instructions[0]?.imagePath)}
+						src={
+							getImageUrl(project?.instructions[0].imagePath) ||
+							"/images/placeholder-image.jpg"
+						}
 						alt={project?.title || "Project image"}
 						fill
 						className="object-cover"
