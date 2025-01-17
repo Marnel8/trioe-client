@@ -93,7 +93,7 @@ export default function ProjectGallery() {
 					<AddProjectDialog
 						trigger={
 							<Button
-								// disabled={!user}
+								disabled={!user}
 								className=" text-white disabled:opacity-50 disabled:pointer-events-none"
 							>
 								Add Yours
