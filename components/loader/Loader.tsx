@@ -81,7 +81,6 @@ const Loader = () => {
 							strokeWidth={24}
 						/>
 					</svg>
-					<span className="loading-text">Loading...</span>
 				</div>
 			</StyledWrapper>
 		</div>

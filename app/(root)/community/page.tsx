@@ -47,7 +47,7 @@ const CommunityPage = () => {
 							collaboration, innovation, and shared knowledge.
 						</TypingAnimation>
 						<div className="font-geistMono ">
-							<Link href="#courses">
+							<Link href="/sign-in">
 								<RainbowButton
 									className={cn(
 										"bg-primary-gradient text-sm rounded-full px-5 w-[200px] tracking-wide mt-5"

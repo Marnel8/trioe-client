@@ -3,6 +3,7 @@ import { useSubscribe } from "@/hooks/subs/useSubscribe";
 import { toast } from "@/hooks/use-toast";
 import { AnimatePresence, motion } from "motion/react";
 import React, { useState } from "react";
+import Loader from "../loader/Loader";
 
 interface AnimatedSubscribeButtonProps {
 	buttonColor: string;
@@ -51,7 +52,7 @@ export const AnimatedSubscribeButton: React.FC<
 		<AnimatePresence mode="wait">
 			{isSubscribed ? (
 				<motion.button
-					className="relative flex h-10 w-full items-center justify-center overflow-hidden rounded-md bg-white outline outline-1 outline-black"
+					className="relative flex h-10 w-full items-center justify-center overflow-hidden rounded-md bg-white outline outline-1 outline-black disabled:opacity-50"
 					onClick={handleSubscribe}
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
@@ -65,12 +66,12 @@ export const AnimatedSubscribeButton: React.FC<
 						animate={{ y: 0 }}
 						style={{ color: buttonColor }}
 					>
-						{changeText}
+						{isSubscribing ? <Loader /> : changeText}
 					</motion.span>
 				</motion.button>
 			) : (
 				<motion.button
-					className="relative flex h-10 w-full cursor-pointer items-center justify-center rounded-md border-none"
+					className="relative flex h-10 w-full cursor-pointer items-center justify-center disabled:opacity-50 rounded-md border-none"
 					style={{ backgroundColor: buttonColor, color: buttonTextColor }}
 					onClick={handleSubscribe}
 					initial={{ opacity: 0 }}
@@ -84,7 +85,7 @@ export const AnimatedSubscribeButton: React.FC<
 						initial={{ x: 0 }}
 						exit={{ x: 50, transition: { duration: 0.1 } }}
 					>
-						{initialText}
+						{isSubscribing ? <Loader /> : initialText}
 					</motion.span>
 				</motion.button>
 			)}
