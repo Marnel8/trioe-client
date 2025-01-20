@@ -116,8 +116,6 @@ const SignUpForm = () => {
 
 			form.reset();
 			setIsOtpDialogOpen(true);
-
-			router.push("/sign-in");
 		} catch (error: any) {
 			const message =
 				error.response?.data?.message || "Something went wrong during sign up";
@@ -144,6 +142,7 @@ const SignUpForm = () => {
 			});
 			setIsOtpDialogOpen(false);
 			form.reset();
+			router.push("/sign-in");
 		} catch (error) {
 			toast({
 				title: "Error",

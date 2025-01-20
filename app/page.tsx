@@ -10,6 +10,7 @@ import TheTeam from "@/components/TheTeam";
 import TrioeVideo from "@/components/TrioeVideo";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import DotPattern from "@/components/ui/dot-pattern";
+import WebQuickGuide from "@/components/WebQuickGuide";
 import { cn } from "@/lib/utils";
 
 import { Suspense } from "react";
@@ -31,7 +32,8 @@ const Home = () => {
 				<Hero />
 			</div>
 			<div className="p-5">
-				<BentoGridComponent />
+				<WebQuickGuide />
+				{/* <BentoGridComponent /> */}
 			</div>
 			<div id="video" className="relative p-5">
 				<Suspense fallback={<Loader />}>

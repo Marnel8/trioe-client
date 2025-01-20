@@ -5,7 +5,7 @@ const PageHeader = ({
 	description,
 }: {
 	title: string;
-	description: string;
+	description?: string;
 }) => {
 	return (
 		<div className="relative space-y-5 py-8 flex flex-col items-center justify-center">

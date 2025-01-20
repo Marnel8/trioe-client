@@ -61,15 +61,6 @@ const TrioeVideo = () => {
 				description="Showcasing TRIOE’s features and tutorials to quickly get started."
 			/>
 			<div className="space-y-5 flex flex-col items-center justify-center w-full">
-				{/* <div className="relative">
-					<Safari
-						url="www.trioe.dev"
-						className="size-full"
-						// videoSrc={`${selectedVideo.videoSrc}`}
-						videoSrc="https://videos.pexels.com/video-files/27180348/12091515_2560_1440_50fps.mp4"
-						// imageSrc={selectedVideo.thumbnailSrc}
-					/>
-				</div> */}
 				<div className="relative mt-5 w-full max-w-[1200px]">
 					<HeroVideoDialog
 						className="dark:hidden block transition-transform duration-300"

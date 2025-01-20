@@ -159,3 +159,29 @@ body {
 		@apply bg-red-100 text-red-900;
 	}
 }
+
+@keyframes wiggle {
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(-10deg);
+	}
+	50% {
+		transform: rotate(10deg);
+	}
+	75% {
+		transform: rotate(-10deg);
+	}
+}
+
+/* Apply wiggle animation */
+.check:checked + .container .icon.active {
+	display: inline-block;
+	animation: wiggle 0.5s ease-in-out;
+}
+
+.check:checked + .container .icon.inactive {
+	display: none;
+}
