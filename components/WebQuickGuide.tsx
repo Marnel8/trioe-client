@@ -2,32 +2,39 @@ import React from "react";
 import PageHeader from "./PageHeader";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
-import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from "./ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
+const steps = [
+	{
+		number: 1,
+		title: "Learn",
+		description:
+			"Understand electronics fundamentals and deepen your skills through TRIOE’s detailed module discussions.",
+		image: "/gifs/learn.gif",
+	},
+	{
+		number: 2,
+		title: "Explore",
+		description:
+			"Discover endless possibilities with easy-to-follow tutorials and hands-on kits from TRIOE.",
+		image: "/gifs/explore.gif",
+	},
+	{
+		number: 3,
+		title: "Innovate",
+		description:
+			"Use the TRIOE board and kits to bring your creative ideas to life and start building.",
+		image: "/gifs/innovate.gif",
+	},
+];
 const WebQuickGuide = () => {
-	const steps = [
-		{
-			number: 1,
-			title: "Learn",
-			description:
-				"Understand electronics fundamentals and deepen your skills through TRIOE’s detailed module discussions.",
-			image: "/gifs/learn.gif",
-		},
-		{
-			number: 2,
-			title: "Explore",
-			description:
-				"Discover endless possibilities with easy-to-follow tutorials and hands-on kits from TRIOE.",
-			image: "/gifs/explore.gif",
-		},
-		{
-			number: 3,
-			title: "Innovate",
-			description:
-				"Use the TRIOE board and kits to bring your creative ideas to life and start building.",
-			image: "/gifs/innovate.gif",
-		},
-	];
 	return (
 		<div className="container mx-auto max-w-6xl">
 			<PageHeader title="HOW TRIOE WEBSITE WORKS" />
@@ -97,6 +104,8 @@ const WebQuickGuide = () => {
 							</CarouselItem>
 						))}
 					</CarouselContent>
+					<CarouselPrevious />
+					<CarouselNext />
 				</Carousel>
 			</div>
 		</div>
