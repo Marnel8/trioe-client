@@ -301,7 +301,7 @@ export function MobileNav() {
 								</Tooltip>
 							)}
 
-							<Tooltip>
+							{/* <Tooltip>
 								<TooltipTrigger asChild>
 									<button
 										className={cn(
@@ -315,7 +315,7 @@ export function MobileNav() {
 								<TooltipContent>
 									<p>Toggle theme</p>
 								</TooltipContent>
-							</Tooltip>
+							</Tooltip> */}
 						</Dock>
 					</TooltipProvider>
 				</div>

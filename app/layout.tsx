@@ -5,6 +5,7 @@ import { MobileNav } from "@/components/MobileNav";
 import Providers from "@/hoc/Providers";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar";
 
 const geist = localFont({
 	src: [
@@ -68,6 +69,9 @@ export default function RootLayout({
 		<html lang="en" className={`${geist.variable} ${geistMono.variable} `}>
 			<body className={`antialiased scroll-smooth`}>
 				<Providers>
+					{/* <header>
+						<NavBar />
+					</header> */}
 					<main>{children}</main>
 					<Toaster />
 					<nav className="mt-20">

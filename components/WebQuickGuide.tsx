@@ -39,7 +39,7 @@ const WebQuickGuide = () => {
 		<div className="container mx-auto max-w-6xl">
 			<PageHeader title="HOW TRIOE WEBSITE WORKS" />
 			<div className="py-5">
-				<div className=" items-center justify-center gap-5 hidden lg:flex">
+				<div className="hidden lg:flex items-center justify-center gap-5 ">
 					{steps.map((step) => (
 						<Card key={step.number} className="border-none shadow-none ">
 							<CardContent className="flex flex-col items-center text-center pt-6">
@@ -71,9 +71,9 @@ const WebQuickGuide = () => {
 					opts={{
 						align: "start",
 					}}
-					className="flex items-center justify-center gap-5 lg:hidden"
+					className="flex items-center justify-center lg:hidden"
 				>
-					<CarouselContent>
+					<CarouselContent className="flex items-center justify-center gap-5">
 						{steps.map((step) => (
 							<CarouselItem
 								key={step.number}

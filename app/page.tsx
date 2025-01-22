@@ -1,4 +1,5 @@
 import { BentoGridComponent } from "@/components/BentoGrid";
+import CompareKits from "@/components/CompareKits";
 import ElectronicsKits from "@/components/ElectronicsKits";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -59,6 +60,9 @@ const Home = () => {
 						"[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] z-[-1] absolute pointer-events-none"
 					)}
 				/>
+			</div>
+			<div className="p-5 relative">
+				<CompareKits />
 			</div>
 			<div id="testimonials" className="p-5 ">
 				<Suspense fallback={<Loader />}>

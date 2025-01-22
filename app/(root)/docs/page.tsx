@@ -12,14 +12,14 @@ import { QuickStartSteps } from "@/components/docs/QuickStartSteps";
 
 export default function DocumentationPage() {
 	return (
-		<div className="flex h-screen overflow-hidden scroll-smooth">
-			<div className="lg:w-64 flex-shrink-0">
+		<div className="flex h-screen">
+			<div className="hidden lg:block ">
 				<DocumentationSidebar />
 			</div>
-			<div className="flex-1 overflow-hidden">
-				<div className="h-full overflow-y-auto">
-					<main className="container max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-						<section className="mb-5">
+			<div className="flex-1 h-full w-full">
+				<div className="">
+					<section className="container max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-12">
+						<section>
 							<div className="prose max-w-none space-y-5">
 								<div id="introduction">
 									<h2 className="text-2xl font-bold mb-6">Introduction</h2>
@@ -48,7 +48,7 @@ export default function DocumentationPage() {
 										</div>
 
 										<div className=" rounded-lg shadow-sm bg-gray-100 p-6">
-											<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+											<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
 												<div className="flex items-start gap-4">
 													<div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
 														<Monitor className="w-5 h-5 text-blue-500" />
@@ -106,7 +106,7 @@ export default function DocumentationPage() {
 										</div>
 
 										<div className="rounded-lg shadow-sm bg-gray-100 p-6">
-											<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+											<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
 												<div className="flex items-start gap-4">
 													<div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
 														<Clock className="w-5 h-5 text-green-500" />
@@ -150,7 +150,7 @@ export default function DocumentationPage() {
 						</section>
 
 						{/* Our Kits Section */}
-						<section id="kits-overview" className="mb-12">
+						<section id="kits-overview">
 							<h2 className="text-2xl font-semibold mb-6">Our Kits</h2>
 							<div className="space-y-8">
 								<div id="steam-kit">
@@ -231,7 +231,7 @@ export default function DocumentationPage() {
 						</section>
 
 						{/* Learning Path Section */}
-						<section id="learning-path" className="mb-12">
+						<section id="learning-path">
 							<h2 className="text-2xl font-semibold mb-6">Learning Path</h2>
 							<div className="space-y-8">
 								<div id="beginner-level">
@@ -291,7 +291,7 @@ export default function DocumentationPage() {
 						</section>
 
 						{/* Technical Reference Section */}
-						<section id="technical-reference" className="mb-12">
+						<section id="technical-reference">
 							<h2 className="text-2xl font-semibold mb-6">
 								Technical Reference
 							</h2>
@@ -341,7 +341,7 @@ export default function DocumentationPage() {
 						</section>
 
 						{/* Support Section */}
-						<section id="support" className="mb-12">
+						<section id="support">
 							<h2 className="text-2xl font-semibold mb-6">Support</h2>
 							<div className="space-y-8">
 								<div id="troubleshooting">
@@ -381,7 +381,7 @@ export default function DocumentationPage() {
 								</div>
 							</div>
 						</section>
-					</main>
+					</section>
 				</div>
 			</div>
 		</div>

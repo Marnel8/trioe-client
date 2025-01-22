@@ -3,7 +3,7 @@ import React from "react";
 
 const SignUpPage = () => {
 	return (
-		<section className="min-h-screen">
+		<section className="min-h-screen  py-10">
 			<SignUpForm />
 		</section>
 	);
