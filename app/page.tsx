@@ -32,7 +32,7 @@ const Home = () => {
 				/>
 				<Hero />
 			</div>
-			<div className="p-5">
+			<div className="p-5 bg-blue-50">
 				<WebQuickGuide />
 				{/* <BentoGridComponent /> */}
 			</div>

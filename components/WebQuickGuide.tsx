@@ -36,13 +36,16 @@ const steps = [
 ];
 const WebQuickGuide = () => {
 	return (
-		<div className="container mx-auto max-w-6xl">
+		<div className="container mx-auto max-w-6xl ">
 			<PageHeader title="HOW TRIOE WEBSITE WORKS" />
 			<div className="py-5">
 				<div className="hidden lg:flex items-center justify-center gap-5 ">
 					{steps.map((step) => (
-						<Card key={step.number} className="border-none shadow-none ">
-							<CardContent className="flex flex-col items-center text-center pt-6">
+						<Card
+							key={step.number}
+							className="border-none shadow-none h-[450px]"
+						>
+							<CardContent className="flex flex-col items-center justify-between text-center pt-6">
 								<div className="w-12 h-12 rounded-full bg-primary-foreground flex items-center justify-center mb-6">
 									<span className="text-xl font-bold text-primary">
 										{step.number}
@@ -51,7 +54,7 @@ const WebQuickGuide = () => {
 
 								<h3 className="text-xl font-semibold mb-3">{step.title}</h3>
 
-								<p className="text-muted-foreground mb-20 max-w-xs">
+								<p className="text-muted-foreground height-10 max-w-xs">
 									{step.description}
 								</p>
 
