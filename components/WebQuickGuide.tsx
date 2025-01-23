@@ -74,9 +74,9 @@ const WebQuickGuide = () => {
 					opts={{
 						align: "start",
 					}}
-					className="flex items-center justify-center lg:hidden"
+					className="w-full lg:px-0"
 				>
-					<CarouselContent className="flex items-center justify-center gap-5">
+					<CarouselContent className="flex items-center  justify-evenly">
 						{steps.map((step) => (
 							<CarouselItem
 								key={step.number}
