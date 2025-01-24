@@ -74,13 +74,13 @@ const WebQuickGuide = () => {
 					opts={{
 						align: "start",
 					}}
-					className="w-full lg:px-0"
+					className="w-full lg:px-0 md:hidden"
 				>
 					<CarouselContent className="flex items-center  justify-evenly">
 						{steps.map((step) => (
 							<CarouselItem
 								key={step.number}
-								className="basis-1/1 sm:basis-1/2 lg:basis-1/3"
+								className="basis-1/1 sm:basis-1/2 md:basis-1/3"
 							>
 								<CardContent className="flex flex-col items-center text-center pt-6">
 									<div className="w-12 h-12 rounded-full bg-primary-foreground flex items-center justify-center mb-6">
