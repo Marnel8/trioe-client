@@ -1,5 +1,9 @@
 "use client";
 import PageHeader from "@/components/PageHeader";
+import {
+	type ComponentConfig,
+	ConfigurationModal,
+} from "@/components/trioe-hub/configuration-modal";
 import Draggables, {
 	type DraggableItemProps,
 } from "@/components/trioe-hub/draggables";
@@ -43,11 +47,15 @@ const draggableItems = [
 	},
 ];
 
+type BoxItem = DraggableItemProps & { config?: ComponentConfig };
+
 const TrioeHubPage = () => {
 	const [boxItems, setBoxItems] = useState<{
-		[key: number]: DraggableItemProps | null;
+		[key: number]: BoxItem | null;
 	}>({});
 	const [isClient, setIsClient] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [selectedBox, setSelectedBox] = useState<number | null>(null);
 
 	useEffect(() => {
 		setIsClient(true);
@@ -64,9 +72,23 @@ const TrioeHubPage = () => {
 		const item = draggableItems.find((item) => item.id === itemId);
 
 		if (item) {
+			setSelectedBox(boxId);
+			setIsModalOpen(true);
 			setBoxItems((prev) => ({
 				...prev,
-				[boxId]: item,
+				[boxId]: { ...item },
+			}));
+		}
+	}
+
+	function handleConfigSave(config: ComponentConfig) {
+		if (selectedBox !== null) {
+			setBoxItems((prev) => ({
+				...prev,
+				[selectedBox]: {
+					...prev[selectedBox]!,
+					config,
+				},
 			}));
 		}
 	}
@@ -79,34 +101,49 @@ const TrioeHubPage = () => {
 		});
 	}
 
+	function handleItemClick(boxId: number) {
+		setSelectedBox(boxId);
+		setIsModalOpen(true);
+	}
+
 	if (!isClient) {
 		return null;
 	}
 
 	return (
 		<DndContext onDragEnd={handleDragEnd}>
-			<PageHeader title="TRIOE HUB" />
-			<div className="p-5 gap-2 flex ">
-				<div className="border mb-3 p-4 w-[300px] flex flex-col gap-2">
+			<div className="p-2 gap-2 flex ">
+				<div className="border mb-3 p-4 w-[300px] flex flex-col gap-2 rounded-lg">
+					<div>
+						<h2 className="text-lg font-semibold mb-4">Components</h2>
+					</div>
 					{draggableItems.map((item) => (
 						<div key={item.id}>
 							<Draggables {...item} />
 						</div>
 					))}
 				</div>
-
-				<div className="border-4 h-screen overflow-auto border-dashed w-full flex flex-wrap gap-4 p-5">
+				<div className=" h-screen overflow-auto w-full flex flex-wrap gap-4 p-5">
 					{Boxes.map((box) => (
-						<div key={box.id}>
+						<div key={box.id} className="cursor-pointer">
 							<Dropbox
 								box={box}
 								draggableItem={boxItems[box.id]}
 								onRemove={handleRemove}
+								onItemClick={handleItemClick}
 							/>
 						</div>
 					))}
 				</div>
 			</div>
+			<ConfigurationModal
+				isOpen={isModalOpen}
+				onClose={() => setIsModalOpen(false)}
+				onSave={handleConfigSave}
+				initialConfig={
+					selectedBox !== null ? boxItems[selectedBox]?.config : undefined
+				}
+			/>
 		</DndContext>
 	);
 };

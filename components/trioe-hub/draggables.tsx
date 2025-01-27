@@ -1,5 +1,7 @@
 import { useDraggable } from "@dnd-kit/core";
-import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Gauge, Command } from "lucide-react";
 
 export type DraggableItemProps = {
 	id: string;
@@ -18,31 +20,37 @@ const Draggables = (item: DraggableItemProps) => {
 		  }
 		: undefined;
 
+	const commonProps = {
+		ref: setNodeRef,
+		style: style,
+		...attributes,
+		...listeners,
+	};
+
 	if (item && item.type === "button") {
 		return (
-			<button
-				ref={setNodeRef}
-				style={style}
-				{...attributes}
-				{...listeners}
-				className="cursor-grab rounded-lg border w-full min-w-[120px] p-4 shadow-sm hover:shadow-md  "
+			<Button
+				variant="outline"
+				className="w-full justify-start gap-2"
+				{...commonProps}
 			>
+				<Command className="h-4 w-4" />
 				{item.name}
-			</button>
+			</Button>
 		);
 	}
 
 	if (item && item.type === "gauge") {
 		return (
-			<div
-				ref={setNodeRef}
-				style={style}
-				{...attributes}
-				{...listeners}
-				className="cursor-grab rounded-lg border p-4 shadow-sm hover:shadow-md min-h-[180px] flex items-center justify-center"
+			<Card
+				{...commonProps}
+				className="cursor-grab hover:shadow-md transition-shadow"
 			>
-				<span className="text-green-800">{item.name}</span>
-			</div>
+				<CardContent className="flex items-center gap-2 p-4">
+					<Gauge className="h-5 w-5 text-primary" />
+					<span className="font-medium">{item.name}</span>
+				</CardContent>
+			</Card>
 		);
 	}
 
