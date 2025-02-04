@@ -46,8 +46,8 @@ const carourselItems = [
 		thumbnailAlt: "Hero Video",
 	},
 	{
-		videoSrc: "https://www.youtube.com/embed/mKqg2fUm9VE?si=gKT935R8MhjFV3Em",
-		thumbnailSrc: "/tutorials/blinking.png",
+		videoSrc: "https://www.youtube.com/embed/fYVdiplUlwo?si=N2gi5hPj8pQkduoh",
+		thumbnailSrc: "/tutorials/EP-6.png",
 		thumbnailAlt: "Hero Video",
 	},
 ];
