@@ -22,7 +22,7 @@ export default function Footer() {
 							/>
 							<Image
 								src="/images/LOGO_WITH_TEXT.png"
-								alt="RIOE Logo"
+								alt="TRIOE Logo"
 								width={100}
 								height={50}
 								className="h-12 w-auto"

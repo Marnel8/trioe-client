@@ -37,23 +37,25 @@ const ElectronicsKits = () => {
 							<div className="relative h-48 md:h-[200px] w-full">
 								<Image
 									src={kit.thumbnail}
-									alt={kit.name}
+									alt={kit.name || "Kit image"}
 									fill
 									className="object-contain rounded-xl"
 								/>
 							</div>
 						</CardHeader>
-						<CardContent
-							className="flex-grow p-2"
-						>
+						<CardContent className="flex-grow p-2">
 							<div className="flex justify-between items-start mb-2">
-								<h3 className={`text-xl font-semibold transition-colors duration-500 ${
-									kit.name.includes("AGRI-AQUA")
-										? "group-hover:text-green-500"
-										: kit.name.includes("STEAM")
-										? "group-hover:text-red-500"
-										: "group-hover:text-yellow-500"
-								}`}>{kit.name}</h3>
+								<h3
+									className={`text-xl font-semibold transition-colors duration-500 ${
+										kit.name.includes("AGRI-AQUA")
+											? "group-hover:text-green-500"
+											: kit.name.includes("STEAM")
+											? "group-hover:text-red-500"
+											: "group-hover:text-yellow-500"
+									}`}
+								>
+									{kit.name}
+								</h3>
 								<Badge variant={"secondary"}>{kit.difficulty}</Badge>
 							</div>
 							<p className="text-sm text-muted-foreground">{kit.description}</p>

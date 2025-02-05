@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 		template: "%s | TRIOE",
 	},
 	description:
-		"Discover comprehensive resources, tutorials, and tools for Internet of Everything (IoE) tinkering and development. Learn about IoT, connected devices, automation, and smart systems.",
+		"Discover comprehensive resources, tutorials, and tools for Internet of Everything (IoE) tinkering and development.",
 	keywords: [
 		"Internet of Everything",
 		"IoE",

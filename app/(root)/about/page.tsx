@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
 	title: "About TRIOE",
 	description:
-		"Learn about TRIOE's mission, platform, and approach to IoT education. Discover how we're making IoT development accessible to everyone.",
+		"Learn about TRIOE's mission, platform, and approach to IoT education.",
 	openGraph: {
 		title: "About TRIOE - Our Mission and Vision",
 		description:

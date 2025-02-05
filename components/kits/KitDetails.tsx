@@ -441,7 +441,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 														<div className="relative overflow-hidden rounded-lg">
 															<Image
 																src={component.image}
-																alt={component.name}
+																alt={component.name || "Component"}
 																width={80}
 																height={80}
 																className="object-cover rounded-lg"
@@ -481,7 +481,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 														<div className="relative overflow-hidden rounded-lg">
 															<Image
 																src={component.image}
-																alt={component.name}
+																alt={component.name || "Component"}
 																width={80}
 																height={80}
 																className="object-cover rounded-lg"
@@ -516,7 +516,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 											<div className="relative overflow-hidden rounded-lg">
 												<Image
 													src={display.image}
-													alt={display.name}
+													alt={display.name || "Display"}
 													width={80}
 													height={80}
 													className="object-cover rounded-lg"
@@ -584,7 +584,7 @@ const KitDetails = ({ kitId }: { kitId: string }) => {
 									<div className="relative h-48">
 										<Image
 											src={course.image}
-											alt={course.name}
+											alt={course.name || "Course"}
 											fill
 											className="object-cover transition-transform duration-300 hover:scale-105"
 										/>
