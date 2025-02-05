@@ -29,6 +29,8 @@ export const metadata: Metadata = {
 				alt: "TRIOE Platform Preview",
 			},
 		],
+		type: "website",
+		url: "https://trioe.dev",
 	},
 	keywords: [
 		"electronics kits",
