@@ -150,7 +150,7 @@ export default function AgriAquaLearnPage() {
   return (
     <div className="container mx-auto py-8">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Agri-Aqua Learning Modules</h1>
+        <h1 className="text-4xl font-bold mb-4">Agri-Aqua Learning Modules</>
         <p className="text-muted-foreground text-lg">
           Explore our comprehensive agriculture and aquaculture learning modules designed to help you
           master modern farming and aquaculture practices.

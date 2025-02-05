@@ -19,9 +19,9 @@ export default function AboutPage() {
 		<div className="min-h-screen bg-gradient-to-br font-geist">
 			<div className="container mx-auto px-4 py-16">
 				<div className="flex items-center flex-col justify-center">
-					<h1 className="mb-8 text-center text-4xl font-bold text-gray-800">
+					<h2 className="mb-8 text-center text-4xl font-bold text-gray-800">
 						ABOUT TRIOE
-					</h1>
+					</h2>
 					<p className="mb-12 text-center text-xl text-gray-600">
 						TRIOE is a platform for learning and building IoT projects.
 					</p>

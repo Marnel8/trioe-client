@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
 	title: "TRIOE - Learn Electronics and IoT Development",
 	description:
-		"Discover electronics kits, learning modules, and comprehensive IoT development resources. Start your journey into the Internet of Everything with TRIOE's guided tutorials and hands-on projects.",
+		"Discover electronics kits, learning modules, and comprehensive IoT development resources. ",
 	openGraph: {
 		title: "TRIOE - Electronics & IoT Learning Platform",
 		description:
