@@ -62,6 +62,11 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${geist.variable} ${geistMono.variable} `}>
 			<head>
+				{/* DNS prefetch for external resources */}
+				<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+				{/* Preconnect to critical origins */}
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}

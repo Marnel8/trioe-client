@@ -1,6 +1,5 @@
 import ActuatorDetails from "@/components/kits/actuators/actuator-details";
 import { actuators } from "@/constants";
-import { Metadata } from "next";
 
 export default async function ActuatorPage({
 	params,
