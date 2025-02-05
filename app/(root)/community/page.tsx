@@ -1,13 +1,24 @@
 import React from "react";
-import Image from "next/image";
-import PulsatingButton from "@/components/ui/pulsating-button";
 import ProjectGallery from "@/components/ProjectGallery";
 import { cn } from "@/lib/utils";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import TypingAnimation from "@/components/ui/typing-animation";
-import Safari from "@/components/ui/safari";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Community",
+	description:
+		"Join the TRIOE community to advance STEM education through collaboration, innovation, and shared knowledge.",
+	openGraph: {
+		title: "TRIOE Community | Advancing STEM Education Together",
+		description:
+			"Join a vibrant community of innovators and educators advancing STEM education through collaboration, shared knowledge, and hands-on learning experiences.",
+		type: "website",
+		url: "https://trioe.dev/community",
+	},
+};
 
 const CommunityPage = () => {
 	return (

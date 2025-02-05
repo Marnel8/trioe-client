@@ -1,7 +1,18 @@
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "About TRIOE",
+	description:
+		"Learn about TRIOE's mission, platform, and approach to IoT education. Discover how we're making IoT development accessible to everyone.",
+	openGraph: {
+		title: "About TRIOE - Our Mission and Vision",
+		description:
+			"Learn about TRIOE's innovative approach to IoT education and development",
+		type: "website",
+		url: "https://trioe.dev/about",
+	},
+};
 
 export default function AboutPage() {
 	return (

@@ -9,6 +9,31 @@ import Cpu from "@/components/icons/Cpu";
 import GraduationCap from "@/components/icons/GraduationCap";
 import { InstallationSteps } from "@/components/docs/InstallationSteps";
 import { QuickStartSteps } from "@/components/docs/QuickStartSteps";
+import { Metadata } from "next";
+
+// export const metadata: Metadata = {
+// 	title: "Documentation",
+// 	description:
+// 		"Comprehensive guides and documentation for TRIOE kits, including installation guides, quick start tutorials, technical references, and support resources.",
+// 	openGraph: {
+// 		title: "TRIOE Documentation | Complete Guide to IoE Development",
+// 		description:
+// 			"Access comprehensive documentation for TRIOE kits. Learn about installation, quick start guides, technical specifications, and get support for your IoE projects.",
+// 		url: "https://trioe.dev/docs",
+// 		type: "article",
+// 	},
+// 	keywords: [
+// 		"TRIOE documentation",
+// 		"IoE development",
+// 		"STEAM kit",
+// 		"DRM kit",
+// 		"AGRI-AQUA kit",
+// 		"technical documentation",
+// 		"installation guide",
+// 		"quick start guide",
+// 		"IoE learning path",
+// 	],
+// };
 
 export default function DocumentationPage() {
 	return (
