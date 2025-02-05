@@ -14,5 +14,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			url: "https://trioe.dev/sign-in",
 			lastModified: new Date(),
 		},
+		{
+			url: "https://trioe.dev/community",
+			lastModified: new Date(),
+		},
+		{
+			url: "https://trioe.dev/events",
+			lastModified: new Date(),
+		},
 	];
 }
