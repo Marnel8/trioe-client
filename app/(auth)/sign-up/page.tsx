@@ -5,11 +5,10 @@ import React from "react";
 export const metadata: Metadata = {
 	title: "Sign Up",
 	description:
-		"Join TRIOE and start your journey into the world of Internet of Everything. Create your account to access IoE development resources, community features, and personalized learning paths.",
+		"Join TRIOE and start your journey into the world of Internet of Everything. ",
 	openGraph: {
 		title: "Join TRIOE - Sign Up Now",
-		description:
-			"Create your TRIOE account today. Gain access to cutting-edge IoE resources, connect with a community of innovators, and embark on personalized learning experiences in Internet of Everything technologies.",
+		description: "Create your TRIOE account today. ",
 	},
 };
 

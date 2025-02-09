@@ -81,10 +81,10 @@ const SignInForm = () => {
 							alt="Company Logo"
 							className="w-[200px] h-[200px] object-contain "
 						/>
-						<h2 className="text-4xl font-bold mb-4 text-center">Welcome</h2>
-						<p className="text-lg mb-6 text-center text-gray-700">
+						<h1 className="text-4xl font-bold mb-4 text-center">Welcome</h1>
+						<h2 className="text-lg mb-6 text-center text-gray-700">
 							Join our community and unlock amazing features.
-						</p>
+						</h2>
 					</div>
 					<div className="md:w-1/2 p-8">
 						<CardHeader className="text-center">

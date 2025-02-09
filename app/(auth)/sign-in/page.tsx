@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Sign In to TRIOE",
 		description:
-			"Access your TRIOE account and dive into the world of Internet of Everything. Unlock resources, connect with the community, and track your learning progress.",
+			"Access your TRIOE account and dive into the world of Internet of Everything.",
 	},
 };
 
