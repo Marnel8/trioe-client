@@ -12,6 +12,7 @@ import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import DotPattern from "@/components/ui/dot-pattern";
 import WebQuickGuide from "@/components/WebQuickGuide";
 import { cn } from "@/lib/utils";
+import PromotionDialog from "@/components/PromotionDialog";
 
 export const metadata: Metadata = {
 	title: "TRIOE - Learn Electronics and IoT Development",
@@ -138,6 +139,8 @@ const Home = () => {
 					<Footer />
 				</div>
 			</footer>
+
+			<PromotionDialog />
 		</div>
 	);
 };

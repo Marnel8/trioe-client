@@ -168,12 +168,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${geist.variable} ${geistMono.variable} `}>
+		<html lang="en">
 			<head>
-				{/* DNS prefetch for external resources */}
 				<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
-				{/* Preconnect to critical origins */}
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<script
 					type="application/ld+json"
@@ -181,17 +179,21 @@ export default function RootLayout({
 				/>
 			</head>
 
-			<body className={`antialiased scroll-smooth`}>
-				<Providers>
-					{/* <header>
+			<body>
+				<div
+					className={`${geist.variable} ${geistMono.variable} antialiased scroll-smooth`}
+				>
+					<Providers>
+						{/* <header>
 						<NavBar />
-					</header> */}
-					<main>{children}</main>
-					<Toaster />
-					<nav className="mt-20">
-						<MobileNav />
-					</nav>
-				</Providers>
+						</header> */}
+						<main>{children}</main>
+						<Toaster />
+						<nav className="mt-20">
+							<MobileNav />
+						</nav>
+					</Providers>
+				</div>
 			</body>
 		</html>
 	);

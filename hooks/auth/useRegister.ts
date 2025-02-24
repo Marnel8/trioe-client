@@ -80,7 +80,6 @@ const activateUser = async ({
 };
 
 export const useActivateUser = () => {
-	const queryClient = useQueryClient();
 	return useMutation({
 		mutationFn: activateUser,
 	});

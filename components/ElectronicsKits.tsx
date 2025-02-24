@@ -84,11 +84,6 @@ const ElectronicsKits = () => {
 					</Card>
 				))}
 			</div>
-			<div className="text-center mt-8">
-				<Button variant="outline" size="lg">
-					View All Kits
-				</Button>
-			</div>
 		</section>
 	);
 };

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const SignUpPage = () => {
 	return (
-		<section className="min-h-screen  py-10">
+		<section className="min-h-screen py-10">
 			<SignUpForm />
 		</section>
 	);

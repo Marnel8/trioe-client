@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Github } from "lucide-react";
 
 const Navbar = () => {
 	const [isSticky, setIsSticky] = useState(false);
@@ -45,7 +46,7 @@ const Navbar = () => {
 						<li>
 							<Link href="/" className="text-gray-700 hover:text-primary">
 								Home
-							</Link>
+							</Link>	
 						</li>
 					</ul>
 					<div></div>

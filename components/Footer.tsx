@@ -82,7 +82,6 @@ export default function Footer() {
 					{/* Right Column - Newsletter */}
 					<NewsLetter />
 				</div>
-
 				{/* Copyright */}
 				<div className="mt-8 border-t text-center text-sm text-muted-foreground py-3">
 					© 2024 TRIOE. All Rights Reserved.
