@@ -139,8 +139,6 @@ const Home = () => {
 					<Footer />
 				</div>
 			</footer>
-
-			<PromotionDialog />
 		</div>
 	);
 };
